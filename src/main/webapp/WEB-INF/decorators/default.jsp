@@ -15,6 +15,17 @@
       margin:auto;
       background:#83BDBF;
     }
+    #first #left {
+      width:1000px;
+      height:40px;
+      line-height:40px;
+    }
+    #first #right {
+      width:80px;
+      height:40px;
+      line-height:40px;
+    }
+    
     header {
       width:1100px;
       height:70px;
@@ -38,7 +49,10 @@
   <sitemesh:write property="head"/>
 </head>
 <body> <!-- default.jsp -->
-  <div id="first"> </div>
+  <div id="first">
+    <div id="left"> 회원가입하고 다양한 공연을 만나보세요! </div>
+    <div id="right">  </div>
+  </div>
   <header> </header>
   <nav> </nav>
   

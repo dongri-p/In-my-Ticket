@@ -9,21 +9,32 @@
     body {
       margin:0px;
     }
-    #first {
+    #fouter {
+      width:100%;
+      height:30px;
+      background:#83BDBF;
+    }
+    #fouter #first {
       width:1100px;
-      height:40px;
+      height:30px;
       margin:auto;
       background:#83BDBF;
     }
-    #first #left {
+    #fouter #first #left {
+      display:inline-block;
       width:1000px;
-      height:40px;
-      line-height:40px;
+      height:30px;
+      line-height:30px;
+      text-align:center;
+      font-size:15px;
     }
-    #first #right {
+    #fouter #first #right {
+      display:inline-block;
       width:80px;
-      height:40px;
-      line-height:40px;
+      height:30px;
+      line-height:30px;
+      text-align:right;
+      color:white;
     }
     
     header {
@@ -49,10 +60,14 @@
   <sitemesh:write property="head"/>
 </head>
 <body> <!-- default.jsp -->
-  <div id="first">
-    <div id="left"> 회원가입하고 다양한 공연을 만나보세요! </div>
-    <div id="right">  </div>
+
+  <div id="fouter">
+    <div id="first">
+      <div id="left"> 회원가입하고 다양한 공연을 만나보세요! </div>
+      <div id="right"> X </div>
+    </div>
   </div>
+  
   <header> </header>
   <nav> </nav>
   

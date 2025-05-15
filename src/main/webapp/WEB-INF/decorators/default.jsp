@@ -68,7 +68,9 @@
     </div>
   </div>
   
-  <header> </header>
+  <header>
+    오후 10:41
+  </header>
   <nav> </nav>
   
   <sitemesh:write property="body"/>

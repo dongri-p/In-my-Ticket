@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,8 +42,23 @@
       width:1100px;
       height:70px;
       margin:auto;
-      background:red;
     }
+    header > div {
+      display:inline-block;
+    }
+    header #logo {
+      widht:300px;
+      height:70px;
+    }
+    header #search {
+      widht:490px;
+      height:70px;
+    }
+    header #memMenu {
+      widht:300px;
+      height:70px;
+    }
+    
     nav {
       width:1100px;
       height:60px;
@@ -69,7 +85,23 @@
   </div>
   
   <header>
-    오후 10:41
+    <div id="logo"> <img src="../static/logo.png" width="150"> </div>
+    <div id="search">
+    
+    </div>
+    <div id="memMenu">
+     <c:if test="${userid == null}">
+      로그인 |
+      회원가입 |
+     </c:if>
+     <c:if test="${userid != null}">
+      ???님 |
+      로그아웃 |
+     </c:if>
+      고객센터 |
+      이용안내 |
+      LANGUAGE ▼
+    </div>
   </header>
   <nav> </nav>
   

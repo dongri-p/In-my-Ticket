@@ -40,23 +40,50 @@
     
     header {
       width:1100px;
-      height:70px;
+      height:80px;
       margin:auto;
-    }
-    header > div {
-      display:inline-block;
+      font-size:12px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
     }
     header #logo {
       widht:300px;
-      height:70px;
+      height:80px;
+      line-height:80px;
     }
     header #search {
-      widht:490px;
-      height:70px;
+      widht:450px;
+      height:80px;
+      display:flex;
+      align-items:center;
+    }
+    header #search #searchForm {
+      width:350px;
+      height:45px;
+      border:2px solid #83BDBF;
+      border-radius:15px;
+      display:flex;
+      align-items:center;
+      padding:0 10px;
+      box-sizing:border-box;
+    }
+    header #search #searchForm input[type=text] {
+      width:305px;
+      border:none;
+      outline:none;
+      margin-left:10px;
     }
     header #memMenu {
-      widht:300px;
-      height:70px;
+      widht:330px;
+      height:80px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:flex-end;
+      font-size:13px;
+      line-height:1.4;
+      padding-top:10px;
+      box-sizing:border-box;
     }
     
     nav {
@@ -85,25 +112,40 @@
   </div>
   
   <header>
-    <div id="logo"> <img src="../static/logo.png" width="150"> </div>
+    <div id="logo"> <img src="../static/logo.png" width="200" height="78" valign="middle"> </div>
     <div id="search">
-    
+      <div id="searchForm">
+        <input type="text" name="sword" id="sword" placeholder="찾고싶은 공연을 검색하세요.">
+        <img src="../static/s.png">
+      </div>
     </div>
     <div id="memMenu">
      <c:if test="${userid == null}">
-      로그인 |
-      회원가입 |
+      로그인&nbsp;|&nbsp;
+      회원가입&nbsp;|&nbsp;
      </c:if>
      <c:if test="${userid != null}">
-      ???님 |
-      로그아웃 |
+      ???님&nbsp;|&nbsp;
+      로그아웃&nbsp;|&nbsp;
      </c:if>
-      고객센터 |
-      이용안내 |
+      고객센터&nbsp;|&nbsp;
+      이용안내&nbsp;|&nbsp;
       LANGUAGE ▼
     </div>
   </header>
-  <nav> </nav>
+  
+  <nav>
+    콘서트
+    뮤지컬/연극
+    팬클럽/팬미팅
+    클래식
+    전시/행사
+    테마/지역
+    랭킹
+    티켓오픈소식
+    이벤트
+    인마이티켓
+  </nav>
   
   <sitemesh:write property="body"/>
   

@@ -92,6 +92,12 @@
       margin:auto;
       background:blue;
     }
+    nav > ul {
+      
+    }
+    nav > ul > li {
+    
+    }
 
     footer {
       width:1100px;
@@ -135,16 +141,38 @@
   </header>
   
   <nav>
-    콘서트
-    뮤지컬/연극
-    팬클럽/팬미팅
-    클래식
-    전시/행사
-    테마/지역
-    랭킹
-    티켓오픈소식
-    이벤트
-    인마이티켓
+    <ul>
+      <li>
+        콘서트
+      </li>
+      <li>
+        뮤지컬/연극
+      </li>
+      <li>
+        팬클럽/팬미팅
+      </li>
+      <li>
+        클래식
+      </li>
+      <li>
+        전시/행사
+      </li>
+      <li>
+        테마/지역
+      </li>
+      <li>
+        랭킹
+      </li>
+      <li>
+        티켓오픈소식
+      </li>
+      <li>
+        이벤트
+      </li>
+      <li>
+        인마이티켓
+      </li>
+    </ul>
   </nav>
   
   <sitemesh:write property="body"/>

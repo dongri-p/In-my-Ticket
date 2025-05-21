@@ -90,13 +90,24 @@
       width:1100px;
       height:60px;
       margin:auto;
-      background:blue;
     }
     nav > ul {
-      
+      padding-left:0px;
     }
     nav > ul > li {
-    
+      display:inline-block;
+      width:105px;
+      height:60px;
+      text-align:center;
+      font-weight:bold;
+    }
+    nav > ul > li:last-child {
+      color:#83BDBF;
+      text-align:right;
+    }
+    nav > ul > li:hover {
+      cursor:pointer;
+      color:#83BDBF;
     }
 
     footer {

@@ -117,6 +117,10 @@
       background:yellow;
     }
   </style>
+  <script>
+    function 
+  </script>
+  
   <sitemesh:write property="head"/>
 </head>
 <body> <!-- default.jsp -->

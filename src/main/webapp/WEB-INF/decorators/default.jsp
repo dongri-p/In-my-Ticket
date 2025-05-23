@@ -141,11 +141,35 @@
       var chk=new XMLHttpRequest();
       chk.onload=function()
       {
-        
+    	  if(chk.responseText == "0")
+    	  {
+    		    alert("오류");
+    	  }
       }
-      chk.open("get","firstCookie");
+      chk.open("get","../firstCookie");
       chk.send();
-      
+    }
+    
+    // default.jsp는 모든 페이지가 다 사용한다
+    // 비동기방식으로 접근
+    window.onload=function()
+    {
+        // 쿠키를 체크하여 보여줄지 말지 결정
+        var chk=new XMLHttpRequest();
+        chk.onload=function()
+        {
+            var n=chk.responseText;
+            if(n == "1")
+            {
+                document.getElementById("fouter").style.display="none";
+            }
+            else
+            {
+                
+            }
+        }
+        chk.open("get", "../xcookOk");
+        chk.send();
     }
   </script>
   

@@ -24,5 +24,11 @@ public class MainController {
 		return service.main();
 	}
 	
+	@GetMapping("/main/slide")
+	public String slide()
+	{
+		return "/main/slide";
+	}
+	
 
 }

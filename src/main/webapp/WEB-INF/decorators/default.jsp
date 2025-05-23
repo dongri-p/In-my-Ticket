@@ -15,6 +15,9 @@
       height:30px;
       background:#83BDBF;
     }
+    #fouter #xx {
+      cursor:pointer;
+    }
     #fouter #first {
       width:1100px;
       height:30px;
@@ -118,7 +121,32 @@
     }
   </style>
   <script>
-    function 
+    var h=40;
+    function xclose()
+    {
+      ss=setInterval(function()
+      {
+    	  h--;
+          document.getElementById("fouter").style.height=h+"px";
+          document.getElementById("first").style.height=h+"px";
+          
+          if(h == 0)
+          {
+            clearInterval(ss);
+            document.getElementById("fouter").style.display="none";
+          }
+      },10);
+      
+      // 쿠키변수에 정보 저장
+      var chk=new XMLHttpRequest();
+      chk.onload=function()
+      {
+        
+      }
+      chk.open("get","firstCookie");
+      chk.send();
+      
+    }
   </script>
   
   <sitemesh:write property="head"/>
@@ -128,7 +156,7 @@
   <div id="fouter">
     <div id="first">
       <div id="left"> 회원가입하고 다양한 공연을 만나보세요! </div>
-      <div id="right"> X </div>
+      <div id="right"> <span id="xx" onclick="xclose()"> X </span> </div>
     </div>
   </div>
   

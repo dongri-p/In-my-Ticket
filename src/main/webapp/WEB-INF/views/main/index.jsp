@@ -6,6 +6,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
   <style>
+    #slide {
+      width:1700px;
+      height:250px;
+      margin:auto;
+    }
     section {
       width:1100px;
       margin:auto;
@@ -19,12 +24,12 @@
   </style>
 </head>
 <body> <!-- index.jsp -->
-  <div id="spng" align="center">
-    <span> <img src="../static/slide/1.PNG" width="200px" height="300px"> </span>
-    <span> <img src="../static/slide/2.PNG" width="200px" height="300px"> </span>
-    <span> <img src="../static/slide/3.PNG" width="200px" height="300px"> </span>
-    <span> <img src="../static/slide/4.PNG" width="200px" height="300px"> </span>
-    <span> <img src="../static/slide/5.PNG" width="200px" height="300px"> </span>
+  <div id="slide" align="center">
+    <span> <img src="../static/slide/1.PNG"> </span>
+    <span> <img src="../static/slide/2.PNG"> </span>
+    <span> <img src="../static/slide/3.PNG"> </span>
+    <span> <img src="../static/slide/4.PNG"> </span>
+    <span> <img src="../static/slide/5.PNG"> </span>
   </div>
   <section>
     <div class="sang"> </div>

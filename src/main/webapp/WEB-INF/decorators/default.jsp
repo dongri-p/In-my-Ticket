@@ -201,15 +201,15 @@
     </div>
     <div id="memMenu">
      <c:if test="${userid == null}">
-      <a href="../login/login"> 로그인 </a>&nbsp;|&nbsp;
-      회원가입&nbsp;|&nbsp;
+      <a href="../login/login"> 로그인 </a>&nbsp;&nbsp;|&nbsp;&nbsp;
+      <a href="../member/member"> 회원가입 </a>&nbsp;&nbsp;|&nbsp;&nbsp;
      </c:if>
      <c:if test="${userid != null}">
-      ???님&nbsp;|&nbsp;
-      로그아웃&nbsp;|&nbsp;
+      ???님&nbsp;&nbsp;|&nbsp;&nbsp;
+      로그아웃&nbsp;&nbsp;|&nbsp;&nbsp;
      </c:if>
-      고객센터&nbsp;|&nbsp;
-      이용안내&nbsp;|&nbsp;
+      고객센터&nbsp;&nbsp;|&nbsp;&nbsp;
+      이용안내&nbsp;&nbsp;|&nbsp;&nbsp;
       LANGUAGE ▼
     </div>
   </header>

@@ -119,6 +119,13 @@
       margin:auto;
       background:yellow;
     }
+    a {
+      text-decoration:none;
+      color:black;
+    }
+    a:hover {
+      color:#83BDBF;
+    }
   </style>
   <script>
     var h=40;
@@ -194,7 +201,7 @@
     </div>
     <div id="memMenu">
      <c:if test="${userid == null}">
-      로그인&nbsp;|&nbsp;
+      <a href="../login/login"> 로그인 </a>&nbsp;|&nbsp;
       회원가입&nbsp;|&nbsp;
      </c:if>
      <c:if test="${userid != null}">

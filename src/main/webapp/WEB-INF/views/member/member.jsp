@@ -48,6 +48,7 @@
     section #btn:hover {
       cursor:pointer;
       background:#bbb;
+      오전 52:56
     }
   </style>
 </head>

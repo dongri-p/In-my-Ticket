@@ -11,4 +11,10 @@ public class MemberService {
 	@Autowired
 	private MemberMapper mapper;
 
+	public String member()
+	{
+		
+		return "/member/member";
+	}
+
 }

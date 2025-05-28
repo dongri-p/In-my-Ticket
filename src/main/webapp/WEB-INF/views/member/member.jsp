@@ -89,18 +89,27 @@
         }
     }
     
-    function pwdCheck(pwd)
+    function pwdCheck()
     {
         var pwd=document.mform.pwd.value;
         var pwd2=document.mform.pwd2.value;
         
-        var chk=new XMLHttpRequest();
-        chk.onload=function()
+        if(pwd2.length != 0)
         {
-            
+            if(pwd == pwd2)
+            {
+                document.getElementById("pmsg").innerText="비밀번호가 일치합니다.";
+                document.getElementById("pmsg").style.color="blue";
+                pchk=1;
+            }
+            else
+            {
+                document.getElementById("pmsg").innerText="비밀번호가 일치하지 않습니다.";
+                document.getElementById("pmsg").style.color="red";
+                pchk=0;
+                
+            }
         }
-        chk.open("get", "pwd?pwd="+pwd);
-        chk.send();
     }
     
     var uchk=0;
@@ -128,9 +137,11 @@
           <br> <span id="umsg"> </span>
         </div>
         <div> <input type="text" name="name" id="txt" placeholder="이 름"> </div>
-        <div> <input type="password" name="pwd" id="txt" placeholder="비밀번호"> </div>
         <div>
-          <input type="password" name="pwd2" id="txt" placeholder="비밀번호 확인">
+          <input type="password" name="pwd" onkeyup="pwdCheck()" id="txt" placeholder="비밀번호">
+        </div>
+        <div>
+          <input type="password" name="pwd2" onkeyup="pwdCheck()" id="txt" placeholder="비밀번호 확인">
           <br> <span id="pmsg"> </span>
         </div>
         <div>

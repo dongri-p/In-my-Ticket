@@ -48,33 +48,91 @@
     section #btn:hover {
       cursor:pointer;
       background:#bbb;
-      오전 52:56
+    }
+    section #umsg {
+      font-size:14px;
+      font-weight:bold;
     }
   </style>
   <script>
     function useridCheck(userid)
     {
+        userid=userid.trim();
+        
+        if(userid.length >= 6)
+        {
+        	var chk=new XMLHttpRequest();
+            chk.onload=function()
+            {
+                //alert(chk.responseText);
+                if(chk.responseText == "0")
+                {
+                    document.getElementById("umsg").innerText="사용 가능한 아이디입니다.";
+                    document.getElementById("umsg").style.color="blue";
+                    uchk=1;
+                }
+                else
+                {
+                    document.getElementById("umsg").innserText="사용 불가능한 아이디입니다.";
+                    document.getElementById("umsg").style.color="red";
+                    uchk=0;
+                }
+            }
+            chk.open("get", "useridCheck?userid="+userid);
+            chk.send();
+        }
+        else
+        {
+            document.getElementById("umsg").innerText="아이디는 6자 이상입니다.";
+            document.getElementById("umsg").style.color="red";
+            uchk=0;
+        }
+    }
+    
+    function pwdCheck(pwd)
+    {
+        var pwd=document.mform.pwd.value;
+        var pwd2=document.mform.pwd2.value;
+        
         var chk=new XMLHttpRequest();
         chk.onload=function()
         {
-            alert(chk.responseText);
+            
         }
-        chk.open("get","useridCheck?userid="+userid);
+        chk.open("get", "pwd?pwd="+pwd);
         chk.send();
+    }
+    
+    var uchk=0;
+    var pchk=0;
+    function check()
+    {
+        if(uchk == 0)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
   </script>
 </head>
 <body> <!-- /member/member.jsp -->
   <section>
     <div id="mform">
-      <form method="post" action="memberOk">
+      <form method="post" action="memberOk" onsubmit="return check()">
         <h3> 회 원 가 입 </h3>
         <div>
           <input type="text" name="userid" onblur="useridCheck(this.value)" id="txt" placeholder="아이디(6자이상)">
+          <br> <span id="umsg"> </span>
         </div>
         <div> <input type="text" name="name" id="txt" placeholder="이 름"> </div>
         <div> <input type="password" name="pwd" id="txt" placeholder="비밀번호"> </div>
-        <div> <input type="password" name="pwd2" id="txt" placeholder="비밀번호 확인"> </div>
+        <div>
+          <input type="password" name="pwd2" id="txt" placeholder="비밀번호 확인">
+          <br> <span id="pmsg"> </span>
+        </div>
         <div>
           <input type="text" name="uid" id="email"> @ 
           <input type="text" name="server" id="email">

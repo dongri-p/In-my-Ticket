@@ -49,8 +49,8 @@
       cursor:pointer;
       background:#bbb;
     }
-    section #umsg {
-      font-size:14px;
+    section #umsg, #pmsg {
+      font-size:13px;
       font-weight:bold;
     }
   </style>
@@ -129,8 +129,7 @@
 </head>
 <body> <!-- /member/member.jsp -->
   <section>
-    <div id="mform">
-      <form method="post" action="memberOk" onsubmit="return check()">
+      <form method="post" name="mform" action="memberOk" onsubmit="return check()">
         <h3> 회 원 가 입 </h3>
         <div>
           <input type="text" name="userid" onblur="useridCheck(this.value)" id="txt" placeholder="아이디(6자이상)">
@@ -164,7 +163,6 @@
           <input type="submit" value="회원가입" id="submit">
         </div>
       </form>
-    </div>
   </section>
 </body>
 </html>

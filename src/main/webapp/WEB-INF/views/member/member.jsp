@@ -51,13 +51,27 @@
       오전 52:56
     }
   </style>
+  <script>
+    function useridCheck(userid)
+    {
+        var chk=new XMLHttpRequest();
+        chk.onload=function()
+        {
+            alert(chk.responseText);
+        }
+        chk.open("get","useridCheck?userid="+userid);
+        chk.send();
+    }
+  </script>
 </head>
 <body> <!-- /member/member.jsp -->
   <section>
     <div id="mform">
       <form method="post" action="memberOk">
         <h3> 회 원 가 입 </h3>
-        <div> <input type="text" name="userid" id="txt" placeholder="아이디(6자이상)"> </div>
+        <div>
+          <input type="text" name="userid" onblur="useridCheck(this.value)" id="txt" placeholder="아이디(6자이상)">
+        </div>
         <div> <input type="text" name="name" id="txt" placeholder="이 름"> </div>
         <div> <input type="password" name="pwd" id="txt" placeholder="비밀번호"> </div>
         <div> <input type="password" name="pwd2" id="txt" placeholder="비밀번호 확인"> </div>

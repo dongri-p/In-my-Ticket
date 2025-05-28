@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import jakarta.servlet.http.HttpServletRequest;
+
 @Service
 @Qualifier("mems")
 public class MemberService {
@@ -15,6 +17,13 @@ public class MemberService {
 	{
 		
 		return "/member/member";
+	}
+
+	public String useridCheck(HttpServletRequest request)
+	{
+		String userid=request.getParameter("userid");
+		
+		return mapper.useridCheck(userid).toString();
 	}
 
 }

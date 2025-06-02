@@ -107,9 +107,13 @@
                 document.getElementById("pmsg").innerText="비밀번호가 일치하지 않습니다.";
                 document.getElementById("pmsg").style.color="red";
                 pchk=0;
-                
             }
         }
+    }
+    
+    function getServer(email)
+    {
+        
     }
     
     var uchk=0;
@@ -139,7 +143,7 @@
                 	}
         else
         {
-            
+            return true;
         }
     }
   </script>
@@ -163,12 +167,12 @@
         <div>
           <input type="text" name="uid" id="email"> @ 
           <input type="text" name="server" id="email">
-          <select name="dserver" id="select">
+          <select name="dserver" id="select" onchange="getServer(this)">
             <option value=""> 선택하기 </option>
-            <option value=""> naver.com </option>
-            <option value=""> daum.net </option>
-            <option value=""> gmail.com </option>
-            <option value=""> kakao.com </option>
+            <option value="naver.co"> naver.com </option>
+            <option value="daum.net"> daum.net </option>
+            <option value="gmail.com"> gmail.com </option>
+            <option value="kakao.com"> kakao.com </option>
             <option value="self"> 직접입력 </option>
           </select>
         </div>

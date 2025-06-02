@@ -116,13 +116,30 @@
     var pchk=0;
     function check()
     {
+        var phone=document.mform.phone.length;
         if(uchk == 0)
         {
+            alert("아이디를 확인하세요.");
             return false;
         }
+        else if(pchk == 0)
+            {
+                alert("비밀번호를 확인하세요.");
+        	    return false;
+        	}
+            else if(document.mform.name.value == "")
+                {
+                    alert("이름을 확인하세요.");
+                    return false;
+                }
+                else if(phone == 0 && phone != 13)
+                	{
+                        alert("전화번호를 확인하세요.");
+                        return false;
+                	}
         else
         {
-            return true;
+            
         }
     }
   </script>

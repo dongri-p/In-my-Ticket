@@ -111,9 +111,21 @@
         }
     }
     
-    function getServer(email)
+    function getServer(my)
     {
+        const serverInput=document.getElementById("server");
         
+        if(my.value == "self")
+        {
+            serverInput.removeAttribute("readonly")l
+            serverInput.value="";
+            serverInput.focus();
+        }
+        else
+        {
+            serverInput.value=my.value;
+            serverInput.setAttribute("readonly", true);
+        }
     }
     
     var uchk=0;
@@ -143,6 +155,8 @@
                 	}
         else
         {
+            var emailOk=document.mform.uid.value+"@"+document.mform.server.value;
+            document.mform.emaiil.value=emailOk;
             return true;
         }
     }
@@ -164,9 +178,9 @@
           <input type="password" name="pwd2" onkeyup="pwdCheck()" id="txt" placeholder="비밀번호 확인">
           <br> <span id="pmsg"> </span>
         </div>
-        <div>
-          <input type="text" name="uid" id="email"> @ 
-          <input type="text" name="server" id="email">
+        <div class="cemail">
+          <input type="text" name="uid" id="uid"> @ 
+          <input type="text" name="server" id="server" placeholder="도메인">
           <select name="dserver" id="select" onchange="getServer(this)">
             <option value=""> 선택하기 </option>
             <option value="naver.co"> naver.com </option>

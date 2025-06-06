@@ -17,6 +17,7 @@
     section #txt {
       width:440px;
       height:40px;
+      border:1px solid #83BDBF;
       border-radius:5px;
     }
     section #email {
@@ -165,6 +166,7 @@
 <body> <!-- /member/member.jsp -->
   <section>
       <form method="post" name="mform" action="memberOk" onsubmit="return check()">
+        <input type="hidden" name="email">
         <h3> 회 원 가 입 </h3>
         <div>
           <input type="text" name="userid" onblur="useridCheck(this.value)" id="txt" placeholder="아이디(6자이상)">

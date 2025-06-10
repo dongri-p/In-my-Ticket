@@ -118,7 +118,7 @@
         
         if(my.value == "self")
         {
-            serverInput.removeAttribute("readonly")l
+            serverInput.removeAttribute("readonly");
             serverInput.value="";
             serverInput.focus();
         }

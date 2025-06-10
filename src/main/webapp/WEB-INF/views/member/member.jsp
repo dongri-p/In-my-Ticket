@@ -182,10 +182,10 @@
         </div>
         <div class="cemail">
           <input type="text" name="uid" id="uid"> @ 
-          <input type="text" name="server" id="server" placeholder="도메인">
+          <input type="text" name="server" id="server" placeholder="도메인" readonly>
           <select name="dserver" id="select" onchange="getServer(this)">
             <option value=""> 선택하기 </option>
-            <option value="naver.co"> naver.com </option>
+            <option value="naver.com"> naver.com </option>
             <option value="daum.net"> daum.net </option>
             <option value="gmail.com"> gmail.com </option>
             <option value="kakao.com"> kakao.com </option>

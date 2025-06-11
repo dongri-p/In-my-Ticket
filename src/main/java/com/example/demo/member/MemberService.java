@@ -26,4 +26,10 @@ public class MemberService {
 		return mapper.useridCheck(userid).toString();
 	}
 
+	public String memberOk(MemberDto mdto)
+	{
+		// TODO Auto-gen
+		return null;
+	}
+
 }

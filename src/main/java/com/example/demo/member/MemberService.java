@@ -28,7 +28,7 @@ public class MemberService {
 
 	public String memberOk(MemberDto mdto)
 	{
-		// TODO Auto-gen
+		mapper.memberOk(mdto);
 		return null;
 	}
 

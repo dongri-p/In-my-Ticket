@@ -29,7 +29,8 @@ public class MemberService {
 	public String memberOk(MemberDto mdto)
 	{
 		mapper.memberOk(mdto);
-		return null;
+		
+		return "../login/login";
 	}
 
 }

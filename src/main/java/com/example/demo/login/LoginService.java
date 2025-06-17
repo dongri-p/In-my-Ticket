@@ -10,6 +10,12 @@ public class LoginService {
 
 	@Autowired
 	private LoginMapper mapper;
+
+	public String login()
+	{
+		// TODO Auto-generated method stub
+		return "/login/login";
+	}
 	
 	
 }

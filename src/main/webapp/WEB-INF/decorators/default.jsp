@@ -205,8 +205,8 @@
       <a href="../member/member"> 회원가입 </a>&nbsp;&nbsp;|&nbsp;&nbsp;
      </c:if>
      <c:if test="${userid != null}">
-      ???님&nbsp;&nbsp;|&nbsp;&nbsp;
-      로그아웃&nbsp;&nbsp;|&nbsp;&nbsp;
+      ${name}님&nbsp;&nbsp;|&nbsp;&nbsp;
+      <a href="../login/logout"> 로그아웃 </a>&nbsp;&nbsp;|&nbsp;&nbsp;
      </c:if>
       고객센터&nbsp;&nbsp;|&nbsp;&nbsp;
       이용안내&nbsp;&nbsp;|&nbsp;&nbsp;

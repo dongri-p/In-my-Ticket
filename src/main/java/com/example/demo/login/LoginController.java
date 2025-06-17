@@ -28,5 +28,11 @@ public class LoginController {
 	{
 		return service.loginOk(mdto, session);
 	}
+	
+	@GetMapping("/login/logout")
+	public String logout(HttpSession session)
+	{
+		return service.logout(session);
+	}
 
 }

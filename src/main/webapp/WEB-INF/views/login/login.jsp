@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,7 +64,7 @@
   <form method="post" action="loginOk" name="lform" onsubmit="return check()">
     <div> <input type="text" name="userid" id="txt" placeholder="아이디"> </div>
     <div> <input type="password" name="pwd" id="txt" placeholder="비밀번호"> </div>
-    <div> <input type="submit" name="userid" id="submit" value="로그인"> </div>
+    <div> <input type="submit" id="submit" value="로그인"> </div>
     <div class="find">
       <span onclick="findU()"> 아이디 찾기 </span>&nbsp;|&nbsp;
       <span onclick="findU()"> 비밀번호 찾기 </span>&nbsp;|&nbsp;

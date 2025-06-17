@@ -33,9 +33,16 @@ public class LoginService {
 			session.setAttribute("userid", mdto.getUserid());
 			session.setAttribute("name", name);
 			
-			return "redirect:../main/index";
+			return "redirect:/main/index";
 		}
 		
+	}
+
+	public String logout(HttpSession session)
+	{
+		session.invalidate();
+		
+		return "redirect:/main/index";
 	}
 	
 	

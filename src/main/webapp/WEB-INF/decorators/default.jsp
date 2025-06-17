@@ -192,7 +192,9 @@
   </div>
   
   <header>
-    <div id="logo"> <img src="../static/logo.png" width="200" height="78" valign="middle"> </div>
+    <div id="logo">
+      <img src="../static/logo.png" width="200" height="78" valign="middle" onclick="location='../main/index'">
+    </div>
     <div id="search">
       <div id="searchForm">
         <input type="text" name="sword" id="sword" placeholder="찾고싶은 공연을 검색하세요.">

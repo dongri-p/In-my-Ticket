@@ -63,7 +63,12 @@
   <img src="../static/logo.png" onclick="location='../main/index'" id="logo">  
   <form method="post" action="loginOk" name="lform" onsubmit="return check()">
     <div> <input type="text" name="userid" id="txt" placeholder="아이디"> </div>
-    <div> <input type="password" name="pwd" id="txt" placeholder="비밀번호"> </div>
+    <div>
+      <input type="password" name="pwd" id="txt" placeholder="비밀번호">
+     <c:if test="${err == 1}">
+       <br> <span style="font-size:12px;color:red;"> 아이디 혹은 비밀번호 오류입니다. </span>
+     </c:if>
+    </div>
     <div> <input type="submit" id="submit" value="로그인"> </div>
     <div class="find">
       <span onclick="findU()"> 아이디 찾기 </span>&nbsp;|&nbsp;

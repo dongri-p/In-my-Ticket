@@ -5,8 +5,63 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+  <style>
+    section {
+      width:1100px;
+      height:500px;
+      margin:auto;
+      text-align:center;
+    }
+    section #logo {
+      width:200px;
+      height:100px;
+      margin:auto;
+    }
+    section div {
+      margin-top:10px;
+    }
+    section input[type="text"],
+    section input[type="password"],
+    section input[type="submit"] {
+      width:420px;
+      padding:12px;
+      margin:5px 0;
+      border:1px solid #83BDBF;
+      border-radius:4px;
+      box-sizing:border-box;
+      font-size:16px;
+    }
+    section input[type="text"]:focus,
+    section input[type="password"]:focus {
+      border:2px solid #649FA1;
+      outline:none;
+    }
+    section #submit {
+      background-color:#83BDBF;
+      color:black;
+      border:none;
+      cursor:pointer;
+      font-size:18px;
+      transition:background-color 0.3s ease;
+    }
+    section #submit:hover {
+      background-color:#649FA1;
+      color:white;
+    }
+  
+  </style>
 </head>
 <body> <!-- /login/login.jsp -->
-
+ <section>
+   <!-- 인마이티켓 로고가 이 위치로 수정예정 -->
+  <img src="../static/logo.png" onclick="location='../main/index'" id="logo">  
+  <form method="post" action="loginOk">
+    <div> <input type="text" name="userid" id="txt" placeholder="아이디"> </div>
+    <div> <input type="password" name="pwd" id="txt" placeholder="비밀번호"> </div>
+    <div>
+      <input type="submit" name="userid" id="submit" value="로그인">
+    </div>
+  </form>
+ </section>
 </body>
 </html>

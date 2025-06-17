@@ -18,7 +18,12 @@
       width:440px;
       height:40px;
       border:1px solid #83BDBF;
-      border-radius:5px;
+      border-radius:4px;
+    }
+    section input[type="text"]:focus,
+    section input[type="password"]:focus {
+      border:2px solid #649FA1;
+      outline:none;
     }
     section #email {
       width:140px;

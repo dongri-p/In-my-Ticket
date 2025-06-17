@@ -157,7 +157,7 @@
         else
         {
             var emailOk=document.mform.uid.value+"@"+document.mform.server.value;
-            document.mform.emaiil.value=emailOk;
+            document.mform.email.value=emailOk;
             return true;
         }
     }

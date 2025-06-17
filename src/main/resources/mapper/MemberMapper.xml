@@ -8,7 +8,7 @@
   </select>
   
   <insert id="memberOk">
-    isert into member(userid,name,pwd,email,phone,writeday)
+    insert into member(userid,name,pwd,email,phone,writeday)
     values(#{userid},#{name},#{pwd},#{email},#{phone},now())
   </insert>
 

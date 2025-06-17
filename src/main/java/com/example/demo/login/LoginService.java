@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.member.MemberDto;
 
+import jakarta.servlet.http.HttpSession;
+
 @Service
 @Qualifier("ls")
 public class LoginService {
@@ -18,11 +20,22 @@ public class LoginService {
 		return "/login/login";
 	}
 
-	public String loginOk(MemberDto mdto)
+	public String loginOk(MemberDto mdto, HttpSession session)
 	{
-		mapper.loginOk(mdto);
+		String name=mapper.loginOk(mdto);
 		
-		return null;
+		if(name == null)
+		{
+			return "redirect:/login/login?err=1";
+		}
+		else
+		{
+			session.setAttribute("userid", mdto.getUserid());
+			session.setAttribute("name", name);
+			
+			return "redirect:../main/index";
+		}
+		
 	}
 	
 	

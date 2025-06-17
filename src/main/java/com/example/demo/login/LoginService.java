@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.member.MemberDto;
+
 @Service
 @Qualifier("ls")
 public class LoginService {
@@ -13,8 +15,14 @@ public class LoginService {
 
 	public String login()
 	{
-		// TODO Auto-generated method stub
 		return "/login/login";
+	}
+
+	public String loginOk(MemberDto mdto)
+	{
+		mapper.loginOk(mdto);
+		
+		return null;
 	}
 	
 	

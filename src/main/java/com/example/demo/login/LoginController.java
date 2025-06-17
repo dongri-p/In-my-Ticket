@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.example.demo.member.MemberDto;
 
 @Controller
 public class LoginController {
@@ -16,6 +19,12 @@ public class LoginController {
 	public String login()
 	{
 		return service.login();
+	}
+	
+	@PostMapping("/login/loginOk")
+	public String loginOk(MemberDto mdto)
+	{
+		return service.loginOk(mdto);
 	}
 
 }

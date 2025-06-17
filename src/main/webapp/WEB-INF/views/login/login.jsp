@@ -48,19 +48,28 @@
       background-color:#649FA1;
       color:white;
     }
-  
+    section .find {
+      margin-top:10px;
+    }
+    section .find:hover {
+      cursor:pointer;
+    }
   </style>
 </head>
 <body> <!-- /login/login.jsp -->
  <section>
    <!-- 인마이티켓 로고가 이 위치로 수정예정 -->
   <img src="../static/logo.png" onclick="location='../main/index'" id="logo">  
-  <form method="post" action="loginOk">
+  <form method="post" action="loginOk" name="lform" onsubmit="return check()">
     <div> <input type="text" name="userid" id="txt" placeholder="아이디"> </div>
     <div> <input type="password" name="pwd" id="txt" placeholder="비밀번호"> </div>
-    <div>
-      <input type="submit" name="userid" id="submit" value="로그인">
+    <div> <input type="submit" name="userid" id="submit" value="로그인"> </div>
+    <div class="find">
+      <span onclick="findU()"> 아이디 찾기 </span>&nbsp;|&nbsp;
+      <span onclick="findU()"> 비밀번호 찾기 </span>&nbsp;|&nbsp;
+      <span onclick="location='../member/member'"> 회원가입 </span>
     </div>
+    
   </form>
  </section>
 </body>

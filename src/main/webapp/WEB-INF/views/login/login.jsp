@@ -56,6 +56,16 @@
       cursor:pointer;
     }
   </style>
+  <script>
+    function findU()
+    {
+        open("fUserid","op","width=700,height=500");
+    }
+    function findP()
+    {
+        open("fPwd","op","width=700,height=500");
+    }
+  </script>
 </head>
 <body> <!-- /login/login.jsp -->
  <section>

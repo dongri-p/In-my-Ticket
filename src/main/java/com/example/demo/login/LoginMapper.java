@@ -7,4 +7,5 @@ import com.example.demo.member.MemberDto;
 @Mapper
 public interface LoginMapper {
 	public String loginOk(MemberDto mdto);
+	public String getUserid(MemberDto mdto);
 }

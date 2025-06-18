@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.member.MemberDto;
 
@@ -41,6 +42,14 @@ public class LoginController {
 	public String fUserid()
 	{
 		return service.fUserid();
+	}
+	
+	@GetMapping("/login/getUserid")
+	public @ResponseBody String getUserid(MemberDto mdto)
+	{
+		System.out.println("name: " + mdto.getName());
+		System.out.println("email: " + mdto.getEmail());
+		return service.getUserid(mdto);
 	}
 	
 	@GetMapping("/login/fPwd")

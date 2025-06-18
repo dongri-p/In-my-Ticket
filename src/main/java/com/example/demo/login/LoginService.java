@@ -55,12 +55,25 @@ public class LoginService {
 	{
 		return "/login/fUserid";
 	}
+	
+	public String getUserid(MemberDto mdto)
+	{
+		String userid=mapper.getUserid(mdto);
+		
+		if (userid != null)
+		{
+		    return userid;
+		}
+		else
+		{
+		    return "존재하지 않는 사용자입니다.";
+		}
+
+	}
 
 	public String fPwd()
 	{		
 		return "/login/fPwd";
 	}
-	
-	
-	
+
 }

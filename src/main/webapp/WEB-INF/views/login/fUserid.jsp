@@ -46,8 +46,8 @@
   <script>
     function getUserid(userid)
     {
-        var name=form.name.value;
-        var email=form.email.value;
+        var name=uform.name.value;
+        var email=uform.email.value;
         
         if(!name || !email)
         {

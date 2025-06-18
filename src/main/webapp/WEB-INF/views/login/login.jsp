@@ -14,8 +14,8 @@
       text-align:center;
     }
     section #logo {
-      width:200px;
-      height:100px;
+      width:300px;
+      height:150px;
       margin:auto;
     }
     section div {
@@ -70,7 +70,7 @@
 <body> <!-- /login/login.jsp -->
  <section>
    <!-- 인마이티켓 로고가 이 위치로 수정예정 -->
-  <img src="../static/logo.png" onclick="location='../main/index'" id="logo">  
+  <img src="../static/slogo.jpg" onclick="location='../main/index'" id="logo">  
   <form method="post" action="loginOk" name="lform" onsubmit="return check()">
     <div> <input type="text" name="userid" id="txt" placeholder="아이디"> </div>
     <div>

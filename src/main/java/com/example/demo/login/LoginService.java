@@ -57,8 +57,7 @@ public class LoginService {
 	}
 
 	public String fPwd()
-	{
-		
+	{		
 		return "/login/fPwd";
 	}
 	

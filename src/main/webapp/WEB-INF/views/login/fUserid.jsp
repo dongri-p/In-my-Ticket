@@ -19,5 +19,7 @@
       <input type="button" value="아이디 찾기" id="btn" onclick="getUserid(this.form)">
     </div>
   </form>
+  
+  <div id="view"> </div>
 </body>
 </html>

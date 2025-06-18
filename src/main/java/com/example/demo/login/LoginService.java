@@ -50,6 +50,18 @@ public class LoginService {
 		
 		return "redirect:/main/index";
 	}
+
+	public String fUserid()
+	{
+		return "/login/fUserid";
+	}
+
+	public String fPwd()
+	{
+		
+		return "/login/fPwd";
+	}
+	
 	
 	
 }

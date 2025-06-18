@@ -36,5 +36,17 @@ public class LoginController {
 	{
 		return service.logout(session);
 	}
+	
+	@GetMapping("/login/fUserid")
+	public String fUserid()
+	{
+		return service.fUserid();
+	}
+	
+	@GetMapping("/login/fPwd")
+	public String fPwd()
+	{
+		return service.fPwd();
+	}
 
 }

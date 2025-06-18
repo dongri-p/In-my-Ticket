@@ -14,7 +14,8 @@ public class SitemeshConfig extends ConfigurableSiteMeshFilter{
 	 	
 	    // 제외할 폴더와 문서
         builder.addExcludedPath("/main/slide");
-        builder.addExcludedPath("");
+        builder.addExcludedPath("/login/fUserid");
+        builder.addExcludedPath("/login/fPwd");
  
 	}
 }

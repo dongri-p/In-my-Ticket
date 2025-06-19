@@ -51,6 +51,7 @@
         chk.open("get", "/login/getPwd?userid="+userid+"&name="+name+"&email="+email);
         chk.send();
     }
+    오전 2:51:00
   </script>
 </head>
 <body> <!-- /login/fPwd.jsp -->

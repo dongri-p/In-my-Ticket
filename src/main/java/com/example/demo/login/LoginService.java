@@ -80,6 +80,21 @@ public class LoginService {
 	{
 		String pwd=mapper.getPwd(mdto);
 		
+		if(pwd != null)
+		{
+			String newPwd="";
+			
+			for(int i=1;i<5;i++)
+			{
+				int num=(int)(Math.random()*90);
+				
+				num=num+33;
+				
+				newPwd=newPwd+(char)num;
+			}
+			mapper.chgPwd(mdto.getUserid(),newPwd);
+		}
+		
 		return null;
 	}
 

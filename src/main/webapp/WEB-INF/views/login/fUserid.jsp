@@ -13,9 +13,6 @@
       height:100vh;
       margin:0px;
     }
-    div {
-      margin-top:10px;
-    }
     #uform input[type="text"],
     #uform input[type="button"] {
       width:350px;
@@ -71,8 +68,8 @@
 <body> <!-- /login/fUserid.jsp -->
   <form id="uform">
     <h3 align="center"> 아이디 찾기 </h3>
-    <div> <input type="text" name="name" id="txt" placeholder="이 름"> </div>
-    <div> <input type="text" name="email" id="txt" placeholder="이메일"> </div>
+    <div> <input type="text" name="name" placeholder="이 름"> </div>
+    <div> <input type="text" name="email" placeholder="이메일"> </div>
     <div>
       <input type="button" value="아이디 찾기" id="btn" onclick="getUserid(this.form)">
     </div>

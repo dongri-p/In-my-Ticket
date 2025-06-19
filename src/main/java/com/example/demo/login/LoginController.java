@@ -57,5 +57,11 @@ public class LoginController {
 	{
 		return service.fPwd();
 	}
+	
+	@GetMapping("/login/getPwd")
+	public @ResponseBody String getPwd(MemberDto mdto)
+	{
+		return service.getPwd(mdto);
+	}
 
 }

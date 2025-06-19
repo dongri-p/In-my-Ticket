@@ -8,4 +8,5 @@ import com.example.demo.member.MemberDto;
 public interface LoginMapper {
 	public String loginOk(MemberDto mdto);
 	public String getUserid(MemberDto mdto);
+	public String getPwd(MemberDto mdto);
 }

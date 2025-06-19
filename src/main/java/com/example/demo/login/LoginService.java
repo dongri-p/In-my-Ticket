@@ -76,4 +76,11 @@ public class LoginService {
 		return "/login/fPwd";
 	}
 
+	public String getPwd(MemberDto mdto)
+	{
+		String pwd=mapper.getPwd(mdto);
+		
+		return null;
+	}
+
 }

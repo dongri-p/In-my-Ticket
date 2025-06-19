@@ -82,7 +82,7 @@
     <div> <input type="submit" id="submit" value="로그인"> </div>
     <div class="find">
       <span onclick="findU()"> 아이디 찾기 </span>&nbsp;|&nbsp;
-      <span onclick="findU()"> 비밀번호 찾기 </span>&nbsp;|&nbsp;
+      <span onclick="findP()"> 비밀번호 찾기 </span>&nbsp;|&nbsp;
       <span onclick="location='../member/member'"> 회원가입 </span>
     </div>
     

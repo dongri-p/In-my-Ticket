@@ -98,8 +98,6 @@ public class LoginService {
 		}
 		else
 			return "정보가 일치하지 않습니다";
-		
-		return null;
 	}
 
 }

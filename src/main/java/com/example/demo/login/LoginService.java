@@ -93,7 +93,11 @@ public class LoginService {
 				newPwd=newPwd+(char)num;
 			}
 			mapper.chgPwd(mdto.getUserid(),newPwd);
+			
+			return "임시 비밀번호 : "+newPwd;
 		}
+		else
+			return "정보가 일치하지 않습니다";
 		
 		return null;
 	}

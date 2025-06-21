@@ -43,6 +43,17 @@
   <script>
     function getPwd(pwd)
     {
+    	var userid=pform.userid.value;
+    	var name=pform.name.value;
+    	var email=pform.email.value;
+    	
+    	if(!userid || !name || !email)
+    	{
+    		alert("빈칸이 있습니다.");
+    		
+    		return;
+    	}
+    	
         var chk=new XMLHttpRequest();
         chk.onload=function()
         {
@@ -51,7 +62,7 @@
             document.getElemnetById("pform").name.value="";
             document.getElemnetById("pform").email.value="";
             document.getElementById("view").innerText="임시 비밀번호 : " + (chk.responseText.trim() || "존재하지 않는 사용자입니다.");
-        }
+        } 오후
         chk.open("get", "/login/getPwd?userid="+userid+"&name="+name+"&email="+email);
         chk.send();
     }

@@ -50,7 +50,7 @@
             document.getElemnetById("pform").userid.value="";
             document.getElemnetById("pform").name.value="";
             document.getElemnetById("pform").email.value="";
-            document.getElementById
+            document.getElementById("view").innerText="임시 비밀번호 : " + (chk.responseText.trim() || "존재하지 않는 사용자입니다.");
         }
         chk.open("get", "/login/getPwd?userid="+userid+"&name="+name+"&email="+email);
         chk.send();

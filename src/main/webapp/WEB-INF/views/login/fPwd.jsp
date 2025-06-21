@@ -46,12 +46,15 @@
         var chk=new XMLHttpRequest();
         chk.onload=function()
         {
-            
+            document.getElementById("pform").style.display="none";
+            document.getElemnetById("pform").userid.value="";
+            document.getElemnetById("pform").name.value="";
+            document.getElemnetById("pform").email.value="";
+            document.getElementById
         }
         chk.open("get", "/login/getPwd?userid="+userid+"&name="+name+"&email="+email);
         chk.send();
     }
-    오전 2:51:0000
   </script>
 </head>
 <body> <!-- /login/fPwd.jsp -->

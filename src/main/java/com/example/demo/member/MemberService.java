@@ -30,7 +30,7 @@ public class MemberService {
 	{
 		mapper.memberOk(mdto);
 		
-		return "../login/login";
+		return "redirect:../login/login";
 	}
 
 }

@@ -58,10 +58,10 @@
         chk.onload=function()
         {
             document.getElementById("pform").style.display="none";
-            document.getElemnetById("pform").userid.value="";
-            document.getElemnetById("pform").name.value="";
-            document.getElemnetById("pform").email.value="";
-            document.getElementById("view").innerText="임시 비밀번호 : " + (chk.responseText.trim() || "존재하지 않는 사용자입니다.");
+            document.getElementById("pform").userid.value="";
+            document.getElementById("pform").name.value="";
+            document.getElementById("pform").email.value="";
+            document.getElementById("view").innerText="임시 비밀번호 : " + chk.responseText;
         }
         chk.open("get", "/login/getPwd?userid="+userid+"&name="+name+"&email="+email);
         chk.send();

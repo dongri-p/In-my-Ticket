@@ -17,7 +17,7 @@
   </select>
   
   <update id="chgPwd">
-    update member set pwd=#{pwd} where userid=#{userid}
+    update member set oldPwd=#{pwd}, pwd=#{pwd} where userid=#{userid}
   </update>
 
 

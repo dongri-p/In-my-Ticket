@@ -87,7 +87,7 @@ public class LoginService {
 			
 			mapper.chgPwd(mdto.getUserid(), imsiPwd, pwd);
 			
-			return "임시 비밀번호 : "+imsiPwd;
+			return imsiPwd;
 		}
 		else
 			return "정보가 일치하지 않습니다";

@@ -9,5 +9,5 @@ public interface LoginMapper {
 	public String loginOk(MemberDto mdto);
 	public String getUserid(MemberDto mdto);
 	public String getPwd(MemberDto mdto);
-	public void chgPwd(String userid, String newPwd);
+	public void chgPwd(String userid, String pwd);
 }

@@ -85,7 +85,7 @@ public class LoginService {
 		{
 			String imsiPwd=MyUtil.getNewPwd();
 			
-			mapper.chgPwd(mdto.getUserid(), imsiPwd);
+			mapper.chgPwd(mdto.getUserid(), imsiPwd, pwd);
 			
 			return "임시 비밀번호 : "+imsiPwd;
 		}

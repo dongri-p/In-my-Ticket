@@ -17,7 +17,8 @@
   </select>
   
   <update id="chgPwd">
-    update member set oldPwd=#{pwd}, pwd=#{pwd} where userid=#{userid}
+                       <!-- 기존 비밀번호   바뀐 비밀번호 -->
+    update member set oldPwd=#{oldPwd}, pwd=#{pwd} where userid=#{userid}
   </update>
 
 

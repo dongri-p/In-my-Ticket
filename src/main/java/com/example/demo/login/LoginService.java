@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import com.example.demo.MyUtil;
 import com.example.demo.member.MemberDto;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -82,17 +83,7 @@ public class LoginService {
 		
 		if(pwd != null)
 		{
-			String newPwd="";
-			
-			for(int i=1;i<5;i++)
-			{
-				int num=(int)(Math.random()*90);
-				
-				num=num+33;
-				
-				newPwd=newPwd+(char)num;
-			}
-			mapper.chgPwd(mdto.getUserid(),newPwd);
+			String imsiPwd=MyUtil.getNewPwd();
 			
 			return "임시 비밀번호 : "+newPwd;
 		}

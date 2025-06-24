@@ -2,7 +2,7 @@ package com.example.demo;
 
 public class MyUtil {
 	
-	public static String getPwd()
+	public static String getNewPwd()
 	{
 		String newPwd="";
 		

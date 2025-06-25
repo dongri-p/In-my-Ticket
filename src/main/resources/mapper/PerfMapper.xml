@@ -7,5 +7,9 @@
     insert into performance (title,location,sDate,eDate,imageUrl)
     values (#{title},#{location},#{sDate},#{eDate},#{imageUrl})
   </insert>
+  
+  <select id="selectAll" resultType="com.example.demo.performance.PerfDto">
+    select * from performance order by sDate asc
+  </select>
 
 </mapper>

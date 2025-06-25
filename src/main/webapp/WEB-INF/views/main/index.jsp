@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,16 +26,21 @@
 </head>
 <body> <!-- index.jsp -->
   <div id="slide" align="center">
-    <span> <img src="../static/slide/1.PNG"> </span>
-    <span> <img src="../static/slide/2.PNG"> </span>
-    <span> <img src="../static/slide/3.PNG"> </span>
-    <span> <img src="../static/slide/4.PNG"> </span>
-    <span> <img src="../static/slide/5.PNG"> </span>
+   <c:forEach var="pdto" items="${plist}"> 
+    <span> <img src="${pdto.imageUrl}" width="300" height="200" alt="${pdto.title}"> </span>
+   </c:forEach>
   </div>
+  
   <section>
-    <div class="sang"> </div>
-    <div class="sang"> </div>
-    <div class="sang"> </div>
+ 
+   <c:forEach var="pdto" items="${plist}">
+    <div class="sang"> 
+      <h3> ${pdto.title} </h3>
+      <p> ${pdto.location} </p>
+      <p> ${pdto.sDate} ~ ${pdto.eDate} </p>
+      <img src="${pdto.imageUrl}" width="200" height="150">
+    </div>
+   </c:forEach> 
   </section>
 </body>
 </html>

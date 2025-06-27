@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import com.example.demo.performance.KopisApiService;
 import com.example.demo.performance.PerfDto;
 import com.example.demo.performance.PerfMapper;
 
@@ -20,8 +21,13 @@ public class MainService {
 	@Autowired
 	private PerfMapper pMapper;
 	
+	@Autowired
+    private KopisApiService kService;
+	
 	public String index(Model model)
 	{
+		kService.fetchPerformances();
+		
 		List<PerfDto> plist=pMapper.selectAll();
 		
 		model.addAttribute("plist", plist);

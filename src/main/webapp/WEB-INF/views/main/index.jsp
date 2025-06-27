@@ -29,6 +29,7 @@
    <c:forEach var="pdto" items="${plist}"> 
     <span> <img src="${pdto.imageUrl}" width="300" height="200" alt="${pdto.title}"> </span>
    </c:forEach>
+   
   </div>
   
   <section>

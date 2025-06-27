@@ -38,7 +38,7 @@
     <div class="sang"> 
       <h3> ${pdto.title} </h3>
       <p> ${pdto.location} </p>
-      <p> ${pdto.sDate} ~ ${pdto.eDate} </p>
+      <p> ${pdto.startDate} ~ ${pdto.endDate} </p>
       <img src="${pdto.imageUrl}" width="200" height="150">
     </div>
    </c:forEach> 

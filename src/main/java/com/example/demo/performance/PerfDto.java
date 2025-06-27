@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class PerfDto {
 	private int perfId;
-	private String title,location,sDate,eDate,imageUrl;
+	private String title,location,startDate,endDate,imageUrl;
 	
 	@Override
     public String toString()
@@ -13,9 +13,10 @@ public class PerfDto {
         return "PerformanceDto{" +
                 "title='" + title + '\'' +
                 ", location='" + location + '\'' +
-                ", sDate='" + sDate + '\'' +
-                ", eDate='" + eDate + '\'' +
+                ", sDate='" + startDate + '\'' +
+                ", eDate='" + endDate + '\'' +
                 ", imageUrl='" + imageUrl + '\'' +
                 '}';
     }
+	
 }

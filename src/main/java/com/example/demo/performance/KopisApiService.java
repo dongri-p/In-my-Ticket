@@ -47,8 +47,8 @@ public class KopisApiService {
             // optString을 쓰는 이유는 key가 없을 경우에도 null 대신 빈 문자열 반환해서 에러 방지
             pdto.setTitle(item.optString("prfnm"));
             pdto.setLocation(item.optString("fcltynm"));
-            pdto.setSDate(item.optString("prfpdfrom"));
-            pdto.setEDate(item.optString("prfpdto"));
+            pdto.setStartDate(item.optString("prfpdfrom"));
+            pdto.setEndDate(item.optString("prfpdto"));
             pdto.setImageUrl(item.optString("poster"));
             
             list.add(pdto);
@@ -60,8 +60,8 @@ public class KopisApiService {
         for(PerfDto pdto : list)
         {
         	// 날짜 형식 변환(2024.06.29 > 2024-06-29)
-        	pdto.setSDate(pdto.getSDate().replace(".", "-"));
-        	pdto.setEDate(pdto.getEDate().replace(".", "-"));
+        	pdto.setStartDate(pdto.getStartDate().replace(".", "-"));
+        	pdto.setEndDate(pdto.getEndDate().replace(".", "-"));
         	
         	mapper.insertPf(pdto);
         }

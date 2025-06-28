@@ -70,7 +70,7 @@ public class KopisApiService {
         }
     }
     
-    public Map<String, List<PerfDto>> getPerfByGenre()
+    public Map<String, List<PerfDto>> getGenre()
     {
         List<PerfDto> all=mapper.selectAll();
         Map<String, List<PerfDto>> map=new LinkedHashMap<>();

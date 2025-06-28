@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -50,6 +52,7 @@ public class KopisApiService {
             pdto.setStartDate(item.optString("prfpdfrom"));
             pdto.setEndDate(item.optString("prfpdto"));
             pdto.setImageUrl(item.optString("poster"));
+            pdto.setGenre(item.optString("genrenm"));
             
             list.add(pdto);
             
@@ -66,4 +69,22 @@ public class KopisApiService {
         	mapper.insertPf(pdto);
         }
     }
+    
+    public Map<String, List<PerfDto>> getPerfByGenre()
+    {
+        List<PerfDto> all=mapper.selectAll();
+        Map<String, List<PerfDto>> map=new LinkedHashMap<>();
+        
+        for (PerfDto pdto : all)
+        {
+            String genre=pdto.getGenre();
+            
+            if (genre == null || genre.isEmpty()) genre = "기타";
+            
+            map.computeIfAbsent(genre, k -> new ArrayList<>()).add(pdto);
+        }
+
+        return map;
+    }
+
 }

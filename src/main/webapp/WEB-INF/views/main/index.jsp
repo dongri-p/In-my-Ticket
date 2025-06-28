@@ -42,6 +42,7 @@
       <img src="${pdto.imageUrl}" width="200" height="150">
     </div>
    </c:forEach>  --%>
+   
   </section>
 </body>
 </html>

@@ -218,36 +218,16 @@
   
   <nav>
     <ul>
-      <li>
-        콘서트
-      </li>
-      <li>
-        뮤지컬/연극
-      </li>
-      <li>
-        팬클럽/팬미팅
-      </li>
-      <li>
-        클래식
-      </li>
-      <li>
-        전시/행사
-      </li>
-      <li>
-        테마/지역
-      </li>
-      <li>
-        랭킹
-      </li>
-      <li>
-        티켓오픈소식
-      </li>
-      <li>
-        이벤트
-      </li>
-      <li>
-        인마이티켓
-      </li>
+      <li> <a href="javascript:getGenre()"> 콘서트 </a> </li>
+      <li> <a href="javascript:getGenre()"> 뮤지컬/연극 </a> </li>
+      <li> <a href="javascript:getGenre()"> 팬클럽/팬미팅 </a> </li>
+      <li> <a href="javascript:getGenre()"> 클래식 </a> </li>
+      <li> <a href="javascript:getGenre()"> 전시/행사 </a> </li>
+      <li> <a href="javascript:getGenre()"> 테마/지역 </a> </li>
+      <li> <a href="javascript:getGenre()"> 랭킹 </a> </li>
+      <li> <a href="javascript:getGenre()"> 티켓오픈소식 </a> </li>
+      <li> <a href="javascript:getGenre()"> 이벤트 </a> </li>
+      <li> 인마이티켓 </li>
     </ul>
   </nav>
   

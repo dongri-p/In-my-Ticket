@@ -11,5 +11,9 @@
   <select id="selectAll" resultType="com.example.demo.performance.PerfDto">
     select * from performance order by sDate asc
   </select>
+  
+  <select id="selectGenre" resultType="com.example.demo.performance.PerfDto">
+    select * from performance where genre=#{genre}
+  </select>
 
 </mapper>

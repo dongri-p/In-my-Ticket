@@ -218,15 +218,15 @@
   
   <nav>
     <ul>
-      <li> <a href="javascript:getGenre()"> 콘서트 </a> </li>
-      <li> <a href="javascript:getGenre()"> 뮤지컬/연극 </a> </li>
-      <li> <a href="javascript:getGenre()"> 팬클럽/팬미팅 </a> </li>
-      <li> <a href="javascript:getGenre()"> 클래식 </a> </li>
-      <li> <a href="javascript:getGenre()"> 전시/행사 </a> </li>
-      <li> <a href="javascript:getGenre()"> 테마/지역 </a> </li>
-      <li> <a href="javascript:getGenre()"> 랭킹 </a> </li>
-      <li> <a href="javascript:getGenre()"> 티켓오픈소식 </a> </li>
-      <li> <a href="javascript:getGenre()"> 이벤트 </a> </li>
+      <li> <a href="/performance/list?genre=콘서트"> 콘서트 </a> </li>
+      <li> <a href="/performance/list?genre=뮤지컬/연극"> 뮤지컬/연극 </a> </li>
+      <li> <a href="/performance/list?genre=팬클럽/팬미팅"> 팬클럽/팬미팅 </a> </li>
+      <li> <a href="/performance/list?genre=클래식"> 클래식 </a> </li>
+      <li> <a href="/performance/list?genre=전시/행사"> 전시/행사 </a> </li>
+      <li> <a href="/performance/list?genre=테마/지역"> 테마/지역 </a> </li>
+      <li> <a href="/performance/list?genre=랭킹"> 랭킹 </a> </li>
+      <li> <a href="/performance/list?genre=티켓오픈소식"> 티켓오픈소식 </a> </li>
+      <li> <a href="/performance/list?genre=이벤트"> 이벤트 </a> </li>
       <li> 인마이티켓 </li>
     </ul>
   </nav>

@@ -30,10 +30,8 @@ public class MainService {
 		kService.fetchPerformances();
 		
 		List<PerfDto> plist=pMapper.selectAll();
-		Map<String, List<PerfDto>> pgroup=kService.getGenre();
 		
 		model.addAttribute("plist", plist);
-		model.addAttribute("pgroup", pgroup);
 		
 		return "/main/index";
 	}

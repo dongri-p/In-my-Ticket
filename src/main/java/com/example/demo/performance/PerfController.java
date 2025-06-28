@@ -2,7 +2,9 @@ package com.example.demo.performance;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class PerfController {
@@ -13,10 +15,11 @@ public class PerfController {
 	@Autowired
 	private KopisApiService kaService;
 	
-	/*
-	 * @GetMapping("/api/test") public String fetchPerformancesTest() {
-	 * kaService.fetchPerformances(); return "공연 목록 콘솔에 출력"; }
-	 */
+	@GetMapping("/performance/list")
+	public String list(@RequestParam String genre, Model model)
+	{
+		return pService.list(genre, model);
+	}
 	
 	
 

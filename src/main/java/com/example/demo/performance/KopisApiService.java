@@ -75,11 +75,11 @@ public class KopisApiService {
         List<PerfDto> all=mapper.selectAll();
         Map<String, List<PerfDto>> map=new LinkedHashMap<>();
         
-        for (PerfDto pdto : all)
+        for(PerfDto pdto : all)
         {
             String genre=pdto.getGenre();
             
-            if (genre == null || genre.isEmpty()) genre = "기타";
+            if(genre == null || genre.isEmpty()) genre = "기타";
             
             map.computeIfAbsent(genre, k -> new ArrayList<>()).add(pdto);
         }

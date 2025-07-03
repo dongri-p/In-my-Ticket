@@ -17,7 +17,7 @@ public class PerfService {
 		List<PerfDto> plist=mapper.selectGenre(genre);
 		
 		model.addAttribute("plist", plist);
-		model.addAttribute("plist", plist);
+		model.addAttribute("genre", genre);
 		
 		return "/performance/list";
 	}

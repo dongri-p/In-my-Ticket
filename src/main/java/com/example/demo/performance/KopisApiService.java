@@ -20,7 +20,7 @@ public class KopisApiService {
 	@Autowired
 	private PerfMapper mapper;
 
-    private final String apiKey = "ac849e5c3a0c458687d4a190acd4e026";
+    private final String apiKey="ac849e5c3a0c458687d4a190acd4e026";
 
     public void fetchPerformances()
     {
@@ -62,6 +62,7 @@ public class KopisApiService {
         // list안에 들어있는 PerfDto 객체들을 하나씩 꺼내서 pdto라는 이름으로 반복하면서 사용할 수 있게 함
         for(PerfDto pdto : list)
         {
+        	System.out.println("제목 : "+pdto.getTitle());
         	// 날짜 형식 변환(2024.06.29 > 2024-06-29)
         	pdto.setStartDate(pdto.getStartDate().replace(".", "-"));
         	pdto.setEndDate(pdto.getEndDate().replace(".", "-"));

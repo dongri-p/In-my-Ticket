@@ -10,9 +10,9 @@
 
   <h2>"${genre}" 공연 목록</h2>
   <ul>
-   <c:forEach var="p" items="${plist}">
+   <c:forEach var="pdto" items="${plist}">
     <li>
-      <strong>${p.title}</strong> - ${p.location} (${p.date})
+      <strong>${pdto.title}</strong> - ${pdto.location} (${pdto.date})
     </li>
   </c:forEach>
 </ul>

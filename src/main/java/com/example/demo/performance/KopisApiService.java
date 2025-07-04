@@ -67,7 +67,15 @@ public class KopisApiService {
         	pdto.setStartDate(pdto.getStartDate().replace(".", "-"));
         	pdto.setEndDate(pdto.getEndDate().replace(".", "-"));
         	
-        	mapper.insertPf(pdto);
+        	// 중복 체크
+        	if(mapper.keycheck(pdto) == 0)
+        	{
+        		mapper.insertPf(pdto);
+        	}
+        	else
+        	{
+        		System.out.println("중복 공연");
+        	}
         }
     }
     

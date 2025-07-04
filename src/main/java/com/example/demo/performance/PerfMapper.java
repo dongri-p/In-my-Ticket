@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface PerfMapper {
 	public void insertPf(PerfDto pdto);
+	public int keycheck(PerfDto pdto);
 	public List<PerfDto> selectAll();
 	public List<PerfDto> selectGenre(String genre);
-
 }

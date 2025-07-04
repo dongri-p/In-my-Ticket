@@ -9,7 +9,6 @@
   <style>
     #slide {
       width:1700px;
-      height:250px;
       margin:auto;
     }
     section {
@@ -27,7 +26,7 @@
 <body> <!-- index.jsp -->
   <div id="slide" align="center">
    <c:forEach var="pdto" items="${plist}"> 
-    <span> <img src="${pdto.imageUrl}" width="300" height="200" alt="${pdto.title}"> </span>
+    <span> <img src="${pdto.imageUrl}" width="400" height="300" alt="${pdto.title}"> </span>
    </c:forEach>
    
   </div>

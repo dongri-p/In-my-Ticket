@@ -8,10 +8,11 @@
     values (#{title},#{location},#{startDate},#{endDate},#{imageUrl})
   </insert>
   
-  <select id="keycheck" resultType="int" parameterType="map">
-    select count(*) from performance where title=#{title} and location=#{location}
-    and sDate=#{startDate} and eDate=#{endDate} and imageUrl=#{imageUrl}
-  </select>
+  <select id="keycheck" resultType="int" parameterType="com.example.demo.performance.PerfDto">
+    select count(*) from performance where title=#{title}
+    and sDate=#{startDate} and eDate=#{endDate}
+</select>
+
   
   <select id="selectAll" resultType="com.example.demo.performance.PerfDto">
     select * from performance order by sDate asc

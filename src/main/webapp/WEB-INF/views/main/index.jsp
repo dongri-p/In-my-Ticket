@@ -25,11 +25,15 @@
 </head>
 <body> <!-- index.jsp -->
   <div id="slide" align="center">
-   <c:forEach var="pdto" items="${plist}"> 
-    <span> <img src="${pdto.imageUrl}" width="400" height="300" alt="${pdto.title}"> </span>
-   </c:forEach>
-   
+  <c:forEach var="pdto" items="${plist}">
+    <div style="display:inline-block; margin:10px; text-align:center;">
+      <img src="${pdto.imageUrl}" width="300" height="200" alt="${pdto.title}"> <br>
+      <strong> ${pdto.title} </strong><br>
+      <small> ${pdto.startDate} ~ ${pdto.endDate} </small>
+    </div>
+  </c:forEach>
   </div>
+
   
   <section>
  

@@ -1,8 +1,8 @@
 package com.example.demo.performance;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.http.ResponseEntity;
 
 import java.util.ArrayList;
@@ -16,84 +16,88 @@ import org.json.XML;
 
 @Service
 public class KopisApiService {
-	
-	@Autowired
-	private PerfMapper mapper;
 
-    private final String apiKey="ac849e5c3a0c458687d4a190acd4e026";
+    private final PerfMapper mapper;
+    private final RestTemplate template;
+
+    private static final String apikey="ac849e5c3a0c458687d4a190acd4e026";
+    private static final String apiurl="http://www.kopis.or.kr/openApi/restful/pblprfr";
+
+    @Autowired
+    public KopisApiService(PerfMapper mapper, RestTemplate template)
+    {
+        this.mapper=mapper;
+        this.template=template;
+    }
 
     public void fetchPerformances()
     {
-        String url="http://www.kopis.or.kr/openApi/restful/pblprfr?"+"service="+apiKey+
+        String url=apiurl + "?service=" + apikey +
                    "&stdate=20240601&eddate=20240701&cpage=1&rows=10";
 
-        RestTemplate restTemplate=new RestTemplate();
-		// RestTemplate을 이용해 kopisapi get방식으로 호출, 결과는 xml 형식의 문자열로 받음
-        ResponseEntity<String> response=restTemplate.getForEntity(url, String.class);
+        ResponseEntity<String> response=template.getForEntity(url, String.class);
+        String xml = response.getBody();
 
-        String xml=response.getBody();
-		// org.json의 XML.toJSONObject를 이용해 xml 데이터를 JSON 객체로 변환
-        JSONObject json=XML.toJSONObject(xml);
+        JSONObject json = XML.toJSONObject(xml);
+        JSONObject dbs = json.getJSONObject("dbs");
 
-        JSONObject dbs=json.getJSONObject("dbs");
-        
-        // JSON 구조에서 실제 공연 정보들이 들어있는 db 배열 추출
-        JSONArray dbArray=dbs.getJSONArray("db");
+        // kopis api에서 공연이 한 건일 경우 JSONArray가 아니라 JSONObject로 오기도 함
+        List<PerfDto> list = new ArrayList<>();
+        Object dbData=dbs.get("db");
 
-        List<PerfDto> list=new ArrayList<>();
-        for (int i = 0;i < dbArray.length();i++)
+        JSONArray dbArray = (dbData instanceof JSONArray) ? (JSONArray) dbData : new JSONArray().put(dbData);
+
+        for (int i = 0; i < dbArray.length(); i++)
         {
             JSONObject item=dbArray.getJSONObject(i);
 
             PerfDto pdto=new PerfDto();
-            // optString을 쓰는 이유는 key가 없을 경우에도 null 대신 빈 문자열 반환해서 에러 방지
             pdto.setTitle(item.optString("prfnm"));
             pdto.setLocation(item.optString("fcltynm"));
-            pdto.setStartDate(item.optString("prfpdfrom"));
-            pdto.setEndDate(item.optString("prfpdto"));
+            pdto.setStartDate(item.optString("prfpdfrom").replace(".", "-"));
+            pdto.setEndDate(item.optString("prfpdto").replace(".", "-"));
             pdto.setImageUrl(item.optString("poster"));
             pdto.setGenre(item.optString("genrenm"));
-            
-            list.add(pdto);
-            
+
             System.out.println(pdto);
+            list.add(pdto);
         }
         
-        // list안에 들어있는 PerfDto 객체들을 하나씩 꺼내서 pdto라는 이름으로 반복하면서 사용할 수 있게 함
-        for(PerfDto pdto : list)
+        // 중복 제거: imageUrl 기준
+        Map<String, PerfDto> uniqueMap=new LinkedHashMap<>();
+        for (PerfDto pdto : list)
         {
-        	System.out.println("제목 : "+pdto.getTitle());
-        	// 날짜 형식 변환(2024.06.29 > 2024-06-29)
-        	pdto.setStartDate(pdto.getStartDate().replace(".", "-"));
-        	pdto.setEndDate(pdto.getEndDate().replace(".", "-"));
-        	
-        	// 중복 체크
-        	if(mapper.keycheck(pdto) == 0)
-        	{
-        		mapper.insertPf(pdto);
-        	}
-        	else
-        	{
-        		System.out.println("중복 공연");
-        	}
+            uniqueMap.putIfAbsent(pdto.getImageUrl(), pdto);
+        }
+        
+        List<PerfDto> flist=new ArrayList<>(uniqueMap.values());
+
+        for (PerfDto pdto : flist)
+        {
+            if (mapper.keycheck(pdto) == 0)
+            {
+                mapper.insertPf(pdto);
+            } else
+            {
+                System.out.println("중복 공연: " + pdto.getTitle());
+            }
         }
     }
-    
+
     public Map<String, List<PerfDto>> getGenre()
     {
         List<PerfDto> all=mapper.selectAll();
-        Map<String, List<PerfDto>> map=new LinkedHashMap<>();
         
-        for(PerfDto pdto : all)
+        Map<String, List<PerfDto>> map=new LinkedHashMap<>();
+
+        for (PerfDto pdto : all)
         {
             String genre=pdto.getGenre();
             
-            if(genre == null || genre.isEmpty()) genre = "기타";
-            
+            if (genre == null || genre.isEmpty()) genre = "기타";
             map.computeIfAbsent(genre, k -> new ArrayList<>()).add(pdto);
         }
 
         return map;
     }
-
 }

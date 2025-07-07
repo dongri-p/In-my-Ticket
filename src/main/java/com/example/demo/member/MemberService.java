@@ -32,5 +32,10 @@ public class MemberService {
 		
 		return "redirect:../login/login";
 	}
+	
+	public String myticket()
+	{
+		return null;
+	}
 
 }

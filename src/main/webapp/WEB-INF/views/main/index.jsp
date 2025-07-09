@@ -27,7 +27,7 @@
   <div id="slide" align="center">
   <c:forEach var="pdto" items="${plist}">
     <div style="display:inline-block; margin:10px; text-align:center;">
-      <a href="">
+      <a href="/performance/pDetail?perfId=${pdto.perfId}">
         <img src="${pdto.imageUrl}" width="300" height="200" alt="${pdto.title}"> <br>
         <strong> ${pdto.title} </strong><br>
         <small> ${pdto.startDate} ~ ${pdto.endDate} </small>

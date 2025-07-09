@@ -27,7 +27,7 @@ public class PerfService {
 
 	public String pDetail(HttpServletRequest request, Model model)
 	{
-		String perfId=request.getParameter("PerfId");
+		String perfId=request.getParameter("perfId");
 		
 		if(perfId == null || perfId.isEmpty())
 		{
@@ -38,8 +38,7 @@ public class PerfService {
 		
 		model.addAttribute("plist", plist);
 		
-		return "/performance/pDetail";
-		
+		return "/performance/pDetail";	
 	}
 	
 

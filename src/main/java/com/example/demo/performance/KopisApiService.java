@@ -77,7 +77,8 @@ public class KopisApiService {
             if (mapper.keycheck(pdto) == 0)
             {
                 mapper.insertPf(pdto);
-            } else
+            }
+            else
             {
                 System.out.println("중복 공연: " + pdto.getTitle());
             }

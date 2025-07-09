@@ -227,7 +227,7 @@
       <li> <a href="/performance/list?genre=랭킹"> 랭킹 </a> </li>
       <li> <a href="/performance/list?genre=티켓오픈소식"> 티켓오픈소식 </a> </li>
       <li> <a href="/performance/list?genre=이벤트"> 이벤트 </a> </li>
-      <li> <a href="location='../member/myticket'"> 인마이티켓 </a> </li>
+      <li> <a href="../member/myticket"> 인마이티켓 </a> </li>
     </ul>
   </nav>
   

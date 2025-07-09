@@ -63,11 +63,13 @@ public class KopisApiService {
             list.add(pdto);
         }
         
-        // 중복 제거: imageUrl 기준
+        // 중복 제거 imageUrl 기준
         Map<String, PerfDto> uniqueMap=new LinkedHashMap<>();
         for (PerfDto pdto : list)
         {
-            uniqueMap.putIfAbsent(pdto.getImageUrl(), pdto);
+        	String uniqueKey = pdto.getTitle() + "|" + pdto.getStartDate() + "|" + pdto.getLocation();
+        	
+            uniqueMap.putIfAbsent(uniqueKey, pdto);
         }
         
         List<PerfDto> flist=new ArrayList<>(uniqueMap.values());

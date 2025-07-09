@@ -27,9 +27,11 @@
   <div id="slide" align="center">
   <c:forEach var="pdto" items="${plist}">
     <div style="display:inline-block; margin:10px; text-align:center;">
-      <img src="${pdto.imageUrl}" width="300" height="200" alt="${pdto.title}"> <br>
-      <strong> ${pdto.title} </strong><br>
-      <small> ${pdto.startDate} ~ ${pdto.endDate} </small>
+      <a href="">
+        <img src="${pdto.imageUrl}" width="300" height="200" alt="${pdto.title}"> <br>
+        <strong> ${pdto.title} </strong><br>
+        <small> ${pdto.startDate} ~ ${pdto.endDate} </small>
+      </a>
     </div>
   </c:forEach>
   </div>

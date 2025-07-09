@@ -1,5 +1,6 @@
 package com.example.demo.performance;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +27,19 @@ public class PerfService {
 
 	public String pDetail(HttpServletRequest request, Model model)
 	{
+		String perfId=request.getParameter("PerfId");
 		
-		return null;
+		if(perfId == null || perfId.isEmpty())
+		{
+			return "redirect:/main/index";
+		}
+		
+		ArrayList<PerfDto> plist=mapper.pDetail(perfId);
+		
+		model.addAttribute("plist", plist);
+		
+		return "/performance/pDetail";
+		
 	}
 	
 

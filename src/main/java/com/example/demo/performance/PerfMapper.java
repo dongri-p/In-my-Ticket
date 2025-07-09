@@ -1,5 +1,6 @@
 package com.example.demo.performance;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -10,4 +11,5 @@ public interface PerfMapper {
 	public int keycheck(PerfDto pdto);
 	public List<PerfDto> selectAll();
 	public List<PerfDto> selectGenre(String genre);
+	public ArrayList<PerfDto> pDetail(String perfId);
 }

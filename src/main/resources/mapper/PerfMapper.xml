@@ -21,5 +21,9 @@
   <select id="selectGenre" resultType="com.example.demo.performance.PerfDto">
     select * from performance where genre=#{genre}
   </select>
+  
+  <select id="pDeatil" resultType="com.example.demo.performance.PerfDto">
+    select * from performance where perfId=#{perfId}
+  </select>
 
 </mapper>

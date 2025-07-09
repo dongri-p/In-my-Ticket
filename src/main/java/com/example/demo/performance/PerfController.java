@@ -6,6 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import jakarta.servlet.http.HttpServletRequest;
+
 @Controller
 public class PerfController {
 	
@@ -19,6 +21,12 @@ public class PerfController {
 	public String list(@RequestParam String genre, Model model)
 	{
 		return pService.list(genre, model);
+	}
+	
+	@GetMapping("/performance/pDetail")
+	public String pDetail(HttpServletRequest request, Model model)
+	{
+		return pService.pDetail(request, model);
 	}
 	
 	

@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import jakarta.servlet.http.HttpServletRequest;
+
 @Service
 public class PerfService {
 	
@@ -20,6 +22,12 @@ public class PerfService {
 		model.addAttribute("genre", genre);
 		
 		return "/performance/list";
+	}
+
+	public String pDetail(HttpServletRequest request, Model model)
+	{
+		
+		return null;
 	}
 	
 

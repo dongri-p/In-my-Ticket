@@ -39,15 +39,15 @@
     }
     section #submit {
       background-color:#83BDBF;
-      color:black;
+      color:white;
       border:none;
       cursor:pointer;
       font-size:18px;
       transition:background-color 0.3s ease;
     }
     section #submit:hover {
-      background-color:#649FA1;
-      color:white;
+      background-color:#5aa7aa;
+      color:black;
     }
     section .find {
       margin-top:10px;

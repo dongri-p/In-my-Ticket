@@ -39,6 +39,9 @@
       background:#83BDBF;
       border:none;
       border-radius:6px;
+      cursor:pointer;
+      transition:background-color 0.3s ease;
+      color:white;
     }
     section #btn {
       width:222px;
@@ -46,10 +49,12 @@
       background:#ddd;
       border:none;
       border-radius:6px;
+      transition:background-color 0.3s ease;
+      cursor:pointer;
     }
     section #submit:hover {
-      cursor:pointer;
-      background:#649FA1;
+      background:#5aa7aa;
+      color:black;
     }
     section #btn:hover {
       cursor:pointer;

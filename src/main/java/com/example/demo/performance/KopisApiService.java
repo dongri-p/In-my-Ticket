@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.http.ResponseEntity;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -32,14 +34,17 @@ public class KopisApiService {
 
     public void fetchPerformances()
     {
+    	LocalDate today=LocalDate.now();
+    	String Stoday=today.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
+    	
         String url=apiurl + "?service=" + apikey +
-                   "&stdate=20240601&eddate=20240701&cpage=1&rows=10";
+                   "&stdate=20250101&eddate=" + Stoday + "&cpage=1&rows=10";
 
         ResponseEntity<String> response=template.getForEntity(url, String.class);
-        String xml = response.getBody();
+        String xml=response.getBody();
 
-        JSONObject json = XML.toJSONObject(xml);
-        JSONObject dbs = json.getJSONObject("dbs");
+        JSONObject json=XML.toJSONObject(xml);
+        JSONObject dbs=json.getJSONObject("dbs");
 
         // kopis api에서 공연이 한 건일 경우 JSONArray가 아니라 JSONObject로 오기도 함
         List<PerfDto> list = new ArrayList<>();

@@ -11,5 +11,5 @@ public interface PerfMapper {
 	public int keycheck(PerfDto pdto);
 	public List<PerfDto> selectAll();
 	public List<PerfDto> selectGenre(String genre);
-	public ArrayList<PerfDto> pDetail(String perfId);
+	public PerfDto pDetail(String perfId);
 }

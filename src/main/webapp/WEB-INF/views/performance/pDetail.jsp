@@ -8,8 +8,12 @@
 <title>Insert title here</title>
 </head>
 <body> <!-- /performance/pDetail.jsp -->
-  <c:forEach items="${plist}" var="pdto">
-    ${pdto.title} <br>
-  </c:forEach> 
+  <div id="detail">
+    <img src="${pdto.imageUrl}" id="poster" alt="이미지 없음">
+    
+    <div id="info">
+      <h2> ${pdto.title} </h2>
+    </div>
+  </div>
 </body>
 </html>

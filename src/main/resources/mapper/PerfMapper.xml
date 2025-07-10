@@ -22,7 +22,7 @@
     select * from performance where genre=#{genre}
   </select>
   
-  <select id="pDetail" resultType="com.example.demo.performance.PerfDto">
+  <select id="pDetail" resultType="com.example.demo.performance.PerfDto" parameterType="String">
     select * from performance where perfId=#{perfId}
   </select>
 

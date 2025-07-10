@@ -34,9 +34,9 @@ public class PerfService {
 			return "redirect:/main/index";
 		}
 		
-		ArrayList<PerfDto> plist=mapper.pDetail(perfId);
+		PerfDto pdto=mapper.pDetail(perfId);
 		
-		model.addAttribute("plist", plist);
+		model.addAttribute("pdto", pdto);
 		
 		return "/performance/pDetail";	
 	}

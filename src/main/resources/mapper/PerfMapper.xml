@@ -23,7 +23,8 @@
   </select>
   
   <select id="pDetail" resultType="com.example.demo.performance.PerfDto" parameterType="String">
-    select * from performance where perfId=#{perfId}
+    select perfId,title,location,sDate as startDate,
+    eDate as endDate, imageUrl, genre from performance where perfId=#{perfId}
   </select>
 
 </mapper>

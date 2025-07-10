@@ -35,6 +35,7 @@ public class PerfService {
 		}
 		
 		PerfDto pdto=mapper.pDetail(perfId);
+		System.out.println("🔍 pdto = " + pdto);
 		
 		model.addAttribute("pdto", pdto);
 		

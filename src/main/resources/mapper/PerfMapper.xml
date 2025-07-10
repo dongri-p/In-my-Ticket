@@ -24,7 +24,7 @@
   
   <select id="pDetail" resultType="com.example.demo.performance.PerfDto" parameterType="String">
     select perfId,title,location,sDate as startDate,
-    eDate as endDate, imageUrl, genre from performance where perfId=#{perfId}
+    eDate as endDate, imageUrl, genre, mt20id from performance where perfId=#{perfId}
   </select>
 
 </mapper>

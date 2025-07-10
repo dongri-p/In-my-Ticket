@@ -47,6 +47,9 @@ public class PerfService {
 		
 		model.addAttribute("pdto", pdto);
 		
+		 System.out.println("mt20id=" + mt20id + ", 관람시간=" + pdto.getRuntime() + ", 관람등급=" + pdto.getGrade());
+
+		
 		return "/performance/pDetail";	
 	}
 	

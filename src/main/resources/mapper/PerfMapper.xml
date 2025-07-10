@@ -4,8 +4,8 @@
 <mapper namespace="com.example.demo.performance.PerfMapper">
 
   <insert id="insertPf" parameterType="com.example.demo.performance.PerfDto">
-    insert into performance (title,location,sDate,eDate,imageUrl,genre)
-    values (#{title},#{location},#{startDate},#{endDate},#{imageUrl},#{genre})
+    insert into performance (title,location,sDate,eDate,imageUrl,genre,mt20id)
+    values (#{title},#{location},#{startDate},#{endDate},#{imageUrl},#{genre},#{mt20id})
   </insert>
   
   <select id="keycheck" resultType="int" parameterType="com.example.demo.performance.PerfDto">

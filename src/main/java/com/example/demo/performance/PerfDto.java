@@ -6,7 +6,7 @@ import lombok.Data;
 public class PerfDto {
 	private int perfId;
 	private String title,location,startDate,endDate,imageUrl;
-	private String genre;
+	private String genre,mt20id,runtime,grade;
 	
 	@Override
     public String toString()

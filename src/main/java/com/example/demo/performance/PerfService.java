@@ -15,6 +15,9 @@ public class PerfService {
 	@Autowired
 	private PerfMapper mapper;
 	
+	@Autowired
+	private KopisApiService kopisApiService;
+	
 	public String list(String genre, Model model)
 	{
 		List<PerfDto> plist=mapper.selectGenre(genre);
@@ -35,7 +38,12 @@ public class PerfService {
 		}
 		
 		PerfDto pdto=mapper.pDetail(perfId);
-		System.out.println("🔍 pdto = " + pdto);
+		
+		String mt20id=pdto.getMt20id();
+		PerfDto detailDto=kopisApiService.fetchDetail(mt20id);
+		
+		pdto.setRuntime(detailDto.getRuntime());
+		pdto.setGrade(detailDto.getGrade());
 		
 		model.addAttribute("pdto", pdto);
 		

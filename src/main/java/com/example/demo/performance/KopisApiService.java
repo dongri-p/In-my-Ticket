@@ -37,8 +37,8 @@ public class KopisApiService {
     	LocalDate today=LocalDate.now();
     	String Stoday=today.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
     	
-        String url=apiurl + "?service=" + apikey +
-                   "&stdate=20250101&eddate=" + Stoday + "&cpage=1&rows=10";
+        String url = apiurl + "?service=" + apikey +
+                    "&stdate=20250101&eddate=" + Stoday + "&cpage=1&rows=10";
 
         ResponseEntity<String> response=template.getForEntity(url, String.class);
         String xml=response.getBody();
@@ -63,6 +63,7 @@ public class KopisApiService {
             pdto.setEndDate(item.optString("prfpdto").replace(".", "-"));
             pdto.setImageUrl(item.optString("poster"));
             pdto.setGenre(item.optString("genrenm"));
+            pdto.setMt20id(item.optString("mt20id"));
 
             System.out.println(pdto);
             list.add(pdto);
@@ -107,5 +108,22 @@ public class KopisApiService {
         }
 
         return map;
+    }
+    
+    public PerfDto fetchDetail(String mt20id)
+    {
+    	String url = apiurl + "/" + mt20id + "?service=" + apikey;
+    	
+    	ResponseEntity<String> response=template.getForEntity(url, String.class);
+    	String xml=response.getBody();
+    	
+    	JSONObject json=XML.toJSONObject(xml);
+    	JSONObject db=json.getJSONObject("dbs").getJSONObject("db");
+    	
+    	PerfDto pdto=new PerfDto();
+    	pdto.setRuntime(db.optString("prfruntime"));
+    	pdto.setGrade(db.optString("prfage"));
+    	
+    	return pdto;
     }
 }

@@ -14,6 +14,8 @@
     <div id="info">
       <h2> ${pdto.title} </h2>
       <div class="cinfo"> <span class="label"> 공연 기간 </span> ${pdto.startDate} ~ ${pdto.endDate} </div>
+      <div class="cinfo"> <span class="label"> 공연 장소 </span> ${pdto.location} </div>
+      <div class="cinfo"> <span class="label"> 장르 </span> ${pdto.genre} </div>
     </div>
   </div>
 </body>

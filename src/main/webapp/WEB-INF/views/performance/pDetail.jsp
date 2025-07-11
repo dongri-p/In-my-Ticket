@@ -54,6 +54,12 @@
       color:black;
     }
   </style>
+  <script>
+    function reservation()
+    {
+        open("../reservation/selectSeat", "width=600,height=500");
+    }
+  </script>
 </head>
 <body> <!-- /performance/pDetail.jsp -->
   <div id="detail">
@@ -66,7 +72,7 @@
       <div class="cinfo"> <span class="label"> 장르 </span> ${pdto.genre} </div>
       <div class="cinfo"> <span class="label"> 공연 장소 </span> ${pdto.location} </div>
       <div class="cinfo"> <span class="label"> 관람 등급 </span> ${pdto.grade} </div>
-      <button id="btn" onclick=""> 예매하기 </button>
+      <button id="btn" onclick="reservation()"> 예매하기 </button>
     </div>
   </div>
 </body>

@@ -15,11 +15,11 @@ public class ResService {
 	{
 		if(session.getAttribute("userid") == null)
 		{
-			return "";
+			return "redirect:/login/login";
 		}
 		else
 		{
-			return "";
+			return "/reservation/selectSeat";
 		}	
 	}
 }

@@ -13,13 +13,6 @@ public class ResService {
 
 	public String selectSeat(HttpSession session)
 	{
-		if(session.getAttribute("userid") == null)
-		{
-			return "redirect:/login/login";
-		}
-		else
-		{
 			return "/reservation/selectSeat";
-		}	
 	}
 }

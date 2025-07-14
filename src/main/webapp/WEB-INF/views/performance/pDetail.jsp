@@ -57,7 +57,16 @@
   <script>
     function reservation()
     {
-        open("../reservation/selectSeat", "width=600,height=500");
+        var loginCk="${sessionScope.userid}" !== "";
+        if(!loginCk)
+        {
+            alert("로그인 후 이용해주세요.");
+            location.href="/login/login";
+        }
+        else
+        {
+            window.open("../reservation/selectSeat", "width=600,height=500");
+        }
     }
   </script>
 </head>

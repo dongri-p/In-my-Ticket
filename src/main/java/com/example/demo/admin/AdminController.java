@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import jakarta.servlet.http.HttpSession;
+
 
 @Controller
 public class AdminController {
@@ -21,9 +23,9 @@ public class AdminController {
 	}
 	
 	@PostMapping("/admin/adLoginOk")
-	public String adLoginOk(AdminDto adto)
+	public String adLoginOk(AdminDto adto, HttpSession session)
 	{
-		return service.adLoginOk(adto);
+		return service.adLoginOk(adto, session);
 	}
 	
 

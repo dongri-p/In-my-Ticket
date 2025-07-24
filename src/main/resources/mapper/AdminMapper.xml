@@ -3,7 +3,7 @@
 
 <mapper namespace="com.example.demo.admin.AdminMapper">
 
-  <select id="adLoginOk" resultType="com.example.demo.admin.AdminDto">
+  <select id="adLoginOk" resultType="String">
     select * from admin where adId=#{adId} and adPwd=#{adPwd}
   </select>
 

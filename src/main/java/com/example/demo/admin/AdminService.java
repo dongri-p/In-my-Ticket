@@ -15,4 +15,11 @@ public class AdminService {
 		return "/admin/adLogin";
 	}
 
+	public String adLoginOk(AdminDto adto)
+	{
+		String name=mapper.adLoginOk(adto);
+		
+		return null;
+	}
+
 }

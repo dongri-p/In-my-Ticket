@@ -66,10 +66,10 @@
 
   <form method="post" action="adLoginOk" name="lform">
     <div> 
-      <input type="text" name="adminId" placeholder="관리자 아이디"> 
+      <input type="text" name="adId" placeholder="관리자 아이디"> 
     </div>
     <div>
-      <input type="password" name="adminPw" placeholder="비밀번호">
+      <input type="password" name="adPwd" placeholder="비밀번호">
       <c:if test="${err == 1}">
         <div class="error">아이디 또는 비밀번호가 일치하지 않습니다.</div>
       </c:if>

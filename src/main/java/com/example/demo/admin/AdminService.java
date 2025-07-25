@@ -32,8 +32,6 @@ public class AdminService {
 			
 			return "redirect:/admin/home";
 		}
-		
-		return null;
 	}
 
 }

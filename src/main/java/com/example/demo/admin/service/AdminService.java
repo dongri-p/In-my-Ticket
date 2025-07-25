@@ -38,7 +38,7 @@ public class AdminService {
 			session.setAttribute("adId", adto.getAdId());
 			session.setAttribute("adName", adto.getAdName());
 			
-			return "redirect:/admin/home";
+			return "redirect:/admin/adIndex";
 		}
 	}
 	

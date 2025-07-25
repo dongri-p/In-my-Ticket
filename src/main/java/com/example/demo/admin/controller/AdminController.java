@@ -1,4 +1,4 @@
-package com.example.demo.admin;
+package com.example.demo.admin.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -7,6 +7,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.example.demo.admin.dto.AdminDto;
+import com.example.demo.admin.service.AdminService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -30,7 +33,7 @@ public class AdminController {
 		return service.adLoginOk(adto, session);
 	}
 	
-	@GetMapping("/admin/home")
+	@GetMapping("/admin/adIndex")
 	public String home(HttpSession session, Model model)
 	{
 		return service.home(session, model);

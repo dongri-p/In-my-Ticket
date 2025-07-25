@@ -1,8 +1,11 @@
-package com.example.demo.admin;
+package com.example.demo.admin.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+
+import com.example.demo.admin.dto.AdminDto;
+import com.example.demo.admin.mapper.AdminMapper;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -41,7 +44,7 @@ public class AdminService {
 	
 	public String home(HttpSession session, Model model)
 	{
-		return "/admin/home";
+		return "/admin/adIndex";
 	}
 
 }

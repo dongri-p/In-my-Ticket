@@ -33,10 +33,18 @@ public class AdminController {
 		return service.adLoginOk(adto, session);
 	}
 	
-	@GetMapping("/admin/adIndex")
-	public String home(HttpSession session, Model model)
+	@GetMapping("/admin/adLogout")
+	public String adLogout(HttpSession session)
 	{
-		return service.home(session, model);
+		session.invalidate();
+		
+		return "redirect:/admin/adLogin";
+	}
+	
+	@GetMapping("/admin/adIndex")
+	public String adIndex(HttpSession session, Model model)
+	{
+		return service.adIndex(session, model);
 	}
 	
 

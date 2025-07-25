@@ -36,13 +36,13 @@ public class AdminService {
 		else
 		{
 			session.setAttribute("adId", adto.getAdId());
-			session.setAttribute("adName", adto.getAdName());
+			session.setAttribute("adName", name);
 			
 			return "redirect:/admin/adIndex";
 		}
 	}
 	
-	public String home(HttpSession session, Model model)
+	public String adIndex(HttpSession session, Model model)
 	{
 		return "/admin/adIndex";
 	}

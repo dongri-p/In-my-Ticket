@@ -30,5 +30,11 @@ public class AdminController {
 		return service.adLoginOk(adto, session);
 	}
 	
+	@GetMapping("/admin/home")
+	public String home(HttpSession session, Model model)
+	{
+		return service.home(session, model);
+	}
+	
 
 }

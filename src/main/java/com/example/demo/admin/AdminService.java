@@ -39,5 +39,10 @@ public class AdminService {
 			return "redirect:/admin/home";
 		}
 	}
+	
+	public String home(HttpSession session, Model model)
+	{
+		return null;
+	}
 
 }

@@ -12,7 +12,7 @@ public class AdPerfController {
 	private AdPerfService service;
 	
 	@GetMapping("/admin/adPerformance/")
-	public String getMethodName(@RequestParam String param) {
+	public String ad() {
 		return new String();
 	}
 	

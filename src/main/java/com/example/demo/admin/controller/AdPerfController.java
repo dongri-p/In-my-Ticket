@@ -2,6 +2,7 @@ package com.example.demo.admin.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.demo.admin.service.AdPerfService;
 
@@ -11,9 +12,10 @@ public class AdPerfController {
 	@Autowired
 	private AdPerfService service;
 	
-	@GetMapping("/admin/adPerformance/")
-	public String ad() {
-		return new String();
+	@GetMapping("/admin/adPerformance/plist")
+	public String plist()
+	{
+		return service.plist();
 	}
 	
 

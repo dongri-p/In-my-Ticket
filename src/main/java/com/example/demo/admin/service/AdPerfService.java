@@ -11,5 +11,10 @@ public class AdPerfService {
 	@Autowired
 	private AdPerfMapper mapper;
 	
+	public String plist()
+	{
+		return "/admin/adPerformance/plist";
+	}
+	
 	
 }

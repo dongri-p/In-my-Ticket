@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body> <!-- /admin/adPerformance/plist.jsp -->
+<body> <!-- /admin/adPerformance/adPerflist.jsp -->
 dd
 </body>
 </html>

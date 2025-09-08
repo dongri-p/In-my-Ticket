@@ -12,7 +12,7 @@
   <p> <strong> ${adName} </strong> 님, 환영합니다 </p>
   
   <ul>
-    <li> <a href="/admin/adPerformance/adPerfList"> 공연 관리 </a> </li>
+    <!-- <li> <a href="/admin/adPerformance/adPerfList"> 공연 관리 </a> </li> --> 
     <li> <a href="/admin/time/tmanage"> 시간표 관리 </a> </li>
     <li> <a href="/admin/seat/smanage"> 좌석 관리 </a> </li>
     <li> <a href="/admin/adreserv/rlist"> 예매 관리 </a> </li>

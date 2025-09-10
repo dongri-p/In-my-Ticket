@@ -1,8 +1,20 @@
 package com.example.demo.admin.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.example.demo.admin.mapper.AdTimeMapper;
 
 @Service
 public class AdTimeService {
+	
+	@Autowired
+	private AdTimeMapper mapper;
+
+	public String tmanage()
+	{
+		
+		return "/admin/time/tmanage";
+	}
 
 }

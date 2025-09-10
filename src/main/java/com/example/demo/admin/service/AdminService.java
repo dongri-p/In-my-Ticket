@@ -46,10 +46,5 @@ public class AdminService {
 	{
 		return "/admin/adIndex";
 	}
-
-	public String tmanage()
-	{
-		return "/admin/time/tmanage";
-	}
-
+	
 }

@@ -18,6 +18,10 @@ public class AdTimeService {
 	public String tmanage(int perfId, Model model)
 	{
 		List<AdTimeDto> tlist=mapper.getTlist(perfId);
+		
+		model.addAttribute("tlist", tlist);
+		model.addAttribute("perfId", perfId);
+		
 		return "/admin/time/tmanage";
 	}
 

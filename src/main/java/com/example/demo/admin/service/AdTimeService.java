@@ -2,6 +2,7 @@ package com.example.demo.admin.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.example.demo.admin.mapper.AdTimeMapper;
 
@@ -11,7 +12,7 @@ public class AdTimeService {
 	@Autowired
 	private AdTimeMapper mapper;
 
-	public String tmanage()
+	public String tmanage(int perfId, Model model)
 	{
 		
 		return "/admin/time/tmanage";

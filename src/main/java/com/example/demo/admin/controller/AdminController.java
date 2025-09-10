@@ -47,5 +47,11 @@ public class AdminController {
 		return service.adIndex(session, model);
 	}
 	
+	@GetMapping("/admin/time/tmanage")
+	public String tmanage()
+	{
+		return service.tmanage();
+	}
+	
 
 }

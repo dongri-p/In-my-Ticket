@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body> <!-- /admin/time/tmanage.jsp -->
+  <h2> ${perfId}번 공연 관리 </h2>
   <form method="post" action="/admin/time/taction">
     <input type="hidden" name="perfId" value="${perfId}">
     날짜 : <input type="date" name="rDate" required>
@@ -17,12 +18,21 @@
   
   <table border="1">
     <tr>
-      <td> 번 호 </td>
-      <td> 날 짜 </td>
-      <td> 시 간 </td>
-      <td> 삭 제 </td>
+      <th> 번 호 </th>
+      <th> 날 짜 </th>
+      <th> 시 간 </th>
+      <th> 삭 제 </th>
     </tr>
-   <c forEach var="" items=""> 
+   <c:forEach var="tdto" items="${tlist}">
+    <tr>
+      <td> ${tdto.timeId} </td>
+      <td> ${tdto.rDate} </td>
+      <td> ${tdto.rTime} </td>
+      <td>
+        <a href="/admin/time/delete?timeId=${tdto.timeId}&perfId=${perfId}"> 삭제 </a>
+      </td>
+    </tr>
+   </c:forEach> 
   </table>
 
 </body>

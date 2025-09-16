@@ -4,6 +4,8 @@ import lombok.Data;
 
 @Data
 public class AdTimeDto {
-	private int timeId, perfId;
-	private String rDate, rTime;
+	private int timeId;
+	private int perfId;
+	private String rDate;
+	private String rTime;
 }

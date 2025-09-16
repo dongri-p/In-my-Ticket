@@ -8,12 +8,17 @@ import org.springframework.ui.Model;
 
 import com.example.demo.admin.dto.AdTimeDto;
 import com.example.demo.admin.mapper.AdTimeMapper;
+import com.example.demo.performance.PerfDto;
+import com.example.demo.performance.PerfMapper;
 
 @Service
 public class AdTimeService {
 	
 	@Autowired
 	private AdTimeMapper mapper;
+	
+	@Autowired
+	private PerfMapper perfMapper;
 
 	public String tmanage(int perfId, Model model)
 	{
@@ -23,6 +28,15 @@ public class AdTimeService {
 		model.addAttribute("perfId", perfId);
 		
 		return "/admin/time/tmanage";
+	}
+
+	public String tlist(Model model)
+	{
+		List<PerfDto> plist=perfMapper.selectAll();
+		
+		model.addAttribute("plist", plist);
+		
+		return "/admin/time/tlist";
 	}
 
 }

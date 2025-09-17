@@ -5,7 +5,7 @@
 
   <select id="getTlist" resultType="com.example.demo.admin.dto.AdTimeDto">
     select * from performance_time where perfId=#{perfId}
-    order by rDate, rTime;
+    order by showDate, showTime;
   </select>
 
 </mapper>

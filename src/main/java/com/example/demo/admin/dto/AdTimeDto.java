@@ -6,6 +6,6 @@ import lombok.Data;
 public class AdTimeDto {
 	private int timeId;
 	private int perfId;
-	private String rDate;
-	private String rTime;
+	private String showDate;
+	private String showTime;
 }

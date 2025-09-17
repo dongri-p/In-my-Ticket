@@ -26,8 +26,8 @@
    <c:forEach var="tdto" items="${tlist}">
     <tr>
       <td> ${tdto.timeId} </td>
-      <td> ${tdto.rDate} </td>
-      <td> ${tdto.rTime} </td>
+      <td> ${tdto.showDate} </td>
+      <td> ${tdto.showTime} </td>
       <td>
         <a href="/admin/time/delete?timeId=${tdto.timeId}&perfId=${perfId}"> 삭제 </a>
       </td>

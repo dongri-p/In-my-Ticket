@@ -9,7 +9,7 @@
 </head>
 <body> <!-- /admin/time/tmanage.jsp -->
   <h2> ${perfId}번 공연 관리 </h2>
-  <form method="post" action="/admin/time/taction">
+  <form method="post" action="/admin/time/tinsert">
     <input type="hidden" name="perfId" value="${perfId}">
     날짜 : <input type="date" name="showDate" required>
     시간 : <input type="time" name="showTime" required>

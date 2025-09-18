@@ -11,6 +11,8 @@ import com.example.demo.admin.mapper.AdTimeMapper;
 import com.example.demo.performance.PerfDto;
 import com.example.demo.performance.PerfMapper;
 
+import jakarta.servlet.http.HttpServletRequest;
+
 @Service
 public class AdTimeService {
 	
@@ -37,6 +39,22 @@ public class AdTimeService {
 		model.addAttribute("plist", plist);
 		
 		return "/admin/time/tlist";
+	}
+
+	public String tinsert(HttpServletRequest request)
+	{
+		int perfId=Integer.parseInt(request.getParameter("perfId"));
+		String showDate=request.getParameter("showDate");
+		String showTime=request.getParameter("showTime");
+		
+		AdTimeDto tdto=new AdTimeDto();
+		tdto.setPerfId(perfId);
+		tdto.setShowDate(showDate);
+		tdto.setShowTime(showTime);
+		
+		mapper.tinsert(tdto);
+		
+		return "redirect:/admin/time/tmanage?perfId="+perfId;
 	}
 
 }

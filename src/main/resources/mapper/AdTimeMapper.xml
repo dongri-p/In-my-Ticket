@@ -13,7 +13,7 @@
     where perfId=#{perfId}
   </select>
   
-  <insert id="tinsert">
+  <insert id="tinsert" useGeneratedKeys="true" keyProperty="timeId">
     insert into performance_time (perfId, showDate, showTime)
     values (#{perfId}, #{showDate}, #{showTime})
   </insert>

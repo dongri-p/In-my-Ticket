@@ -83,6 +83,7 @@ public class AdTimeService {
 		for(AdSeatDto sdto : seatList)
 		{
 			seatMapper.insertSeat(sdto);
+			System.out.println(">>> seat 생성 중: " + sdto.toString());
 		}
 		
 		return "redirect:/admin/time/tmanage?perfId="+perfId;

@@ -57,4 +57,10 @@ public class AdTimeService {
 		return "redirect:/admin/time/tmanage?perfId="+perfId;
 	}
 
+	public String tdelete(int perfId, int timeId)
+	{
+		
+		return null;
+	}
+
 }

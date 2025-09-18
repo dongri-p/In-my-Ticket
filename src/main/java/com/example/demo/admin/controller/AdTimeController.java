@@ -41,6 +41,12 @@ public class AdTimeController {
 		return service.tinsert(request);
 	}
 	
+	@GetMapping("/tdelete")
+	public String tdelete(@RequestParam int perfId, @RequestParam int timeId)
+	{
+		return service.tdelete(perfId, timeId);
+	}
+	
 	
 
 }

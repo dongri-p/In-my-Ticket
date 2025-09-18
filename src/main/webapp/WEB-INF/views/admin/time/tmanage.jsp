@@ -11,8 +11,8 @@
   <h2> ${perfId}번 공연 관리 </h2>
   <form method="post" action="/admin/time/taction">
     <input type="hidden" name="perfId" value="${perfId}">
-    날짜 : <input type="date" name="rDate" required>
-    시간 : <input type="time" name="rTime" required>
+    날짜 : <input type="date" name="showDate" required>
+    시간 : <input type="time" name="showTime" required>
     <button type="submit"> 회차 추가 </button> 
   </form>
   

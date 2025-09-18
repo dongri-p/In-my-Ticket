@@ -29,7 +29,7 @@
       <td> ${tdto.showDate} </td>
       <td> ${tdto.showTime} </td>
       <td>
-        <a href="/admin/time/delete?timeId=${tdto.timeId}&perfId=${perfId}"> 삭제 </a>
+        <a href="/admin/time/tdelete?timeId=${tdto.timeId}&perfId=${perfId}"> 삭제 </a>
       </td>
     </tr>
    </c:forEach> 

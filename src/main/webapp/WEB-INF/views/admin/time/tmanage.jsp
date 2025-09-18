@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body> <!-- /admin/time/tmanage.jsp -->
-  <h2> ${perfId}번 공연 관리 </h2>
+  <h2> ${perfId}번 공연 (${title}) 관리 </h2>
   <form method="post" action="/admin/time/tinsert">
     <input type="hidden" name="perfId" value="${perfId}">
     날짜 : <input type="date" name="showDate" required>

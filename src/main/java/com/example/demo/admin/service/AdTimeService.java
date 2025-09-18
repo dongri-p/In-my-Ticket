@@ -25,9 +25,11 @@ public class AdTimeService {
 	public String tmanage(int perfId, Model model)
 	{
 		List<AdTimeDto> tlist=mapper.getTlist(perfId);
+		String title=perfMapper.getTitle(perfId);
 		
 		model.addAttribute("tlist", tlist);
 		model.addAttribute("perfId", perfId);
+		model.addAttribute("title", title);
 		
 		return "/admin/time/tmanage";
 	}

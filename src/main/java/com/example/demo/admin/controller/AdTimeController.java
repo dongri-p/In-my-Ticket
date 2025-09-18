@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.demo.admin.dto.AdTimeDto;
 import com.example.demo.admin.service.AdTimeService;
 import com.example.demo.performance.PerfDto;
 import com.example.demo.performance.PerfMapper;
@@ -36,9 +37,9 @@ public class AdTimeController {
 	}
 	
 	@PostMapping("/tinsert")
-	public String tinsert(HttpServletRequest request)
+	public String tinsert(HttpServletRequest request, AdTimeDto tdto)
 	{
-		return service.tinsert(request);
+		return service.tinsert(request, tdto);
 	}
 	
 	@GetMapping("/tdelete")

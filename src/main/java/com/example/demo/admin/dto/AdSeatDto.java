@@ -4,7 +4,6 @@ import lombok.Data;
 
 @Data
 public class AdSeatDto {
-	private String seatId, perfId, timeId, seatCol;
-	private char seatRow;
-	private boolean reserved;
+	private int seatId, perfId, timeId, seatCol, reserved;
+	private String seatRow;
 }

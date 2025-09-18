@@ -4,7 +4,8 @@
 <mapper namespace="com.example.demo.admin.mapper.AdSeatMapper">
 
   <insert id="insertSeat">
-    insert into performance_seat (timeId, )
+    insert into performance_seat (perfId, timeId, seatRow, seatCol, reserved)
+    values (#{perfId}, #{timeId}, #{seatRow}, #{seatCol}, #{reserved})
   </insert>
 
 </mapper>

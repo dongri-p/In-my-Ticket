@@ -10,5 +10,6 @@ import com.example.demo.admin.dto.AdTimeDto;
 public interface AdTimeMapper {
 	List<AdTimeDto> getTlist(int perfId);
 	void tinsert(AdTimeDto tdto);
+	void tdelete(int timeId);
 
 }

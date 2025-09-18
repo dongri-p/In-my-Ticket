@@ -12,5 +12,9 @@
     insert into performance_time (perfId, showDate, showTime)
     values (#{perfId}, #{showDate}, #{showTime})
   </insert>
+  
+  <delete id="tdelete">
+    delete from performance_time where timeId=#{timeId}
+  </delete>
 
 </mapper>

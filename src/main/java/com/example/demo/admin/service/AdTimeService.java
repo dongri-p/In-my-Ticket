@@ -59,8 +59,9 @@ public class AdTimeService {
 
 	public String tdelete(int perfId, int timeId)
 	{
+		mapper.tdelete(timeId);
 		
-		return null;
+		return "redirect:/admin/time/tmanage?perfId="+perfId;
 	}
 
 }

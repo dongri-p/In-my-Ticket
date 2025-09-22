@@ -7,5 +7,5 @@ import com.example.demo.admin.dto.AdSeatDto;
 @Mapper
 public interface AdSeatMapper {
 	void insertSeat(AdSeatDto sdto);
-
+	void sdelete(int timeId);
 }

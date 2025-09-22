@@ -7,5 +7,9 @@
     insert into performance_seat (perfId, timeId, seatRow, seatCol, reserved)
     values (#{perfId}, #{timeId}, #{seatRow}, #{seatCol}, #{reserved})
   </insert>
+  
+  <delete id="sdelete">
+    delete from performance_seat where timeId=#{timeId}
+  </delete>
 
 </mapper>

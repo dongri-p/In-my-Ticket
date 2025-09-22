@@ -28,16 +28,9 @@ public class PerfService {
 		return "/performance/list";
 	}
 
-	public String pDetail(HttpServletRequest request, Model model)
-	{
-		String perfId=request.getParameter("perfId");
-		
-		if(perfId == null || perfId.isEmpty())
-		{
-			return "redirect:/main/index";
-		}
-		
-		PerfDto pdto=mapper.pDetail(perfId);
+	public String pDetail(int perfId, Model model)
+	{	
+		PerfDto pdto=mapper.pDetail(String.valueOf(perfId));
 		
 		String mt20id=pdto.getMt20id();
 		PerfDto detailDto=kopisApiService.fetchDetail(mt20id);

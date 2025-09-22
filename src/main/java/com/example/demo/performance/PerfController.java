@@ -24,9 +24,9 @@ public class PerfController {
 	}
 	
 	@GetMapping("/performance/pDetail")
-	public String pDetail(HttpServletRequest request, Model model)
+	public String pDetail(@RequestParam int perfId, Model model)
 	{
-		return pService.pDetail(request, model);
+		return pService.pDetail(perfId, model);
 	}
 	
 	

@@ -22,5 +22,13 @@
     delete from performance_time where timeId=#{timeId}
   </delete>
   
+  <select id="getTimes" resultType="map">
+    select t.timeId, t.showDate, t.showTime, count(s.seatId)
+    as availableSeats from performance_time t left join
+    performance_seat s on t.timeId = s.timeId and s.reserved = 0
+    where t.perfId=#{perfId} group by t.timeId, t.showDate, t.showTime
+    order by t.showDate, t.showTime
+  </select>
+  
 
 </mapper>

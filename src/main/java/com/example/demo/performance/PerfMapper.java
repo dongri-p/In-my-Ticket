@@ -13,4 +13,5 @@ public interface PerfMapper {
 	public List<PerfDto> selectGenre(String genre);
 	public PerfDto pDetail(String perfId);
 	public String getTitle(int perfId);
+	public List<ShowDto> getShowList(int perfId);
 }

@@ -68,6 +68,8 @@
             window.open("../reservation/selectSeat", "width=600,height=500");
         }
     }
+    
+    
   </script>
 </head>
 <body> <!-- /performance/pDetail.jsp -->
@@ -88,9 +90,17 @@
      </div>
      
      <div class="cinfo">
-       
+       <span class="label"> 예매 가능 시간 </span>
+       <select id="selectTime" onchange=""> </select>
      </div>
+     
+     <div class="cinfo">
+       <span class="label"> 잔여좌석 </span>
+       <span id="remainSeat"> - </span>
+     </div>
+     
       <button id="btn" onclick="reservation()"> 예매하기 </button>
+      
     </div>
   </div>
 </body>

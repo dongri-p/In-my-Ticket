@@ -68,7 +68,34 @@
             window.open("../reservation/selectSeat", "width=600,height=500");
         }
     }
+    function getShowDate(perfId)
+    {
+    	var chk=new
+    }
     
+    function getShowTime(perfId, selectedDate)
+    {
+    	var chk=new XMLHttpRequest();
+    	chk.onload=function()
+    	{
+    		if(chk.status == 200)
+    		{
+    			var data=JSON.parse(chk.responseText);
+    			var timeSelect=document.getElementById("showTime");
+    			timeSelect.innerHTML="";
+    			
+    			data.forEach(function(time)
+    			{
+    				var option=document.createElement("option");
+    				option.value=time.time;
+    				option.text=time.time + "(잔여좌석 : " time.remainSeat +  "석)";
+    				timeSelect.appendChild(option);
+    			});
+    		}
+    	};
+    	chk.open("get", "/performance/getShowTime?perfId="+perfId+"&showDate="selectedDate, true);
+    	chk.send();
+    }
     
   </script>
 </head>
@@ -86,12 +113,12 @@
       
      <div class="cinfo">
        <span class="label"> 예매 가능 날짜 </span>
-       <select id="selectDate" onchange=""> </select>
+       <select id="showtDate" onchange="getShowDate"> </select>
      </div>
      
      <div class="cinfo">
        <span class="label"> 예매 가능 시간 </span>
-       <select id="selectTime" onchange=""> </select>
+       <select id="showTime" onchange="getShowTime"> </select>
      </div>
      
      <div class="cinfo">

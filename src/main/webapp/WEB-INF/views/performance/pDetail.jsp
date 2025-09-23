@@ -132,7 +132,7 @@
       
      <div class="cinfo">
        <span class="label"> 예매 가능 날짜 </span>
-       <select id="showtDate" onchange="getShowDate(${pdto.perfId}, this.value)"> </select>
+       <select id="showDate" onchange="getShowDate(${pdto.perfId}, this.value)"> </select>
      </div>
      
      <div class="cinfo">

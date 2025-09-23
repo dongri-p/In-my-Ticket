@@ -127,7 +127,9 @@
         }
         else
         {
-            window.open("../reservation/selectSeat", "width=600,height=500");
+            var date=document.getElementById("showDate").value;
+            var time=document.getElementById("showTime").value;
+            window.open("../reservation/selectSeat?perfId=${pdto.perfId}&date=" + date + "&time=" + time, "width=600,height=500");
         }
     }
     

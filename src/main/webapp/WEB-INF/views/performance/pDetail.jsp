@@ -70,7 +70,26 @@
     }
     function getShowDate(perfId)
     {
-    	var chk=new
+    	var chk=new XMLHttpRequest();
+    	chk.onload=function()
+    	{
+    	    if(chk.status == 200) // 서버에서 정상 응답이 왔을 때만 실행
+    	    {
+    	        var data=JSON.parse(chk.responseText);
+    	        var dateSelect=document.getElementById("showDate");
+    	        dateSelect.innerHTML="";
+    	        
+    	        data.forEach(function(date)
+    	        {
+    	            var option=document.createElement("option");
+    	            option.value=date;
+    	            option.text=date;
+    	            dateSelect.appendChild(option);
+    	        });
+    	    }
+    	};
+    	chk.open("get", "/performance/getShowDate?perfId="+perfId, true);
+    	chk.send();
     }
     
     function getShowTime(perfId, selectedDate)
@@ -113,7 +132,7 @@
       
      <div class="cinfo">
        <span class="label"> 예매 가능 날짜 </span>
-       <select id="showtDate" onchange="getShowDate"> </select>
+       <select id="showtDate" onchange="getShowDate(${pdto.perfId, this.value})"> </select>
      </div>
      
      <div class="cinfo">

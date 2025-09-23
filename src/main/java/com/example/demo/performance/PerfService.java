@@ -38,7 +38,10 @@ public class PerfService {
 		pdto.setRuntime(detailDto.getRuntime());
 		pdto.setGrade(detailDto.getGrade());
 		
+		List<ShowDto> showList=mapper.getShowList(perfId);
+		
 		model.addAttribute("pdto", pdto);
+		model.addAttribute("showList", showList);
 		
 		 System.out.println("mt20id=" + mt20id + ", 관람시간=" + pdto.getRuntime() + ", 관람등급=" + pdto.getGrade());
 

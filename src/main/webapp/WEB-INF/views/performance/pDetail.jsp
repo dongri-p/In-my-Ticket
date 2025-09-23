@@ -55,19 +55,6 @@
     }
   </style>
   <script>
-    function reservation()
-    {
-        var loginCk="${sessionScope.userid}" !== "";
-        if(!loginCk)
-        {
-            alert("로그인 후 이용해주세요.");
-            location.href="/login/login";
-        }
-        else
-        {
-            window.open("../reservation/selectSeat", "width=600,height=500");
-        }
-    }
     function getShowDate(perfId)
     {
     	var chk=new XMLHttpRequest();
@@ -86,6 +73,11 @@
     	            option.text=date;
     	            dateSelect.appendChild(option);
     	        });
+    	        
+    	        if(data.length > 0) // 날짜 호출되면 자동으로 시간 호출
+    	        {
+    	            getShowTime(perfId, data[0]);
+    	        }
     	    }
     	};
     	chk.open("get", "/performance/getShowDate?perfId="+perfId, true);
@@ -110,15 +102,38 @@
     				option.text=time.time + "(잔여좌석 : " + time.remainSeat + "석)";
     				timeSelect.appendChild(option);
     			});
+    			
+    			if(data.length > 0) // 첫 시간의 잔여좌석 표시
+    			{
+    			    document.getElementById("remainSeat").innerText=data[0].remainSeat+"석";
+    			}
+    			else
+    			{
+    			    document.getElementById("remainSeat").innerText="";
+    			}
     		}
     	};
     	chk.open("get", "/performance/getShowTime?perfId="+perfId+"&showDate="selectedDate, true);
     	chk.send();
     }
     
+    function reservation()
+    {
+        var loginCk="${sessionScope.userid}" !== "";
+        if(!loginCk)
+        {
+            alert("로그인 후 이용해주세요.");
+            location.href="/login/login";
+        }
+        else
+        {
+            window.open("../reservation/selectSeat", "width=600,height=500");
+        }
+    }
+    
   </script>
 </head>
-<body> <!-- /performance/pDetail.jsp -->
+<body onload="getShowDate(${pdto.perfId})"> <!-- /performance/pDetail.jsp -->
   <div id="detail">
     <img src="${pdto.imageUrl}" id="poster" alt="이미지 없음">
     
@@ -132,12 +147,12 @@
       
      <div class="cinfo">
        <span class="label"> 예매 가능 날짜 </span>
-       <select id="showDate" onchange="getShowDate(${pdto.perfId}, this.value)"> </select>
+       <select id="showDate" onchange="getShowTime(${pdto.perfId}, this.value)"> </select>
      </div>
      
      <div class="cinfo">
        <span class="label"> 예매 가능 시간 </span>
-       <select id="showTime" onchange="getShowTime"> </select>
+       <select id="showTime"> </select>
      </div>
      
      <div class="cinfo">

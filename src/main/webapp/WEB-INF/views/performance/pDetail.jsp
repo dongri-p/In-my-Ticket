@@ -82,13 +82,14 @@
       <div class="cinfo"> <span class="label"> 공연 장소 </span> ${pdto.location} </div>
       <div class="cinfo"> <span class="label"> 관람 등급 </span> ${pdto.grade} </div>
       
-     <c:forEach var="show" items="${showList}">
-      <div class="cinfo">
-        <span class="label"> 예매 가능 </span>
-        ${show.showDate} / ${show.showTime}
-        &nbsp;&nbsp; (잔여좌석 : ${show.remainSeat}석)
-      </div>
-     </c:forEach> 
+     <div class="cinfo">
+       <span class="label"> 예매 가능 날짜 </span>
+       <select id="selectDate" onchange=""> </select>
+     </div>
+     
+     <div class="cinfo">
+       
+     </div>
       <button id="btn" onclick="reservation()"> 예매하기 </button>
     </div>
   </div>

@@ -15,6 +15,6 @@ public interface PerfMapper {
 	public PerfDto pDetail(String perfId);
 	public String getTitle(int perfId);
 	public List<String> getShowDate(int perfId);
-	List<String> getShowTime(@Param("perfId") int perfId, @Param("showDate") String showDate);
+	List<ShowDto> getShowTime(@Param("perfId") int perfId, @Param("showDate") String showDate);
 	int getRemainSeat(@Param("perfId") int perfId, @Param("showDate") String showDate,  @Param("showTime") String showTime);
 }

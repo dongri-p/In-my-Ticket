@@ -51,7 +51,7 @@ public class PerfService {
 		return mapper.getShowDate(perfId);
 	}
 	
-	public List<String> getShowTime(int perfId, String showDate)
+	public List<ShowDto> getShowTime(int perfId, String showDate)
 	{
 		return mapper.getShowTime(perfId, showDate);
 	}

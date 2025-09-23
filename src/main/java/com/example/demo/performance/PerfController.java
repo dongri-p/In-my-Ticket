@@ -32,7 +32,7 @@ public class PerfController {
 		return pService.pDetail(perfId, model);
 	}
 	
-	@GetMapping("pathformance/getShowDate")
+	@GetMapping("/performance/getShowDate")
 	@ResponseBody
 	public List<String> getShowDate(@RequestParam int perfId)
 	{
@@ -41,7 +41,7 @@ public class PerfController {
 	
 	@GetMapping("/performance/getShowTime")
 	@ResponseBody
-	public List<String> getShowTime(@RequestParam int perfId, @RequestParam String showDate)
+	public List<ShowDto> getShowTime(@RequestParam int perfId, @RequestParam String showDate)
 	{
 	    return pService.getShowTime(perfId, showDate);
 	}

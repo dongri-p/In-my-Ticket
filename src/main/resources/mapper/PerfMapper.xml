@@ -36,7 +36,7 @@
     perfId=#{perfId} order by showDate
   </select>
   
-  <select id="getShowTime" resultType="String">
+  <select id="getShowTime" resultType="com.example.demo.performance.ShowDto">
     select showTime from performance_time where perfId=#{perfId}
     and showDate=#{showDate} order by showTime
   </select>

@@ -98,8 +98,8 @@
     			data.forEach(function(time)
     			{
     				var option=document.createElement("option");
-    				option.value=time.time;
-    				option.text=time.time + "(잔여좌석 : " + time.remainSeat + "석)";
+    				option.value=time.showTime;
+    				option.text=time.showTime + "(잔여좌석 : " + time.remainSeat + "석)";
     				timeSelect.appendChild(option);
     			});
     			

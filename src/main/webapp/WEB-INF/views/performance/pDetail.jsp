@@ -113,7 +113,7 @@
     			}
     		}
     	};
-    	chk.open("get", "/performance/getShowTime?perfId="+perfId+"&showDate="selectedDate, true);
+    	chk.open("get", "/performance/getShowTime?perfId=" + perfId + "&showDate=" + selectedDate, true);
     	chk.send();
     }
     
@@ -132,6 +132,11 @@
             window.open("../reservation/selectSeat?perfId=${pdto.perfId}&date=" + date + "&time=" + time, "width=600,height=500");
         }
     }
+    
+    window.onload=function()
+    {
+    	getShowDate(${pdto.perfId});
+    };
     
   </script>
 </head>

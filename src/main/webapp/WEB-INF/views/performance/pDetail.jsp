@@ -154,7 +154,7 @@
       
      <div class="cinfo">
        <span class="label"> 예매 가능 날짜 </span>
-       <select id="showDate" onchange="getShowTime(${pdto.perfId}, this.value)"> </select>
+       <input type="date" id="showDate" onchange="getShowTime(${pdto.perfId}, this.value)">
      </div>
      
      <div class="cinfo">

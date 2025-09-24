@@ -163,8 +163,8 @@
      </div>
      
      <div class="cinfo">
-       <span class="label"> 잔여좌석 </span>
-       <span id="remainSeat"> - </span>
+       <span class="label"> 총 좌석 수 </span>
+       <span id="remainSeat"> 20석 </span>
      </div>
      
       <button id="btn" onclick="reservation()"> 예매하기 </button>

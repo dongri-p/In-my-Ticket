@@ -129,7 +129,10 @@
         {
             var date=document.getElementById("showDate").value;
             var time=document.getElementById("showTime").value;
-            window.open("../reservation/selectSeat?perfId=${pdto.perfId}&date=" + date + "&time=" + time, "width=600,height=500");
+            var perfId=${pdto.perfId};
+            window.open("/reservation/selectSeat?perfId=${perfId}&date=${date}&time=${time}",
+            	"좌석선택",
+            	"width=800,height=600,scrollbars=yes");
         }
     }
     

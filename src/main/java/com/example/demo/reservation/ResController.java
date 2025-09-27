@@ -17,4 +17,5 @@ public class ResController {
 	{
 		return service.selectSeat(session);
 	}
+	
 }

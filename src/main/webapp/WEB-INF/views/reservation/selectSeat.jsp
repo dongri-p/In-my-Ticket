@@ -27,7 +27,18 @@
   <script>
     function reservation()
     {	
-    		
+    	var loginCk=-"${sessionScope.userid}" !== "";
+    	if(!loginCk)
+    	{
+    		alert("로그인 후 이용해주세요.");
+    		location.href="/login/login";
+    		return;
+    	}
+    	
+    	var perfId=${pdto.perfId};
+    	var date=document.getElementById("showDate").value;
+    	var time=document.getElementById("showTIme").value;
+    	var seatId=document.querySelector(".seat.selected")?.dataset.seatId;
     }
   </script>
 </head>

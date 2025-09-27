@@ -39,6 +39,21 @@
     	var date=document.getElementById("showDate").value;
     	var time=document.getElementById("showTIme").value;
     	var seatId=document.querySelector(".seat.selected")?.dataset.seatId;
+    	
+    	if(!seatId)
+    	{
+    		alert("좌석을 선택해주세요.");
+    		return;
+    	}
+    	
+    	var chk=new XMLHttpRequest();
+    	chk.onload=function()
+    	{
+    		if(chk.statue === 200) // ===엄격비교, ==느슨한 비교
+    		{
+    			alert("예약이 완료되었습니다");
+    		}
+    	};
     }
   </script>
 </head>

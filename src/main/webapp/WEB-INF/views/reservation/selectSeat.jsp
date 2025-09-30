@@ -25,6 +25,8 @@
     }
   </style>
   <script>
+    let selectedSeatId=null;
+  
     function reservation()
     {	
     	var loginCk=-"${sessionScope.userid}" !== "";

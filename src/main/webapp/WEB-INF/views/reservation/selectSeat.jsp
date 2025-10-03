@@ -51,7 +51,7 @@
     	var chk=new XMLHttpRequest();
     	chk.onload=function()
     	{
-    		if(chk.statue === 200) // ===엄격비교, ==느슨한 비교
+    		if(chk.status === 200) // ===엄격비교, ==느슨한 비교
     		{
     			alert("예약이 완료되었습니다");
     		}

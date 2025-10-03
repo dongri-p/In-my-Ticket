@@ -60,6 +60,22 @@
   </script>
 </head>
 <body> <!-- /reservation/selectSeat.jsp -->
-
+  <div id="seatCon">
+    <h2> 좌석을 선택해주세요 </h2>
+    
+   <c:forEach var="" items="">
+   
+    
+  </c:forEach>
+  
+   <input type="hidden" id="perfId" value="">
+   <input type="hidden" id="date" value="">
+   <input type="hidden" id="time" value="">
+   <input type="hidden" id="seatId" value="">
+   
+   <br>
+   
+   <button id="pay" onclick=""> 결제하기 </button>
+  </div>
 </body>
 </html>

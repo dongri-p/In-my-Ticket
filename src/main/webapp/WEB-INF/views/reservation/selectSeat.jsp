@@ -7,21 +7,61 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
   <style>
-    .seat {
-      width:40px;
-      height:40px;
-      margin:5px;
-      background:#83BDBF;
-      border:none;
-      border-radius:5px;
-      cursor:pointer;
+    #seat-container {
+      width:350px;
+      margin:40px auto;
+      display:grid;
+      grid-template-columns:repeat(5, 60px);
+      gap:10px;
+      justify-content:center;
     }
-    .reserved {
-      background:gray;
+
+    .seat {
+      width:60px;
+      height:60px;
+      background-color:#83BDBF;
+      border:none;
+      border-radius:8px;
+      font-weight:bold;
+      color:white;
+      text-align:center;
+      line-height:60px;
+      cursor:pointer;
+      font-size:16px;
+      transition:background-color 0.3s;
+    }
+
+    .seat:hover {
+      background-color:#5aa7aa;
+    }
+
+    .seat.selected {
+      background-color:#FFA500;
+    }
+
+    .seat.reserved {
+      background-color:gray;
       cursor:not-allowed;
     }
-    .selected {
-      background:#FFA500;
+
+    #bottom-box {
+      text-align:center;
+      margin-top:30px;
+    }
+
+    #pay-btn {
+      padding:12px 24px;
+      background-color:#83BDBF;
+      color:white;
+      border:none;
+      border-radius:6px;
+      font-size:18px;
+      cursor:pointer;
+    }
+
+    #pay-btn:hover {
+      background-color:#5aa7aa;
+      color:black;
     }
   </style>
   <script>
@@ -32,72 +72,56 @@
     	if(seatElement.classList.contains("reserved"))		
     		return;
     	
-    	const currentSelected=document.querySelector(".seat.selected"); // 기존 선택된 좌석 해제
+    	// 기존 선택된 좌석 해제
+    	const currentSelected=document.querySelector(".seat.selected");
     	if(currentSelected)
     	{
     		currendSelected.classList.remove("selected");
     	}
     	
-    	seatElement.classList.add("selected"); // 새좌석 선택
+    	// 새좌석 선택
+    	seatElement.classList.add("selected");
     	selectedSeatId=seatId;
     }
     
-    function payment()
+    function goPayment()
     {
+    	const perfId=document.getElementById("perfId").value;
+    	const date=document.getElementById("date").value;
+    	const time=document.getElementById("time").value;
     	
-    }
-  
-    function reservation()
-    {	
-    	var loginCk=-"${sessionScope.userid}" !== "";
-    	if(!loginCk)
-    	{
-    		alert("로그인 후 이용해주세요.");
-    		location.href="/login/login";
-    		return;
-    	}
-    	
-    	var perfId=${pdto.perfId};
-    	var date=document.getElementById("showDate").value;
-    	var time=document.getElementById("showTIme").value;
-    	var seatId=document.querySelector(".seat.selected")?.dataset.seatId;
-    	
-    	if(!seatId)
+    	if(!selectedSeatId)
     	{
     		alert("좌석을 선택해주세요.");
     		return;
     	}
     	
-    	var chk=new XMLHttpRequest();
-    	chk.onload=function()
-    	{
-    		if(chk.status === 200) // ===엄격비교, ==느슨한 비교
-    		{
-    			alert("예약이 완료되었습니다");
-    		}
-    	};
+    	const url="/reservation/payment?perfId=" + perfId +
+    			"&date=" + date + "&time=" + time +
+    			"&seatId=" + selectedSeatId;
+    	
+    	window.open(url, "결제하기", "width=800,height=600,scrollbars=yes");
     }
+  
   </script>
 </head>
 <body> <!-- /reservation/selectSeat.jsp -->
   <div id="seatCon">
-    <h2> 좌석을 선택해주세요 </h2>
-    
    <c:forEach var="seat" items="${seatList}">
-    <div class="seat ${seat.reserved == 1 ? 'reserved' : ''}" onclick="selectSeat(this, '${seat.seatId}')">
+    <div class="seat ${seat.reserved == 1 ? 'reserved' : ''}"
+    	onclick="selectSeat(this, '${seat.seatId}')">
       ${seat.seatName}
     </div> 
-    
    </c:forEach>
-  
-   <input type="hidden" id="perfId" value="${param.perfId}">
-   <input type="hidden" id="date" value="${param.date}">
-   <input type="hidden" id="time" value="${param.time}">
-   <input type="hidden" id="seatId" value="">
-   
-   <br>
-   
-   <button id="pay" onclick="payment()"> 결제하기 </button>
   </div>
+  
+	<div id="box">  
+      <input type="hidden" id="perfId" value="${param.perfId}">
+      <input type="hidden" id="date" value="${param.date}">
+      <input type="hidden" id="time" value="${param.time}">
+      <input type="hidden" id="seatId" value="">
+      <button id="pay" onclick="goPayment()"> 결제하기 </button>
+    </div>
+  
 </body>
 </html>

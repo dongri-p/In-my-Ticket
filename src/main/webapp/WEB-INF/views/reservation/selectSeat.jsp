@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
   <style>
-    #seat-container {
+    #seatCon {
       width:350px;
       margin:40px auto;
       display:grid;
@@ -44,12 +44,12 @@
       cursor:not-allowed;
     }
 
-    #bottom-box {
+    #box {
       text-align:center;
       margin-top:30px;
     }
 
-    #pay-btn {
+    #pay {
       padding:12px 24px;
       background-color:#83BDBF;
       color:white;
@@ -59,7 +59,7 @@
       cursor:pointer;
     }
 
-    #pay-btn:hover {
+    #pay:hover {
       background-color:#5aa7aa;
       color:black;
     }

@@ -26,6 +26,8 @@
   </style>
   <script>
     let selectedSeatId=null;
+    
+    function selectSeat(seat, seatId)
   
     function reservation()
     {	
@@ -63,19 +65,21 @@
   <div id="seatCon">
     <h2> 좌석을 선택해주세요 </h2>
     
-   <c:forEach var="" items="">
-   
+   <c:forEach var="seat" items="${seatList}">
+    <div class="seat ${seat.reserved == 1 ? 'reserved' : ''}" onclick="selectSeat(this, '${seat.seatId}')">
+      ${seat.seatName}
+    </div> 
     
-  </c:forEach>
+   </c:forEach>
   
-   <input type="hidden" id="perfId" value="">
-   <input type="hidden" id="date" value="">
-   <input type="hidden" id="time" value="">
+   <input type="hidden" id="perfId" value="${param.perfId}">
+   <input type="hidden" id="date" value="${param.date}">
+   <input type="hidden" id="time" value="${param.time}">
    <input type="hidden" id="seatId" value="">
    
    <br>
    
-   <button id="pay" onclick=""> 결제하기 </button>
+   <button id="pay" onclick="payment()"> 결제하기 </button>
   </div>
 </body>
 </html>

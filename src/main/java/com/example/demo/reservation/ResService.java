@@ -1,6 +1,8 @@
 package com.example.demo.reservation;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,9 +20,17 @@ public class ResService {
 
 	public String selectSeat(int perfId, String date, String time, Model model)
 	{
-		List<AdSeatDto> seatList=mapper.getSeatList(perfId, date, time);
+		Map<String, Object> paramMap=new HashMap<>();
+		paramMap.put("perfId", perfId);
+		paramMap.put("showDate", date);
+		paramMap.put("showTime", time);
+	
+		List<AdSeatDto> seatList=mapper.getSeatList(paramMap);
 		
 		model.addAttribute("seatList", seatList);
+		model.addAttribute("perfId", perfId);
+		model.addAttribute("date", date);
+		model.addAttribute("time", time);
 		
 		return "/reservation/selectSeat";
 	}

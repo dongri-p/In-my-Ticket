@@ -110,7 +110,7 @@
    <c:forEach var="seat" items="${seatList}">
     <div class="seat ${seat.reserved == 1 ? 'reserved' : ''}"
     	onclick="selectSeat(this, '${seat.seatId}')">
-      ${seat.seatName}
+      ${seat.seatRow}${seat.seatCol}
     </div> 
    </c:forEach>
   </div>

@@ -6,7 +6,8 @@
   <select id="getSeatList" resultType="com.example.demo.admin.dto.AdSeatDto">
     select ps.seatId, ps.perfId, ps.timeId, ps.seatCol, ps.seatRow, ps.reserved
     from performance_seat ps join performance_time pt on ps.timeId=pt.timeId
-    where pt.perfId=#{perfId} and pt.showDate=#{showDate} and pt.showTime=#{showTime}
+    where pt.perfId = #{perfId} and pt.showDate = #{showDate}
+    and pt.showTime = #{showTime}
     order by ps.seatRow asc, ps.seatCol asc
   </select>
 

@@ -27,7 +27,25 @@
   <script>
     let selectedSeatId=null;
     
-    function selectSeat(seat, seatId)
+    function selectSeat(seatElement, seatId)
+    {
+    	if(seatElement.classList.contains("reserved"))		
+    		return;
+    	
+    	const currentSelected=document.querySelector(".seat.selected"); // 기존 선택된 좌석 해제
+    	if(currentSelected)
+    	{
+    		currendSelected.classList.remove("selected");
+    	}
+    	
+    	seatElement.classList.add("selected"); // 새좌석 선택
+    	selectedSeatId=seatId;
+    }
+    
+    function payment()
+    {
+    	
+    }
   
     function reservation()
     {	

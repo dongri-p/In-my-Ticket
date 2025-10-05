@@ -3,6 +3,12 @@
 
 <mapper namespace="com.example.demo.reservation.ResMapper">
 
+  <select id="getSeatList" resultType="com.example.demo.admin.dto.AdSeatDto">
+    select ps.seatId, ps.seatName, ps.reserved from performance_seat ps
+    join performance_time pt on ps.timeId=pt.timeId where pt.perfId=#{perfId}
+    and pt.showDate=#{showDate} and pt.showTime=#{showTime}
+    order by ps.seatId asc
+  </select>
 
 
 </mapper>

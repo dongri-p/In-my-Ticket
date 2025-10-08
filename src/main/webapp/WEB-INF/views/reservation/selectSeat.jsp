@@ -76,7 +76,7 @@
     	const currentSelected=document.querySelector(".seat.selected");
     	if(currentSelected)
     	{
-    		currendSelected.classList.remove("selected");
+    		currentSelected.classList.remove("selected");
     	}
     	
     	// 새좌석 선택

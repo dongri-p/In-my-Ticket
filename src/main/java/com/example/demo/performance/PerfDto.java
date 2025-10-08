@@ -7,6 +7,7 @@ public class PerfDto {
 	private int perfId;
 	private String title,location,startDate,endDate,imageUrl;
 	private String genre,mt20id,runtime,grade;
+	private int price;
 	
 	@Override
     public String toString()

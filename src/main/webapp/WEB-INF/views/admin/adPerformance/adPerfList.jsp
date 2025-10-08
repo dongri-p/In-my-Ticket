@@ -29,7 +29,7 @@
       <td> ${pdto.genre} </td>
       <td>
         <a href="update?perfId=${pdto.perfId}"> 수정 </a>
-        <a href="delete?perfId=${pdto.perfId}"> 수정 </a>
+        <a href="delete?perfId=${pdto.perfId}"> 삭제 </a>
       </td>
     </tr>
    </c:forEach> 

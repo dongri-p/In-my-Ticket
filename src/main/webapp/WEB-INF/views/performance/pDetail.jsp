@@ -95,21 +95,30 @@
     			var timeSelect=document.getElementById("showTime");
     			timeSelect.innerHTML="";
     			
-    			data.forEach(function(time)
+    			data.forEach(function(time, index)
     			{
     				var option=document.createElement("option");
     				option.value=time.showTime;
     				option.text=time.showTime + "(잔여좌석 : " + time.remainSeat + "석)";
+    				option.setAttribute("data-price", time.price);
     				timeSelect.appendChild(option);
     			});
     			
     			if(data.length > 0) // 첫 시간의 잔여좌석 표시
     			{
     			    document.getElementById("remainSeat").innerText=data[0].remainSeat+"석";
+    			    document.getElementById("showPrice").innerText=data[0].price.toLocalString()+"원";
     			}
     			else
     			{
     			    document.getElementById("remainSeat").innerText="";
+    			    document.getElementById("showPrice").innerText="";
+    			}
+    			
+    			timeSelect.onchange=function()
+    			{
+    			    const selected=timeSelect.selectedOptions[0];
+    			    
     			}
     		}
     	};
@@ -164,6 +173,11 @@
      <div class="cinfo">
        <span class="label"> 예매 가능 시간 </span>
        <select id="showTime"> </select>
+     </div>
+     
+     <div class="cinfo">
+       <span class="lable"> 가격 </span>
+       <select id="showPrice"> </select>
      </div>
      
      <div class="cinfo">

@@ -118,7 +118,8 @@
     			timeSelect.onchange=function()
     			{
     			    const selected=timeSelect.selectedOptions[0];
-    			    
+    			    const price=selected.getAttribute("data-price");
+    			    document.getElementById("showPrice").innerText=Number(price).toLocalString()+"원";
     			}
     		}
     	};

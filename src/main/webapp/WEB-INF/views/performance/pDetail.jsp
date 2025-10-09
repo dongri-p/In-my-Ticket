@@ -107,7 +107,7 @@
     			if(data.length > 0) // 첫 시간의 잔여좌석 표시
     			{
     			    document.getElementById("remainSeat").innerText=data[0].remainSeat+"석";
-    			    document.getElementById("showPrice").innerText=data[0].price.toLocalString()+"원";
+    			    document.getElementById("showPrice").innerText=data[0].price.toLocaleString()+"원";
     			}
     			else
     			{
@@ -119,7 +119,7 @@
     			{
     			    const selected=timeSelect.selectedOptions[0];
     			    const price=selected.getAttribute("data-price");
-    			    document.getElementById("showPrice").innerText=Number(price).toLocalString()+"원";
+    			    document.getElementById("showPrice").innerText=Number(price).toLocaleString()+"원";
     			}
     		}
     	};
@@ -177,8 +177,8 @@
      </div>
      
      <div class="cinfo">
-       <span class="lable"> 가격 </span>
-       <select id="showPrice"> </select>
+       <span class="label"> 가격 </span>
+       <span id="showPrice"> </span>
      </div>
      
      <div class="cinfo">

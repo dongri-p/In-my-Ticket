@@ -140,8 +140,9 @@
             var date=document.getElementById("showDate").value;
             var time=document.getElementById("showTime").value;
             var perfId="${pdto.perfId}";
+            var people=document.getElementById("people").value;
             
-            window.open("/reservation/selectSeat?perfId=" + perfId + "&date=" + date + "&time=" + time,
+            window.open("/reservation/selectSeat?perfId=" + perfId + "&date=" + date + "&time=" + time + "&people=" + people,
             	"좌석선택",
             	"width=800,height=600,scrollbars=yes");
         }

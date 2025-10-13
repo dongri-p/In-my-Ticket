@@ -176,6 +176,16 @@
        <select id="showTime"> </select>
      </div>
      
+     <div class="cinfro">
+       <span class="label"> 인원 수 </span>
+       <select id="people">
+         <option value="1"> 1명 </option>
+         <option value="2"> 2명 </option>
+         <option value="3"> 3명 </option>
+         <option value="4"> 4명 </option>
+       </select>
+     </div>
+     
      <div class="cinfo">
        <span class="label"> 가격 </span>
        <span id="showPrice"> </span>

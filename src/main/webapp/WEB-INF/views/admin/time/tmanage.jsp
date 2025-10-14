@@ -30,6 +30,16 @@
       <td> ${tdto.showDate} </td>
       <td> ${tdto.showTime} </td>
       <td>
+     <c:choose>
+       <c:when test="${tdto.price != null}">
+        ${tdto.price} 원
+       </c:when>
+       <c:otherwise>
+        미설정
+       </c:otherwise>
+     </c:choose>
+      </td>
+      <td>
         <a href="/admin/time/tdelete?timeId=${tdto.timeId}&perfId=${perfId}"> 삭제 </a>
       </td>
     </tr>

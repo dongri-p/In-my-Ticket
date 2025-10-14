@@ -13,10 +13,11 @@
     <input type="hidden" name="perfId" value="${perfId}">
     날짜 : <input type="date" name="showDate" required>
     시간 : <input type="time" name="showTime" required>
+    가격 : <input type="number" name="price" min="0" placeholder="가격 입력" required> 원
     <button type="submit"> 회차 추가 </button> 
   </form>
   
-  <table border="1">
+  <table border="1" cellspacing="0" cellpadding="8">
     <tr>
       <th> 번 호 </th>
       <th> 날 짜 </th>

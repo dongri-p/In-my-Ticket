@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class ShowDto {
 	private String showDate, showTime;
-	private int remainSeat;
+	private int remainSeat, price;
 }

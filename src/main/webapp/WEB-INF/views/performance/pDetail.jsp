@@ -106,7 +106,7 @@
     			
     			if(data.length > 0) // 첫 시간의 잔여좌석 표시
     			{
-    			    document.getElementById("remainSeat").innerText=data[0].remainSeat+"석";
+    			    document.getElementById("remainSeat").innerText=Number(data[0].remainSeat).toLocaleString() + "석";
     			    updatePrice(data[0].price);
     			}
     			else
@@ -194,7 +194,7 @@
        <select id="showTime"> </select>
      </div>
      
-     <div class="cinfro">
+     <div class="cinfo">
        <span class="label"> 인원 수 </span>
        <select id="peopleCount">
          <option value="1"> 1명 </option>

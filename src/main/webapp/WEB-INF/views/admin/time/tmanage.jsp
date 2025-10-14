@@ -13,10 +13,11 @@
     <input type="hidden" name="perfId" value="${perfId}">
     날짜 : <input type="date" name="showDate" required>
     시간 : <input type="time" name="showTime" required>
+    가격 : <input type="number" name="price" min="0" placeholder="가격 입력" required> 원
     <button type="submit"> 회차 추가 </button> 
   </form>
   
-  <table border="1">
+  <table border="1" cellspacing="0" cellpadding="8">
     <tr>
       <th> 번 호 </th>
       <th> 날 짜 </th>
@@ -28,6 +29,16 @@
       <td> ${tdto.timeId} </td>
       <td> ${tdto.showDate} </td>
       <td> ${tdto.showTime} </td>
+      <td>
+     <c:choose>
+       <c:when test="${tdto.price != null}">
+        ${tdto.price} 원
+       </c:when>
+       <c:otherwise>
+        미설정
+       </c:otherwise>
+     </c:choose>
+      </td>
       <td>
         <a href="/admin/time/tdelete?timeId=${tdto.timeId}&perfId=${perfId}"> 삭제 </a>
       </td>

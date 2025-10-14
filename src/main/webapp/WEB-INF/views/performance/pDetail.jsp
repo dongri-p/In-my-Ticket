@@ -106,8 +106,8 @@
     			
     			if(data.length > 0) // 첫 시간의 잔여좌석 표시
     			{
-    			    document.getElementById("remainSeat").innerText=data[0].remainSeat+"석";
-    			    document.getElementById("showPrice").innerText=data[0].price.toLocaleString()+"원";
+    			    document.getElementById("remainSeat").innerText=Number(data[0].remainSeat).toLocaleString() + "석";
+    			    updatePrice(data[0].price);
     			}
     			else
     			{
@@ -119,12 +119,19 @@
     			{
     			    const selected=timeSelect.selectedOptions[0];
     			    const price=selected.getAttribute("data-price");
-    			    document.getElementById("showPrice").innerText=Number(price).toLocaleString()+"원";
+    			    updatePrice(price);
     			}
     		}
     	};
     	chk.open("get", "/performance/getShowTime?perfId=" + perfId + "&showDate=" + selectedDate, true);
     	chk.send();
+    }
+    
+    function updatePrice(basePrice)
+    {
+    	const peopleCount=document.getElementById("peopleCount").value;
+    	const total=Number(basePrice) * Number(peopleCount);
+    	document.getElementById("showPrice").innerText=total.toLocaleString() + "원";
     }
     
     function reservation()
@@ -140,7 +147,11 @@
             var date=document.getElementById("showDate").value;
             var time=document.getElementById("showTime").value;
             var perfId="${pdto.perfId}";
+<<<<<<< HEAD
             var people=document.getElementById("people").value;
+=======
+            var people=document.getElementById("peopleCount").value;
+>>>>>>> branch 'master' of https://github.com/dongri-p/In-my-Ticket.git
             
             window.open("/reservation/selectSeat?perfId=" + perfId + "&date=" + date + "&time=" + time + "&people=" + people,
             	"좌석선택",
@@ -151,6 +162,16 @@
     window.onload=function()
     {
     	getShowDate(${pdto.perfId});
+    	
+    	document.getElementById("peopleCount").onchange=function()
+    	{
+    		const selected=document.getElementById("showTime").selectedOptions[0];
+    		if(selected)
+    		{
+    			const price=selected.getAttribute("data-price");
+    			updatePrice(price);
+    		}
+    	}
     };
     
   </script>
@@ -177,9 +198,9 @@
        <select id="showTime"> </select>
      </div>
      
-     <div class="cinfro">
+     <div class="cinfo">
        <span class="label"> 인원 수 </span>
-       <select id="people">
+       <select id="peopleCount">
          <option value="1"> 1명 </option>
          <option value="2"> 2명 </option>
          <option value="3"> 3명 </option>

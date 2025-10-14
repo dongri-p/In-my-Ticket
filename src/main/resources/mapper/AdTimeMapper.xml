@@ -14,8 +14,8 @@
   </select>
   
   <insert id="tinsert" useGeneratedKeys="true" keyProperty="timeId">
-    insert into performance_time (perfId, showDate, showTime)
-    values (#{perfId}, #{showDate}, #{showTime})
+    insert into performance_time (perfId, showDate, showTime, price)
+    values (#{perfId}, #{showDate}, #{showTime}, #{price})
   </insert>
   
   <delete id="tdelete">

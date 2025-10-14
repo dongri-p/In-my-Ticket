@@ -24,7 +24,7 @@
   
   <select id="pDetail" resultType="com.example.demo.performance.PerfDto" parameterType="String">
     select perfId,title,location,sDate as startDate,
-    eDate as endDate, imageUrl, genre, mt20id, price
+    eDate as endDate, imageUrl, genre, mt20id
     from performance where perfId=#{perfId}
   </select>
   
@@ -38,9 +38,10 @@
   </select>
   
   <select id="getShowTime" resultType="com.example.demo.performance.ShowDto">
-    select pt.showDate, pt.showTime, count(*) - sum(case when ps.reserved = 1 then 1 else 0 end)
+    select pt.showDate, pt.showTime, pt.price,
+    count(*) - sum(case when ps.reserved = 1 then 1 else 0 end)
     as remainSeat from performance_time pt join performance_seat ps on pt.timeId = ps.timeId
-    where pt.perfId=#{perfId} and pt.showDate=#{showDate} group by pt.showDate, pt.showTime
+    where pt.perfId=#{perfId} and pt.showDate=#{showDate} group by pt.showDate, pt.showTime, pt.price
     order by pt.showTime
   </select>
   

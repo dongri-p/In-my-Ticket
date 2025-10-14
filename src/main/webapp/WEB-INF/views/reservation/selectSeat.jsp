@@ -8,39 +8,36 @@
 <title>Insert title here</title>
   <style>
     #seatCon {
-      width:350px;
-      margin:40px auto;
+      width:500px;
+      margin:30px auto;
       display:grid;
-      grid-template-columns:repeat(5, 60px);
-      gap:10px;
-      justify-content:center;
+      grid-template-columns:repeat(5, 1fr);
+      gap:15px;
     }
 
     .seat {
-      width:60px;
-      height:60px;
+      width:70px;
+      height:70px;
       background-color:#83BDBF;
       border:none;
       border-radius:8px;
       font-weight:bold;
       color:white;
       text-align:center;
-      line-height:60px;
+      line-height:70px;
       cursor:pointer;
-      font-size:16px;
-      transition:background-color 0.3s;
     }
 
     .seat:hover {
       background-color:#5aa7aa;
     }
 
-    .seat.selected {
+    .selected {
       background-color:#FFA500;
     }
 
-    .seat.reserved {
-      background-color:gray;
+    .reserved {
+      background-color:#999;
       cursor:not-allowed;
     }
 
@@ -65,23 +62,29 @@
     }
   </style>
   <script>
-    let selectedSeatId=null;
+    let selectedSeatIds=[];
+    const maxPeople=${param.people};
     
     function selectSeat(seatElement, seatId)
     {
     	if(seatElement.classList.contains("reserved"))		
     		return;
     	
-    	// 기존 선택된 좌석 해제
-    	const currentSelected=document.querySelector(".seat.selected");
-    	if(currentSelected)
+    	if(seatElement.classList.contains("selected"))
     	{
-    		currentSelected.classList.remove("selected");
+    		seatElement.classList.remove("selected");
+    		selectedSeatIds=selectedSeatIds.filter(id => id !== seatId);
     	}
-    	
-    	// 새좌석 선택
-    	seatElement.classList.add("selected");
-    	selectedSeatId=seatId;
+    	else
+    	{
+    		if(selectedSeatIds.length >= maxPeople)
+    		{
+    			alert("선택 가능한 인원 수를 초과했습니다.");
+    			return;
+    		}
+    		seatElement.classList.add("selected");
+    		selectedSeatIds.push(seatId);
+    	}
     }
     
     function goPayment()
@@ -90,15 +93,17 @@
     	const date=document.getElementById("date").value;
     	const time=document.getElementById("time").value;
     	
-    	if(!selectedSeatId)
+    	if(selectedSeatIds.length !== maxPeople)
     	{
-    		alert("좌석을 선택해주세요.");
+    		alert("선택한 좌석 수가 인원 수와 일치하지 않습니다.");
     		return;
     	}
     	
+    	const seatParams=selectedSeatIds.map(id >= "seatIds=" + id).join("&");
+    	
     	const url="/reservation/payment?perfId=" + perfId +
     			"&date=" + date + "&time=" + time +
-    			"&seatId=" + selectedSeatId;
+    			"&" + seatParams;
     	
     	window.open(url, "결제하기", "width=800,height=600,scrollbars=yes");
     }
@@ -119,7 +124,6 @@
       <input type="hidden" id="perfId" value="${param.perfId}">
       <input type="hidden" id="date" value="${param.date}">
       <input type="hidden" id="time" value="${param.time}">
-      <input type="hidden" id="seatId" value="">
       <button id="pay" onclick="goPayment()"> 결제하기 </button>
     </div>
   

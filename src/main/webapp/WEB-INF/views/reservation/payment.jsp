@@ -45,6 +45,10 @@
         <input type="hidden" id="finalPrice" name="finalPrice">
       </form>
     </div>
+    
+    <div id="right">
+    
+    </div>
   </div>
 </body>
 </html>

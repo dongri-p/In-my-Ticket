@@ -7,23 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body> <!-- /reservation/payment.jsp -->
-  <div class="section">
-    <div>
-      <span class="label"> 이름 </span>
-      <input type="text" name="name">
-    </div>
-    <div>
-      <span class="label"> 연락처 </span>
-      <input type="text" name="phone">
-    </div>
-    <div>
-      <span class="label"> 이메일 </span>
-      <input type="email" name="email">
-    </div>
-  </div>
+  <div id="left">
   
-  <div class="section">
-    
   </div>
 </body>
 </html>

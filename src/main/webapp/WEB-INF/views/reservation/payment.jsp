@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body> <!-- /reservation/payment.jsp -->
-
+  <div>
+    <span> 공연 </span> 
+  </div>
 </body>
 </html>

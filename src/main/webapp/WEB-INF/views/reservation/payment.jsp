@@ -7,8 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body> <!-- /reservation/payment.jsp -->
-  <div id="left">
+  <div id="both">
   
+    <div id="left">
+      <form method="post" action="/reservation/comPay">
+        <div class="lgroup">
+          <label for="orderName"> 이름 </label>
+          <input type="text" id="orderName" name="orderName" required>
+        </div>
+      </form>
+    </div>
   </div>
 </body>
 </html>

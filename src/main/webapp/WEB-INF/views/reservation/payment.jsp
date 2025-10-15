@@ -47,7 +47,17 @@
     </div>
     
     <div id="right">
-    
+      <div class="summary">
+        <div class="summaryItem">
+          <span> 티켓 금액 (${param.people}명) </span>
+          <span> ${param.price}원 x ${param.people} </span>
+        </div>
+        
+        <div class="summaryTotal">
+          <span> 총 결제 금액 </span>
+          <span id="totalPrice">  </span>
+        </div>
+      </div>
     </div>
   </div>
 </body>

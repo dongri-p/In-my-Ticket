@@ -36,7 +36,13 @@
           </select>
         </div>
         
-        
+        <input type="hidden" name="perfId" value="${param.perfId}">
+        <input type="hidden" name="date" value="${param.date}">
+        <input type="hidden" name="time" value="${param.time}">
+        <input type="hidden" name="seatId" value="${param.seatId}">
+        <input type="hidden" name="price" value="${param.price}">
+        <input type="hidden" name="people" value="${param.people}">
+        <input type="hidden" id="finalPrice" name="finalPrice">
       </form>
     </div>
   </div>

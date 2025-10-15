@@ -19,7 +19,10 @@
           <label for="orderPhone"> 연락처 </label>
           <input type="text" id="orderPhone" name="orderPhone" required> 
         </div>
-        
+        <div class="lgroup">
+          <label for="orderEmail"> 이메일 </label>
+          <input type="email" id="orderEmail" name="orderEmail" required>
+        </div>
       </form>
     </div>
   </div>

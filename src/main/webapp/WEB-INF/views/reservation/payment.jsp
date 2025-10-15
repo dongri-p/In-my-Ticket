@@ -15,6 +15,11 @@
           <label for="orderName"> 이름 </label>
           <input type="text" id="orderName" name="orderName" required>
         </div>
+        <div class="lgroup">
+          <label for="orderPhone"> 연락처 </label>
+          <input type="text" id="orderPhone" name="orderPhone" required> 
+        </div>
+        
       </form>
     </div>
   </div>

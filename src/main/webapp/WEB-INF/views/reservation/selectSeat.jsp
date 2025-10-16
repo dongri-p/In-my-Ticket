@@ -98,8 +98,8 @@
     		alert("선택한 좌석 수가 인원 수와 일치하지 않습니다.");
     		return;
     	}
-    	
-    	const seatParams=selectedSeatIds.map(id >= "seatIds=" + id).join("&");
+    	// 선택한 좌석들의 seatId 값들이 배열로 들어가있는데 예)"A1","A2" > 이걸 "seatIds=A1"으로 바꾸는 과정, join "&"는 사이에 & 추가
+    	const seatParams=selectedSeatIds.map(id => "seatIds=" + id).join("&");
     	
     	const url="/reservation/payment?perfId=" + perfId +
     			"&date=" + date + "&time=" + time +

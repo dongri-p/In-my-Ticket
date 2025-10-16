@@ -120,6 +120,8 @@
     		seatElement.classList.add("selected");
     		selectedSeatIds.push(seatId);
     	}
+    	
+    	document.getElementById("seatCount").innerText=selectedSeatIds.length;
     }
     
     function goPayment()
@@ -161,6 +163,10 @@
       ${seat.seatRow}${seat.seatCol}
     </div> 
    </c:forEach>
+  </div>
+  
+  <div id="count" style="text-align:center; margint-top:10px;">
+    선택한 좌석 수 : <span id="seatCount"> 0 </span> / ${param.people}
   </div>
   
 	<div id="box">  

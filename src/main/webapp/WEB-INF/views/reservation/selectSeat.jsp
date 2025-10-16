@@ -42,6 +42,7 @@
     #stepNav a:hover {
       text-decoration:underline;
     }
+    
     #seatCon {
       width:500px;
       margin:30px auto;

@@ -17,6 +17,7 @@ public class SitemeshConfig extends ConfigurableSiteMeshFilter{
         builder.addExcludedPath("/login/fUserid");
         builder.addExcludedPath("/login/fPwd");
         builder.addExcludedPath("/admin/*");
+        builder.addExcludedPath("/reservation/*");
  
 	}
 }

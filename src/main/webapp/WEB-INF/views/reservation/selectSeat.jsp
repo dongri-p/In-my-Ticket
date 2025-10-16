@@ -98,7 +98,7 @@
   </style>
   <script>
     let selectedSeatIds=[];
-    const maxPeople=parseInt("${param.people}"");
+    const maxPeople=parseInt("${param.people}");
     
     function selectSeat(seatElement, seatId)
     {

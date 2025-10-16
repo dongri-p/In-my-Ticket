@@ -130,6 +130,7 @@
     	const perfId=document.getElementById("perfId").value;
     	const date=document.getElementById("date").value;
     	const time=document.getElementById("time").value;
+    	const people=document.getElementById("people").value;
     	
     	if(selectedSeatIds.length !== maxPeople)
     	{
@@ -139,7 +140,8 @@
     	// 선택한 좌석들의 seatId 값들이 배열로 들어가있는데 예)"A1","A2" > 이걸 "seatIds=A1"으로 바꾸는 과정, join "&"는 사이에 & 추가
     	const seatParams=selectedSeatIds.map(id => "seatIds=" + id).join("&");
 
-    	location.href="/reservation/payment?perfId=" + perfId + "&date=" + date + "&time=" + time + "&" + seatParams;
+    	location.href="/reservation/payment?perfId=" + perfId + "&date=" + date +
+    			"&time=" + time + "&people=" + people + "&" + seatParams;
     }
   
   </script>
@@ -174,6 +176,7 @@
       <input type="hidden" id="perfId" value="${param.perfId}">
       <input type="hidden" id="date" value="${param.date}">
       <input type="hidden" id="time" value="${param.time}">
+      <input type="hidden" id="people" value="${param.people}">
       <button id="pay" onclick="goPayment()"> 결제하기 </button>
     </div>
   

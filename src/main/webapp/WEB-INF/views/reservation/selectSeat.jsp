@@ -9,6 +9,39 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
   <style>
+    #stepNav {
+      text-align:center;
+      margin:20px 0;
+    }
+    
+    #stepNav ul {
+      list-style:none;
+      padding:0;
+      display:flex;
+      justify-content:center;
+      gap:30px;
+    }
+    
+    #stepNav li {
+      font-size:18px;
+      padding-bottom:5px;
+    }
+    
+    #stepNav li.active {
+      font-weight:bold;
+      border-bottom:3px solid #83BDBF;
+      color:#83BDBF;
+    }
+    
+    #stepNav a {
+      text-decoration:none;
+      color:inherit;
+      cursor:pointer;
+    }
+    
+    #stepNav a:hover {
+      text-decoration:underline;
+    }
     #seatCon {
       width:500px;
       margin:30px auto;
@@ -65,7 +98,7 @@
   </style>
   <script>
     let selectedSeatIds=[];
-    const maxPeople=${param.people};
+    const maxPeople=parseInt("${param.people}"");
     
     function selectSeat(seatElement, seatId)
     {

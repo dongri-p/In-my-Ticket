@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!-- 페이지 식별용 변수 설정 -->
+<c:set var="page" value="seat" /> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -100,17 +102,25 @@
     	}
     	// 선택한 좌석들의 seatId 값들이 배열로 들어가있는데 예)"A1","A2" > 이걸 "seatIds=A1"으로 바꾸는 과정, join "&"는 사이에 & 추가
     	const seatParams=selectedSeatIds.map(id => "seatIds=" + id).join("&");
-    	
-    	const url="/reservation/payment?perfId=" + perfId +
-    			"&date=" + date + "&time=" + time +
-    			"&" + seatParams;
-    	
-    	window.open(url, "결제하기", "width=800,height=600,scrollbars=yes");
+
+    	location.href="/reservation/payment?perfId=" + perfId + "&date=" + date + "&time=" + time + "&" + seatParams;
     }
   
   </script>
 </head>
 <body> <!-- /reservation/selectSeat.jsp -->
+  <div id="stepNav">
+    <ul>
+      <!-- JSTL 사용, page라는 이름의 jstl 변수가 seat이라는 문자열과 같다면 li태그에 class="active"를 붙여 css스타일을 주게 만듬 -->
+      <li class="${page eq 'seat' ? 'active' : ''}"> 
+        <a href="#"> 좌석 선택 </a>
+      </li>
+      <li class="${page eq 'payment' ? 'active' : ''}">
+        <a href="#"> 결제 </a>
+      </li>
+    </ul>
+  </div>
+
   <div id="seatCon">
    <c:forEach var="seat" items="${seatList}">
     <div class="seat ${seat.reserved == 1 ? 'reserved' : ''}"

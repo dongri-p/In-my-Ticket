@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="page" value="payment" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +10,17 @@
 </head>
 <body> <!-- /reservation/payment.jsp -->
   <div id="both">
+    <div id="stepNav">
+      <ul>
+        <!-- JSTL 사용, page라는 이름의 jstl 변수가 seat이라는 문자열과 같다면 li태그에 class="active"를 붙여 css스타일을 주게 만듬 -->
+        <li class="${page eq 'seat' ? 'active' : ''}"> 
+          <a href="#"> 좌석 선택 </a>
+        </li>
+        <li class="${page eq 'payment' ? 'active' : ''}">
+          <a href="#"> 결제 </a>
+        </li>
+      </ul>
+    </div>
   
     <div id="left">
       <form method="post" action="/reservation/comPay">
@@ -31,8 +44,10 @@
           <label for="payMethod"> 결제수단 </label>
           <select id="payMethod" name="payMethod" required>
             <option value=""> 신용카드 </option>
-            <option value=""> 신용카드 </option>
-            <option value=""> 신용카드 </option>
+            <option value="신한은행"> 신한은행 </option>
+            <option value="우리은행"> 우리은행 </option>
+            <option value="국민은행"> 국민은행 </option>
+            <option value="농협은행"> 농협은행 </option>
           </select>
         </div>
         

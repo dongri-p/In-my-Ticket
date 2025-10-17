@@ -131,6 +131,7 @@
     	const date=document.getElementById("date").value;
     	const time=document.getElementById("time").value;
     	const people=document.getElementById("people").value;
+    	const price=document.getElementById("price").value;
     	
     	if(selectedSeatIds.length !== maxPeople)
     	{
@@ -141,7 +142,7 @@
     	const seatParams=selectedSeatIds.map(id => "seatIds=" + id).join("&");
 
     	location.href="/reservation/payment?perfId=" + perfId + "&date=" + date +
-    			"&time=" + time + "&people=" + people + "&" + seatParams;
+    			"&time=" + time + "&people=" + people + "&price=" + price + "&" + seatParams;
     }
   
   </script>

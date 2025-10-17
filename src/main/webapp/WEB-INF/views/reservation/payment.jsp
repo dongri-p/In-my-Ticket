@@ -133,7 +133,9 @@
       <ul>
         <!-- JSTL 사용, page라는 이름의 jstl 변수가 seat이라는 문자열과 같다면 li태그에 class="active"를 붙여 css스타일을 주게 만듬 -->
         <li class="${page eq 'seat' ? 'active' : ''}"> 
-          <a href="/reservation/selectSeat?perfId=${param.perfId}&date=${param.date}&time=${param.time}&people=${param.people}"> 좌석 선택 </a>
+          <a href="/reservation/selectSeat?perfId=${param.perfId}&date=${param.date}&time=${param.time}&people=${param.people}&price=${param.price}">
+            좌석 선택
+          </a>
         </li>
         <li class="${page eq 'payment' ? 'active' : ''}">
           <a href="#"> 결제 </a>

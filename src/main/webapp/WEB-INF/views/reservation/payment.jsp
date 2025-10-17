@@ -42,6 +42,69 @@
       text-decoration:underline;
     }
     
+    #left {
+      width:60%;
+    }
+    
+    #right {
+      width:35px;
+      border:1px solid #ccc;
+      padding:20px;
+      border-radius:10px;
+      background-color:#f9f9f9;
+      height:fit-content;
+    }
+    
+    .lgroup {
+      margin-bottom:20px;
+      display:flex;
+      flex-direction:column;
+    }
+    
+    .lgroup label {
+      margin-bottom:8px;
+      font-weight:bold;
+    }
+    
+    .lgroup input, .lgroup select {
+      padding:10px;
+      border:1px solid #ccc;
+      border-radius:6px;
+      font-size:16px;
+    }
+    
+    .summary {
+      font-size:16px;
+    }
+    
+    .summaryItem, .summaryTotal {
+      display:flex;
+      justify-content:space-between;
+      margin-bottom:20px;
+    }
+    
+    .summaryTotal {
+      font-weight:bold;
+      font-size:18px;
+      border-top:1px solid #cc;
+      padding-top:10px;
+    }
+    
+    button[type="submit"] {
+      padding:12px 24px;
+      background-color:#83BDBF;
+      color:white;
+      border:none;
+      border-radius:6px;
+      font-size:18px;
+      cursor:pointer;
+      margin-top:10px;
+    }
+    
+    button[type="submit"]:hover {
+      background-color:#5aa7aa;
+      color:black;
+    }
   </style>
   <script>
      window.onload=function()
@@ -61,7 +124,7 @@
       <ul>
         <!-- JSTL 사용, page라는 이름의 jstl 변수가 seat이라는 문자열과 같다면 li태그에 class="active"를 붙여 css스타일을 주게 만듬 -->
         <li class="${page eq 'seat' ? 'active' : ''}"> 
-          <a href="/reservation/selectSeat?perfId=${perfId}&date=${param.date}&time=${param.time}&people=${param.people}"> 좌석 선택 </a>
+          <a href="/reservation/selectSeat?perfId=${param.perfId}&date=${param.date}&time=${param.time}&people=${param.people}"> 좌석 선택 </a>
         </li>
         <li class="${page eq 'payment' ? 'active' : ''}">
           <a href="#"> 결제 </a>
@@ -96,6 +159,12 @@
             <option value="국민은행"> 국민은행 </option>
             <option value="농협은행"> 농협은행 </option>
           </select>
+        </div>
+        
+        <div class="lgroup" style="margin-top:20px">
+          <button type="submit" style="padding:12px 24px;background-color:#83BDBF;color:white;border:none;">
+            결제하기
+          </button>
         </div>
         
         <input type="hidden" name="perfId" value="${param.perfId}">

@@ -43,6 +43,17 @@
     }
     
   </style>
+  <script>
+     window.onload=function()
+     {
+    	 const price=parseInt("${param.price}");
+    	 const people=parseInt("${param.people}");
+    	 const total=price * people;
+    	 document.getElementById("totalPrice").innerText=total.toLocaleString() + "원";
+    	 
+    	 document.getElementById("finalPrice").value=total;
+     }
+  </script>
 </head>
 <body> <!-- /reservation/payment.jsp -->
   <div id="both">

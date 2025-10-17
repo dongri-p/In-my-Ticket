@@ -34,4 +34,17 @@ public class ResService {
 		
 		return "/reservation/selectSeat";
 	}
+
+	public String comPay(ResDto rdto, HttpSession session)
+	{
+		Integer memberId=(Integer)session.getAttribute("memberId");
+		if(memberId == null)
+		{
+			return "redirect:/login/login";
+		}
+		
+		rdto.setMemberId(memberId);
+		
+		return null;
+	}
 }

@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import jakarta.servlet.http.HttpSession;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @Controller
 public class ResController {
@@ -33,5 +36,12 @@ public class ResController {
 		model.addAttribute("seatIds", seatIds);
 		return "/reservation/payment";
 	}
+	
+	@PostMapping("/reservation/comPay")
+	public String comPay(ResDto rdto, HttpSession session)
+	{	
+		return service.comPay(rdto, session);
+	}
+	
 	
 }

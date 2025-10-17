@@ -8,6 +8,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
   <style>
+    #both {
+      width:80%;
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      margin:0 auto;
+      gap:30px;
+    } 
     #stepNav {
       text-align:center;
       margin:20px 0;
@@ -47,7 +55,7 @@
     }
     
     #right {
-      width:35px;
+      width:35%;
       border:1px solid #ccc;
       padding:20px;
       border-radius:10px;
@@ -86,7 +94,7 @@
     .summaryTotal {
       font-weight:bold;
       font-size:18px;
-      border-top:1px solid #cc;
+      border-top:1px solid #ccc;
       padding-top:10px;
     }
     
@@ -109,8 +117,8 @@
   <script>
      window.onload=function()
      {
-    	 const price=parseInt("${param.price}");
-    	 const people=parseInt("${param.people}");
+    	 const price=parseInt("${param.price}" || 0);
+    	 const people=parseInt("${param.people}" || 0);
     	 const total=price * people;
     	 document.getElementById("totalPrice").innerText=total.toLocaleString() + "원";
     	 

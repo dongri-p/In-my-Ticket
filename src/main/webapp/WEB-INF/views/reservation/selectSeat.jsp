@@ -149,7 +149,7 @@
 <body> <!-- /reservation/selectSeat.jsp -->
   <div id="stepNav">
     <ul>
-      <!-- JSTL 사용, page라는 이름의 jstl 변수가 seat이라는 문자열과 같다면 li태그에 class="active"를 붙여 css스타일을 주게 만듬 -->
+      <!-- JSTL 사용, page라는 이름의 jstl 변수가 seat라는 문자열과 같다면 li태그에 class="active"를 붙여 css스타일을 주게 만듬 -->
       <li class="${page eq 'seat' ? 'active' : ''}"> 
         <a href="#"> 좌석 선택 </a>
       </li>

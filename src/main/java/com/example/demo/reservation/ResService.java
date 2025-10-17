@@ -45,6 +45,16 @@ public class ResService {
 		
 		rdto.setMemberId(memberId);
 		
+		Map<String, Object> paramMap=new HashMap<>();
+		paramMap.put("perfId", rdto.getPerfId());
+		paramMap.put("date", rdto.getDate());
+		paramMap.put("time", rdto.getTime());
+		
+		int timeId=mapper.getTimeId(paramMap);
+		rdto.setTimeId(timeId);
+		
+		mapper.reservate(rdto);
+		
 		return null;
 	}
 }

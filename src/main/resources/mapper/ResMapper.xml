@@ -10,6 +10,24 @@
     and pt.showTime = #{showTime}
     order by ps.seatRow asc, ps.seatCol asc
   </select>
+  
+  <select id="getTimeId" resultType="int">
+    select timeId from performance_time where
+    perfId=#{perfId} and showDate=#{date} and showTime=#{time}
+  </select>
+  
+  <insert id="reservate">
+    insert into reservation(memberId, perfId, timeId, seatIds, people, totalPrice, payMethod)
+    values(#{memberId}, #{perfId}, #{timeId}, #{seatIds}, #{people}, #{totalPrice}, #{payMethod})
+  </insert>
+  
+  <update id="updateSeat">
+    update performance_seat set status='예약완료'
+    where perfId=#{perfId} and timeId=#{timeId} and seatId in
+    <foreach collection="seatIds" item="id" open="(" separator="," close=")">
+      #{id}
+    </foreach>
+  </update>
 
 
 </mapper>

@@ -144,12 +144,12 @@
         }
         else
         {
-            var date=document.getElementById("showDate").value;
-            var time=document.getElementById("showTime").value;
-            var perfId="${pdto.perfId}";
-            var people=document.getElementById("peopleCount").value;
-            var selected=document.getElementById("showTime").selectedOptions[0];
-            var price=selected.getAttribute("data-price");
+        	const date=document.getElementById("showDate").value;
+            const time=document.getElementById("showTime").value;
+            const perfId="${pdto.perfId}";
+            const people=document.getElementById("peopleCount").value;
+            const selected=document.getElementById("showTime").selectedOptions[0];
+            const price=selected.getAttribute("data-price");
             
             window.open("/reservation/selectSeat?perfId=" + perfId + "&date=" + date + "&time=" + time + "&people=" + people + "&price=" + price,
             	"좌석선택",

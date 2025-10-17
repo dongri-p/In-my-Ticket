@@ -177,6 +177,7 @@
       <input type="hidden" id="date" value="${param.date}">
       <input type="hidden" id="time" value="${param.time}">
       <input type="hidden" id="people" value="${param.people}">
+      <input type="hidden" id="price" value="${param.price}">
       <button id="pay" onclick="goPayment()"> 결제하기 </button>
     </div>
   

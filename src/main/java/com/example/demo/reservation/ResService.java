@@ -72,6 +72,7 @@ public class ResService {
 		session.setAttribute("seatIds", rdto.getSeatIds());
 		session.setAttribute("people", rdto.getPeople());
 		session.setAttribute("totalPrice", rdto.getTotalPrice());
+		session.setAttribute("payMethod", rdto.getPayMethod());
 		
 		return "redirect:/reservation/complete";
 	}
@@ -79,8 +80,15 @@ public class ResService {
 	public String complete(HttpSession session, Model model)
 	{
 		model.addAttribute("resId", session.getAttribute("resId"));
+		model.addAttribute("title", session.getAttribute("title"));
+		model.addAttribute("date", session.getAttribute("date"));
+		model.addAttribute("time", session.getAttribute("time"));
+		model.addAttribute("seatIds", session.getAttribute("seatIds"));
+		model.addAttribute("people", session.getAttribute("people"));
+		model.addAttribute("totalPrice", session.getAttribute("totalPrice"));
+		model.addAttribute("payMethod", session.getAttribute("payMethod"));
 		
-		return null;
+		return "/reservation/complete";
 	}
 }
 

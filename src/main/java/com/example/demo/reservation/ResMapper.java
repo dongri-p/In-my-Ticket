@@ -12,6 +12,6 @@ import com.example.demo.admin.dto.AdSeatDto;
 public interface ResMapper {
 	List<AdSeatDto> getSeatList(Map<String, Object> paramMap);
 	int getTimeId(Map<String, Object> paramMap);
-	void reservate(ResDto rdto);
+	void reserve(ResDto rdto);
 	void updateSeat(Map<String, Object> seatMap);
 }

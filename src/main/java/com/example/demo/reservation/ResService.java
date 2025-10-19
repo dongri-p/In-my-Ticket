@@ -1,5 +1,6 @@
 package com.example.demo.reservation;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -53,8 +54,17 @@ public class ResService {
 		int timeId=mapper.getTimeId(paramMap);
 		rdto.setTimeId(timeId);
 		
-		mapper.reservate(rdto);
+		mapper.reserve(rdto);
 		
-		return null;
+		String[] seatIdArray=rdto.getSeatIds().split(",");
+		
+		Map<String, Object> seatMap=new HashMap<>();
+		seatMap.put("perfId", rdto.getPerfId());
+		seatMap.put("timeId", timeId);
+		seatMap.put("seatIds", Arrays.asList(seatIdArray));
+		
+		mapper.updateSeat(seatMap);
+		
+		return "redirect:/reservation/complete";
 	}
 }

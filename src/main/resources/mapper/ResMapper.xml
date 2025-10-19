@@ -16,7 +16,7 @@
     perfId=#{perfId} and showDate=#{date} and showTime=#{time}
   </select>
   
-  <insert id="reservate">
+  <insert id="reserve">
     insert into reservation(memberId, perfId, timeId, seatIds, people, totalPrice, payMethod)
     values(#{memberId}, #{perfId}, #{timeId}, #{seatIds}, #{people}, #{totalPrice}, #{payMethod})
   </insert>
@@ -32,6 +32,7 @@
       #{id}
     </foreach>
   </update>
+
 
 
 </mapper>

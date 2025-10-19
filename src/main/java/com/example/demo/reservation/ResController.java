@@ -43,5 +43,11 @@ public class ResController {
 		return service.comPay(rdto, session);
 	}
 	
+	@GetMapping("/reservation/complete")
+	public String complete(HttpSession session, Model model)
+	{
+		return service.complete(session, model);
+	}
+	
 	
 }

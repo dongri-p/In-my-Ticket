@@ -18,6 +18,7 @@
     <div class="resInfo"> <span class="label"> 선택 좌석 : </span> ${seatIds} </div>
     <div class="resInfo"> <span class="label"> 인원 수 : </span> ${people} </div>
     <div class="resInfo"> <span class="label"> 총 결제금액 : </span> <strong> ${totalPrice} </strong> </div>
+    <div class="resInfo"> <span class="label"> 결제 수당 : </span> ${payMethod} </div>
     
     <div style="text-align:center; margin-top:30px">
       <a href="/main/index"> 메인 </a>

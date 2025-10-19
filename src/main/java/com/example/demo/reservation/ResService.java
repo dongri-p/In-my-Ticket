@@ -75,4 +75,23 @@ public class ResService {
 		
 		return "redirect:/reservation/complete";
 	}
+
+	public String complete(HttpSession session, Model model)
+	{
+		model.addAttribute("resId", session.getAttribute("resId"));
+		
+		return null;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+

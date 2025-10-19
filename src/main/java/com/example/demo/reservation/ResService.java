@@ -65,6 +65,14 @@ public class ResService {
 		
 		mapper.updateSeat(seatMap);
 		
+		session.setAttribute("resId", rdto.getResId());
+		session.setAttribute("title", rdto.getTitle());
+		session.setAttribute("date", rdto.getDate());
+		session.setAttribute("time", rdto.getTime());
+		session.setAttribute("seatIds", rdto.getSeatIds());
+		session.setAttribute("people", rdto.getPeople());
+		session.setAttribute("totalPrice", rdto.getTotalPrice());
+		
 		return "redirect:/reservation/complete";
 	}
 }

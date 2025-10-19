@@ -17,8 +17,8 @@
   </select>
   
   <insert id="reserve">
-    insert into reservation(memberId, perfId, timeId, seatIds, people, totalPrice, payMethod)
-    values(#{memberId}, #{perfId}, #{timeId}, #{seatIds}, #{people}, #{totalPrice}, #{payMethod})
+    insert into reservation(memberId, perfId, timeId, seatIds, people, totalPrice, payMethod, title)
+    values(#{memberId}, #{perfId}, #{timeId}, #{seatIds}, #{people}, #{totalPrice}, #{payMethod}, #{title})
   </insert>
   
   <update id="updateSeat">

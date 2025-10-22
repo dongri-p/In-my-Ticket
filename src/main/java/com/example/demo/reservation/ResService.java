@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.example.demo.admin.dto.AdSeatDto;
+import com.example.demo.member.MemberDto;
+import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -34,6 +36,22 @@ public class ResService {
 		model.addAttribute("time", time);
 		
 		return "/reservation/selectSeat";
+	}
+	
+	public String payment(int perfId, String date, String time, String seatIds,
+						  HttpSession session, Model model)
+	{
+		String userid=session.getAttribute("userid").toString();
+		
+		MemberDto mdto=mapper.getMember(userid);
+		model.addAttribute("mdto", mdto);
+		
+		model.addAttribute("perfId", perfId);
+		model.addAttribute("date", date);
+		model.addAttribute("time", time);
+		model.addAttribute("seatIds", seatIds);
+		
+		return "/reservation/payment";
 	}
 
 	public String comPay(ResDto rdto, HttpSession session)

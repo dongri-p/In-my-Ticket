@@ -28,13 +28,10 @@ public class ResController {
 	
 	@GetMapping("/reservation/payment")
 	public String payment(@RequestParam int perfId, @RequestParam String date,
-						  @RequestParam String time, @RequestParam List<String> seatIds, Model model)
+						  @RequestParam String time, @RequestParam List<String> seatIds,
+						  HttpSession session, Model model)
 	{
-		model.addAttribute("perfId", perfId);
-		model.addAttribute("date", date);
-		model.addAttribute("time", time);
-		model.addAttribute("seatIds", seatIds);
-		return "/reservation/payment";
+		return service.payment(perfId, date, time, seatIds, session, model);
 	}
 	
 	@PostMapping("/reservation/comPay")

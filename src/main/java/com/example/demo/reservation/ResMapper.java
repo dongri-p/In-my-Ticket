@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import com.example.demo.admin.dto.AdSeatDto;
+import com.example.demo.member.MemberDto;
 
 @Mapper
 public interface ResMapper {
@@ -14,4 +15,5 @@ public interface ResMapper {
 	int getTimeId(Map<String, Object> paramMap);
 	void reserve(ResDto rdto);
 	void updateSeat(Map<String, Object> seatMap);
+	MemberDto getMember(String userid);
 }

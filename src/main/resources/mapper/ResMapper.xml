@@ -32,6 +32,12 @@
       #{id}
     </foreach>
   </update>
+  
+  <select id="getMember" resultType="com.example.demo.member.MemberDto">
+    select * from member where userid=#{userid}
+  </select>
+  
+  
 
 
 

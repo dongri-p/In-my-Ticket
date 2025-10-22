@@ -150,7 +150,7 @@
       
           <div class="lgroup">
             <label for="orderName"> 이름 </label>
-            <input type="text" id="orderName" name="orderName" required>
+            <input type="text" id="orderName" name="orderName" value="${mdto.}">
           </div>
         
           <div class="lgroup">

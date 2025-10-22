@@ -166,7 +166,7 @@
           <div class="lgroup">
             <label for="payMethod"> 결제수단 </label>
             <select id="payMethod" name="payMethod" required>
-              <option value=""> 신용카드 </option>
+              <option value="신용카드"> 신용카드 </option>
               <option value="신한은행"> 신한은행 </option>
               <option value="우리은행"> 우리은행 </option>
               <option value="국민은행"> 국민은행 </option>
@@ -181,6 +181,7 @@
           </div>
         
           <input type="hidden" name="perfId" value="${param.perfId}">
+          <input type="hidden" name="title" value="${param.title}">
           <input type="hidden" name="date" value="${param.date}">
           <input type="hidden" name="time" value="${param.time}">
           <input type="hidden" name="seatIds" value="${param.seatIds}">

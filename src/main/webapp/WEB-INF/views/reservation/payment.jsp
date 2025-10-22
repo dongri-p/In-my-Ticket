@@ -150,17 +150,17 @@
       
           <div class="lgroup">
             <label for="orderName"> 이름 </label>
-            <input type="text" id="orderName" name="orderName" value="${mdto.}">
+            <input type="text" id="orderName" name="orderName" value="${mdto.name}">
           </div>
         
           <div class="lgroup">
             <label for="orderPhone"> 연락처 </label>
-            <input type="text" id="orderPhone" name="orderPhone" required> 
+            <input type="text" id="orderPhone" name="orderPhone" value="${mdto.phone}"> 
           </div>
         
           <div class="lgroup">
             <label for="orderEmail"> 이메일 </label>
-            <input type="email" id="orderEmail" name="orderEmail" required>
+            <input type="email" id="orderEmail" name="orderEmail" value="${mdto.email}">
           </div>
         
           <div class="lgroup">

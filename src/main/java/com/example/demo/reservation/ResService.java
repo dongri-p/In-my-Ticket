@@ -38,7 +38,7 @@ public class ResService {
 		return "/reservation/selectSeat";
 	}
 	
-	public String payment(int perfId, String date, String time, String seatIds,
+	public String payment(int perfId, String date, String time, List<String> seatIds,
 						  HttpSession session, Model model)
 	{
 		String userid=session.getAttribute("userid").toString();

@@ -56,12 +56,12 @@ public class ResService {
 
 	public String comPay(ResDto rdto, HttpSession session)
 	{
-		Integer memberId=(Integer)session.getAttribute("memberId");
-		if(memberId == null)
+		String userid=session.getAttribute("userid").toString();
+		if(userid == null)
 		{
 			return "redirect:/login/login";
 		}
-		
+		Integer memberId=mapper.getMemberId(userid);
 		rdto.setMemberId(memberId);
 		
 		Map<String, Object> paramMap=new HashMap<>();

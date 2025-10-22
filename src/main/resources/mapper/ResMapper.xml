@@ -37,6 +37,10 @@
     select * from member where userid=#{userid}
   </select>
   
+  <select id="getMemberId" resultType="int">
+    select id from member where userid=#{userid}
+  </select>
+  
   
 
 

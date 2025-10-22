@@ -16,4 +16,5 @@ public interface ResMapper {
 	void reserve(ResDto rdto);
 	void updateSeat(Map<String, Object> seatMap);
 	MemberDto getMember(String userid);
+	int getMemberId(String userid);
 }

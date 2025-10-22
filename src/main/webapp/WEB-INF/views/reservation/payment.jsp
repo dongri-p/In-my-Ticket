@@ -122,8 +122,8 @@
     	 const price=parseInt("${param.price}" || 0);
     	 const people=parseInt("${param.people}" || 0);
     	 const total=price * people;
-    	 document.getElementById("totalPrice").innerText=total.toLocaleString() + "원";
     	 
+    	 document.getElementById("totalPrice").innerText=total.toLocaleString() + "원";
     	 document.getElementById("finalPrice").value=total;
      }
   </script>
@@ -133,7 +133,7 @@
       <ul>
         <!-- JSTL 사용, page라는 이름의 jstl 변수가 seat이라는 문자열과 같다면 li태그에 class="active"를 붙여 css스타일을 주게 만듬 -->
         <li class="${page eq 'seat' ? 'active' : ''}"> 
-          <a href="/reservation/selectSeat?perfId=${param.perfId}&date=${param.date}&time=${param.time}&people=${param.people}&price=${param.price}">
+          <a href="/reservation/selectSeat?perfId=${param.perfId}&date=${param.date}&time=${param.time}&people=${param.people}&price=${param.price}&title=${param.title}">
             좌석 선택
           </a>
         </li>
@@ -146,7 +146,7 @@
     <div id="both">
   
       <div id="left">
-        <form method="post" action="/reservation/comPay">
+        <form method="post" action="/reservation/comPay" accept-charset="UTF-8">
       
           <div class="lgroup">
             <label for="orderName"> 이름 </label>
@@ -175,9 +175,7 @@
           </div>
         
           <div class="lgroup" style="margin-top:20px">
-            <button type="submit" style="padding:12px 24px;background-color:#83BDBF;color:white;border:none;">
-              결제하기
-            </button>
+            <button type="submit"> 결제하기 </button>
           </div>
         
           <input type="hidden" name="perfId" value="${param.perfId}">
@@ -187,7 +185,7 @@
           <input type="hidden" name="seatIds" value="${param.seatIds}">
           <input type="hidden" name="price" value="${param.price}">
           <input type="hidden" name="people" value="${param.people}">
-          <input type="hidden" id="finalPrice" name="finalPrice">
+          <input type="hidden" id="finalPrice" name="totalPrice">
         </form>
       </div>
     

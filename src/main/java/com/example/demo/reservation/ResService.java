@@ -61,6 +61,7 @@ public class ResService {
 		{
 			return "redirect:/login/login";
 		}
+		
 		Integer memberId=mapper.getMemberId(userid);
 		rdto.setMemberId(memberId);
 		

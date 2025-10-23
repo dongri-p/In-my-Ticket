@@ -25,6 +25,7 @@ public class ResService {
 	{
 		Map<String, Object> paramMap=new HashMap<>();
 		paramMap.put("perfId", perfId);
+		paramMap.put("title", title);
 		paramMap.put("showDate", date);
 		paramMap.put("showTime", time);
 	
@@ -32,6 +33,7 @@ public class ResService {
 		
 		model.addAttribute("seatList", seatList);
 		model.addAttribute("perfId", perfId);
+		model.addAttribute("title", title);
 		model.addAttribute("date", date);
 		model.addAttribute("time", time);
 		

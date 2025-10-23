@@ -16,18 +16,18 @@
     perfId=#{perfId} and showDate=#{date} and showTime=#{time}
   </select>
   
-  <insert id="reserve">
+  <insert id="reserve" useGeneratedKeys="true">
     insert into reservation(memberId, perfId, timeId, seatIds, people, totalPrice, payMethod, title)
     values(#{memberId}, #{perfId}, #{timeId}, #{seatIds}, #{people}, #{totalPrice}, #{payMethod}, #{title})
   </insert>
   
   <update id="updateSeat">
     update performance_seat set reserved=1
-    where perfId=#{perfId} and timeId=#{timeId} and seatId in
+    where perfId=#{perfId} and timeId=#{timeId} and seatName in
     <!-- collection="seatIds": 배열을 대상으로 반복 예) seatIds=[A1,A2,A3] item="id": seatIds안의 항목을 id라는 이름으로 반복
     open: 괄호열고, 콤마, 괄호닫기 예) seatIds=[A1,A2,A3] > In(#{id},#{id},#{id}) > in('A1','A2','A3') -->
-    <foreach collection="seatIds" item="id" open="(" separator="," close=")">
-      #{id}
+    <foreach collection="seatNames" item="name" open="(" separator="," close=")">
+      #{name}
     </foreach>
   </update>
   

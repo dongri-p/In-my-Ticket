@@ -75,12 +75,12 @@ public class ResService {
 		
 		mapper.reserve(rdto);
 		
-		String[] seatIdArray=rdto.getSeatIds().split(",");
+		String[] seatNameArray=rdto.getSeatIds().split(",");
 		
 		Map<String, Object> seatMap=new HashMap<>();
 		seatMap.put("perfId", rdto.getPerfId());
 		seatMap.put("timeId", timeId);
-		seatMap.put("seatIds", Arrays.asList(seatIdArray));
+		seatMap.put("seatNames", Arrays.asList(seatNameArray));
 		
 		mapper.updateSeat(seatMap);
 		

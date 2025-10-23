@@ -98,10 +98,11 @@
     }
   </style>
   <script>
+    let selectedSeatNames=[];
     let selectedSeatIds=[];
     const maxPeople=parseInt("${param.people}");
     
-    function selectSeat(seatElement, seatId)
+    function selectSeat(seatElement, seatId, seatName)
     {
     	if(seatElement.classList.contains("reserved"))		
     		return;
@@ -110,6 +111,7 @@
     	{
     		seatElement.classList.remove("selected");
     		selectedSeatIds=selectedSeatIds.filter(id => id !== seatId);
+    		selectedSeatNames=selectedSeatNames.filter(name => name !== seatName);
     	}
     	else
     	{
@@ -120,6 +122,7 @@
     		}
     		seatElement.classList.add("selected");
     		selectedSeatIds.push(seatId);
+    		selectedSeatNames.push(seatName);
     	}
     	
     	document.getElementById("seatCount").innerText=selectedSeatIds.length;
@@ -140,10 +143,13 @@
     		return;
     	}
     	// 선택한 좌석들의 seatId 값들이 배열로 들어가있는데 예)"A1","A2" > 이걸 "seatIds=A1"으로 바꾸는 과정, join "&"는 사이에 & 추가
-    	const seatParams=selectedSeatIds.map(id => "seatIds=" + id).join("&");
+    	const seatIdParams=selectedSeatIds.map(id => "seatIds=" + id).join("&");
+    	const seatNameParams=selectedSeatNames.map(name => "seatNames=" + encodeURIComponent(name)).join("&");
+    	
+    	const datas=["perfId=" + perfId + "&date=" + date + "&time=" + time + "&people=" + people +
+			"&price=" + price + "&title=" + encodeURIComponent(title), seatIdParams, seatNameParams].join("&");
 
-    	location.href="/reservation/payment?perfId=" + perfId + "&date=" + date + "&time=" + time + "&people=" + people +
-    			"&price=" + price + "&title=" + encodeURIComponent(title) + "&" + seatParams;
+    	location.href="/reservation/payment?" + datas;
     }
   
   </script>
@@ -164,7 +170,7 @@
   <div id="seatCon">
    <c:forEach var="seat" items="${seatList}">
     <div class="seat ${seat.reserved == 1 ? 'reserved' : ''}"
-    	onclick="selectSeat(this, '${seat.seatId}')">
+	  onclick="selectSeat(this, '${seat.seatId}', '${seat.seatRow}${seat.seatCol}')">
       ${seat.seatRow}${seat.seatCol}
     </div> 
    </c:forEach>
@@ -174,13 +180,14 @@
     선택한 좌석 수 : <span id="seatCount"> 0 </span> / ${param.people}
   </div>
   
-	<div id="box">  
+	<div id="box">
       <input type="hidden" id="perfId" value="${param.perfId}">
       <input type="hidden" id="title" value="${param.title}">
       <input type="hidden" id="date" value="${param.date}">
       <input type="hidden" id="time" value="${param.time}">
       <input type="hidden" id="people" value="${param.people}">
       <input type="hidden" id="price" value="${param.price}">
+      <input type="hidden" name="seatIds" id="seatIds">
       
       <button id="pay" onclick="goPayment()"> 결제하기 </button>
     </div>

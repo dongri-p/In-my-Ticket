@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="page" value="payment" />
+<c:set var="seatNames" value="${paramValues.seatNames}" />
+<c:set var="seatIds" value="${paramValues.seatIds}" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -182,10 +184,13 @@
           <input type="hidden" name="title" value="${param.title}">
           <input type="hidden" name="date" value="${param.date}">
           <input type="hidden" name="time" value="${param.time}">
-          <input type="hidden" name="seatIds" value="${param.seatIds}">
           <input type="hidden" name="price" value="${param.price}">
           <input type="hidden" name="people" value="${param.people}">
           <input type="hidden" id="finalPrice" name="totalPrice">
+          
+           <c:forEach var="id" items="${seatIds}">
+            <input type="hidden" name="seatIds" value="${id}" />
+           </c:forEach> 
         </form>
       </div>
     
@@ -194,6 +199,16 @@
           <div class="summaryItem">
             <span> 티켓 금액 (${param.people}명) </span>
             <span> ${param.price}원 x ${param.people} </span>
+          </div>
+          
+          <div class="summaryItem">
+            <span> 선택 좌석 </span>
+            <span>
+             <c:forEach var="sname" items="${seatNames}" varStatus="index">
+                            <!-- index의 마지막이 아니라면,를 찍는다 -->
+              ${sname} <c:if text="${!index.last}"> , </c:if> 
+             </c:forEach> 
+            </span>
           </div>
         
           <div class="summaryTotal">

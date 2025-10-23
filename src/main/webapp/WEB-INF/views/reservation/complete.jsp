@@ -6,6 +6,41 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+  <style>
+    #resCom {
+      width:600px;
+      margin:50px auto;
+    }
+    
+    h2 {
+      color:#000;
+      text-align:center;
+    }
+    
+    .resInfo {
+      margin:10px 0;
+      font-size:16px;
+    }
+    
+    .label {
+      font-weight:bold;
+      display:inline-block;
+      width:130px;
+    }
+    
+    a {
+      display:block;
+      text-align:center;
+      margin-top:30px;
+      font-size:16px;
+      color:#5a5a9d;
+      text-decoration:none;
+    }
+    
+    a:hover {
+      color:#2a2a7d;
+    }
+  </style>
 </head>
 <body> <!-- /reservation/complete.jsp -->
   <div id="resCom">

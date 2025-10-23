@@ -147,13 +147,13 @@
         	const date=document.getElementById("showDate").value;
             const time=document.getElementById("showTime").value;
             const perfId="${pdto.perfId}";
+            const title="${pdto.title}";
             const people=document.getElementById("peopleCount").value;
             const selected=document.getElementById("showTime").selectedOptions[0];
             const price=selected.getAttribute("data-price");
             
-            window.open("/reservation/selectSeat?perfId=" + perfId + "&date=" + date + "&time=" + time + "&people=" + people + "&price=" + price,
-            	"좌석선택",
-            	"width=800,height=600,scrollbars=yes");
+            window.open("/reservation/selectSeat?perfId=" + perfId + "&title=" + encodeURIComponent(title) + "&date=" + date + "&time=" + time +
+            		"&people=" + people + "&price=" + price, "좌석선택", "width=800,height=600,scrollbars=yes");
         }
     }
     

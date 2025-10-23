@@ -20,18 +20,18 @@ public class ResController {
 	private ResService service;
 	
 	@GetMapping("/reservation/selectSeat")
-	public String selectSeat(@RequestParam int perfId, @RequestParam String date,
+	public String selectSeat(@RequestParam int perfId, @RequestParam String title, @RequestParam String date,
 							 @RequestParam String time, Model model)
 	{
-		return service.selectSeat(perfId, date, time, model);
+		return service.selectSeat(perfId, title, date, time, model);
 	}
 	
 	@GetMapping("/reservation/payment")
-	public String payment(@RequestParam int perfId, @RequestParam String date,
+	public String payment(@RequestParam int perfId, @RequestParam String title, @RequestParam String date,
 						  @RequestParam String time, @RequestParam List<String> seatIds,
 						  HttpSession session, Model model)
 	{
-		return service.payment(perfId, date, time, seatIds, session, model);
+		return service.payment(perfId, title, date, time, seatIds, session, model);
 	}
 	
 	@PostMapping("/reservation/comPay")

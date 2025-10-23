@@ -21,7 +21,7 @@ public class ResService {
 	@Autowired
 	private ResMapper mapper;
 
-	public String selectSeat(int perfId, String date, String time, Model model)
+	public String selectSeat(int perfId, String title, String date, String time, Model model)
 	{
 		Map<String, Object> paramMap=new HashMap<>();
 		paramMap.put("perfId", perfId);
@@ -38,8 +38,8 @@ public class ResService {
 		return "/reservation/selectSeat";
 	}
 	
-	public String payment(int perfId, String date, String time, List<String> seatIds,
-						  HttpSession session, Model model)
+	public String payment(int perfId, String title, String date, String time,
+			List<String> seatIds, HttpSession session, Model model)
 	{
 		String userid=session.getAttribute("userid").toString();
 		

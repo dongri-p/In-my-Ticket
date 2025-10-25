@@ -206,7 +206,7 @@
             <span>
              <c:forEach var="sname" items="${seatNames}" varStatus="index">
                             <!-- index의 마지막이 아니라면,를 찍는다 -->
-              ${sname} <c:if text="${!index.last}"> , </c:if> 
+              ${sname} <c:if test="${!index.last}"> , </c:if> 
              </c:forEach> 
             </span>
           </div>

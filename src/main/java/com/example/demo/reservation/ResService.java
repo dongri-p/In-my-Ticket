@@ -75,6 +75,9 @@ public class ResService {
 		int timeId=mapper.getTimeId(paramMap);
 		rdto.setTimeId(timeId);
 		
+		String seatNames=rdto.getSeatIds();
+		rdto.setSeatNames(seatNames);
+		
 		mapper.reserve(rdto);
 		
 		String[] seatNameArray=rdto.getSeatIds().split(",");

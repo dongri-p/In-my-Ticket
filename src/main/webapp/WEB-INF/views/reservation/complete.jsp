@@ -50,7 +50,7 @@
     <div class="resInfo"> <span class="label"> 공연명 : </span> ${title} </div>
     <div class="resInfo"> <span class="label"> 날짜 : </span> ${date} </div>
     <div class="resInfo"> <span class="label"> 시간 :  </span> ${time} </div>
-    <div class="resInfo"> <span class="label"> 선택 좌석 : </span> ${seatIds} </div>
+    <div class="resInfo"> <span class="label"> 선택 좌석 : </span> ${seatNames} </div>
     <div class="resInfo"> <span class="label"> 인원 수 : </span> ${people} </div>
     <div class="resInfo"> <span class="label"> 총 결제금액 : </span> <strong> ${totalPrice} </strong> </div>
     <div class="resInfo"> <span class="label"> 결제 수단 : </span> ${payMethod} </div>

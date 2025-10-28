@@ -17,4 +17,5 @@ public interface ResMapper {
 	void updateSeat(Map<String, Object> seatMap);
 	MemberDto getMember(String userid);
 	int getMemberId(String userid);
+	List<String> getSeatNames(List<String> seatIds);
 }

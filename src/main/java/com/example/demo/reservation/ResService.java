@@ -13,6 +13,7 @@ import com.example.demo.admin.dto.AdSeatDto;
 import com.example.demo.member.MemberDto;
 import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
 @Service
@@ -106,6 +107,17 @@ public class ResService {
 
 	public String complete(HttpSession session, Model model)
 	{
+		String seatIds=session.getAttribute("seatIds").toString();
+		
+		List<String> seatIdList=null;
+		if(seatIds != null && !seatIds.isEmpty())
+		{
+			seatIdList=Arrays.asList(seatIds.split(","));
+		}
+		
+		List<String> seatNames=mapper.getSeatNames(seatIdList);
+		model.addAttribute("seatNames", seatNames);
+		
 		model.addAttribute("resId", session.getAttribute("resId"));
 		model.addAttribute("title", session.getAttribute("title"));
 		model.addAttribute("date", session.getAttribute("date"));

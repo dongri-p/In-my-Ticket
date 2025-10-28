@@ -39,6 +39,14 @@
     select id from member where userid=#{userid}
   </select>
   
+  <select id="getSeatNames" resultType="String">
+    select concat(seatRow, seatCol) from performance_seat
+    where seatId in
+    <foreach collection="list" item="id" open="(" separator="," close=")">
+      #{id}
+    </foreach>
+  </select>
+  
   
 
 

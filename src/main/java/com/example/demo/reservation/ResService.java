@@ -85,7 +85,7 @@ public class ResService {
 		Map<String, Object> seatMap=new HashMap<>();
 		seatMap.put("perfId", rdto.getPerfId());
 		seatMap.put("timeId", timeId);
-		seatMap.put("seatNames", Arrays.asList(seatNameArray));
+		seatMap.put("seatIds", Arrays.asList(seatNameArray));
 		
 		mapper.updateSeat(seatMap);
 		

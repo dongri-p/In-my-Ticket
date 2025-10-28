@@ -98,6 +98,9 @@ public class ResService {
 		session.setAttribute("totalPrice", rdto.getTotalPrice());
 		session.setAttribute("payMethod", rdto.getPayMethod());
 		
+		System.out.println("🎯 title: " + rdto.getTitle());
+		System.out.println("🎯 payMethod: " + rdto.getPayMethod());
+		
 		return "redirect:/reservation/complete";
 	}
 

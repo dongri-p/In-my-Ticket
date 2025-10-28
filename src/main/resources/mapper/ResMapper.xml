@@ -23,11 +23,11 @@
   
   <update id="updateSeat">
     update performance_seat set reserved=1
-    where perfId=#{perfId} and timeId=#{timeId} and concat(seatRow,seatCol) in
+    where perfId=#{perfId} and timeId=#{timeId} and seatId in
     <!-- collection="seatIds": 배열을 대상으로 반복 예) seatIds=[A1,A2,A3] item="id": seatIds안의 항목을 id라는 이름으로 반복
     open: 괄호열고, 콤마, 괄호닫기 예) seatIds=[A1,A2,A3] > In(#{id},#{id},#{id}) > in('A1','A2','A3') -->
-    <foreach collection="seatNames" item="name" open="(" separator="," close=")">
-      #{name}
+    <foreach collection="seatIds" item="name" open="(" separator="," close=")">
+      #{id}
     </foreach>
   </update>
   

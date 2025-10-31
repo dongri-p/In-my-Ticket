@@ -41,6 +41,16 @@
       color:#2a2a7d;
     }
   </style>
+  <script>
+    function goMain()
+    {
+    	if(window.opener && !window.opener.closed)
+    	{
+    		window.opener.location.href="/main/index";
+    	}
+    	window.close();
+    }
+  </script>
 </head>
 <body> <!-- /reservation/complete.jsp -->
   <div id="resCom">
@@ -60,7 +70,7 @@
     <div class="resInfo"> <span class="label"> 결제 수단 : </span> ${payMethod} </div>
     
     <div style="text-align:center; margin-top:30px">
-      <a href="/main/index"> 메인 </a>
+      <a href="javascript:void(0);" onclick="goMain()"> 닫기 </a>
     </div>
   </div>
 </body>

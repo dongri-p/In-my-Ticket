@@ -14,7 +14,7 @@
   <ul>
     <!-- <li> <a href="/admin/adPerformance/adPerfList"> 공연 관리 </a> </li> --> 
     <li> <a href="/admin/time/tlist"> 시간표 관리 </a> </li>
-    <li> <a href="/admin/adreserv/rlist"> 예매 관리 </a> </li>
+    <li> <a href="/admin/adReserv/rlist"> 예매 관리 </a> </li>
     <li> <a href="/admin/adLogout"> 로그아웃 </a> </li>
   </ul>
 

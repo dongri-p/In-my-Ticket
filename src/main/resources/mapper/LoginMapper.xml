@@ -5,21 +5,21 @@
 
   <select id="loginOk" resultType="String">
                                                   <!-- 입력한 비밀번호가 pwd인지 oldPwd인지 모르니까 -->
-    select name from member where userid=#{userid} and ( pwd=#{pwd} or oldPwd=#{pwd} )
+    select name from member where memberId=#{memberId} and ( pwd=#{pwd} or oldPwd=#{pwd} )
   </select>
   
-  <select id="getUserid" resultType="String">
-    select userid from member where name=#{name} and email=#{email}
+  <select id="getMemberId" resultType="String">
+    select memberId from member where name=#{name} and email=#{email}
   </select>
   
   <select id="getPwd" resultType="String">
     select pwd from member where
-    userid=#{userid} and name=#{name} and email=#{email}
+    memberId=#{memberId} and name=#{name} and email=#{email}
   </select>
   
   <update id="chgPwd">
                        <!-- 기존 비밀번호   바뀐 비밀번호 -->
-    update member set oldPwd=#{oldPwd}, pwd=#{pwd} where userid=#{userid}
+    update member set oldPwd=#{oldPwd}, pwd=#{pwd} where memberId=#{memberId}
   </update>
 
 

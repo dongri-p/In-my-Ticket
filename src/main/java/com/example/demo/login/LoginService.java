@@ -37,7 +37,7 @@ public class LoginService {
 		}
 		else
 		{
-			session.setAttribute("userid", mdto.getUserid());
+			session.setAttribute("memberId", mdto.getMemberId());
 			session.setAttribute("name", name);
 			
 			return "redirect:/main/index";
@@ -59,11 +59,11 @@ public class LoginService {
 	
 	public String getUserid(MemberDto mdto)
 	{
-		String userid=mapper.getUserid(mdto);
+		String memberId=mapper.getMemberId(mdto);
 		
-		if (userid != null)
+		if (memberId != null)
 		{
-		    return userid;
+		    return memberId;
 		}
 		else
 		{
@@ -85,7 +85,7 @@ public class LoginService {
 		{
 			String imsiPwd=MyUtil.getNewPwd();
 			
-			mapper.chgPwd(mdto.getUserid(), imsiPwd, pwd);
+			mapper.chgPwd(mdto.getMemberId(), imsiPwd, pwd);
 			
 			return imsiPwd;
 		}

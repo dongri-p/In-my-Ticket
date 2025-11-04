@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class MemberDto {
 	private int id,state;
-	private String name,userid,pwd,email,phone,writeday,oldPwd;
+	private String name,memberId,pwd,email,phone,writeday,oldPwd;
 }

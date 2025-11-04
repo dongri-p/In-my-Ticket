@@ -29,16 +29,17 @@ public class LoginService {
 
 	public String loginOk(MemberDto mdto, HttpSession session)
 	{
-		String name=mapper.loginOk(mdto);
+		mdto=mapper.loginOk(mdto);
 		
-		if(name == null)
+		if(mdto == null)
 		{
 			return "redirect:/login/login?err=1";
 		}
 		else
 		{
-			session.setAttribute("memberId", mdto.getMemberId());
-			session.setAttribute("name", name);
+			session.setAttribute("memberId", mdto.getId());
+			session.setAttribute("userid", mdto.getUserid());
+			session.setAttribute("name", mdto.getName());
 			
 			return "redirect:/main/index";
 		}
@@ -59,11 +60,11 @@ public class LoginService {
 	
 	public String getUserid(MemberDto mdto)
 	{
-		String memberId=mapper.getMemberId(mdto);
+		String userid=mapper.getUserid(mdto);
 		
-		if (memberId != null)
+		if (userid != null)
 		{
-		    return memberId;
+		    return userid;
 		}
 		else
 		{
@@ -85,7 +86,7 @@ public class LoginService {
 		{
 			String imsiPwd=MyUtil.getNewPwd();
 			
-			mapper.chgPwd(mdto.getMemberId(), imsiPwd, pwd);
+			mapper.chgPwd(mdto.getUserid(), imsiPwd, pwd);
 			
 			return imsiPwd;
 		}

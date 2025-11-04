@@ -3,23 +3,23 @@
 
 <mapper namespace="com.example.demo.login.LoginMapper">
 
-  <select id="loginOk" resultType="String">
+  <select id="loginOk" resultType="com.example.demo.member.MemberDto">
                                                   <!-- 입력한 비밀번호가 pwd인지 oldPwd인지 모르니까 -->
-    select name from member where memberId=#{memberId} and ( pwd=#{pwd} or oldPwd=#{pwd} )
+    select * from member where userid=#{userid} and ( pwd=#{pwd} or oldPwd=#{pwd} )
   </select>
   
-  <select id="getMemberId" resultType="String">
-    select memberId from member where name=#{name} and email=#{email}
+  <select id="getUserId" resultType="String">
+    select userid from member where name=#{name} and email=#{email}
   </select>
   
   <select id="getPwd" resultType="String">
     select pwd from member where
-    memberId=#{memberId} and name=#{name} and email=#{email}
+    userid=#{userid} and name=#{name} and email=#{email}
   </select>
   
   <update id="chgPwd">
                        <!-- 기존 비밀번호   바뀐 비밀번호 -->
-    update member set oldPwd=#{oldPwd}, pwd=#{pwd} where memberId=#{memberId}
+    update member set oldPwd=#{oldPwd}, pwd=#{pwd} where userid=#{userid}
   </update>
 
 

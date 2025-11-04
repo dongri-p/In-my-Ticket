@@ -44,9 +44,9 @@ public class ResService {
 	public String payment(int perfId, String title, String date, String time,
 			List<String> seatIds, HttpSession session, Model model)
 	{
-		String userid=session.getAttribute("userid").toString();
+		String memberId=session.getAttribute("memberId").toString();
 		
-		MemberDto mdto=mapper.getMember(userid);
+		MemberDto mdto=mapper.getMember(memberId);
 		model.addAttribute("mdto", mdto);
 		
 		model.addAttribute("perfId", perfId);
@@ -59,13 +59,12 @@ public class ResService {
 
 	public String comPay(ResDto rdto, HttpSession session)
 	{
-		String userid=session.getAttribute("userid").toString();
-		if(userid == null)
+		Integer memberId=(Integer)session.getAttribute("memberId");
+		if(memberId == null)
 		{
 			return "redirect:/login/login";
 		}
 		
-		Integer memberId=mapper.getMemberId(userid);
 		rdto.setMemberId(memberId);
 		
 		Map<String, Object> paramMap=new HashMap<>();

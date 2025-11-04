@@ -170,13 +170,27 @@
             {
                 document.getElementById("fouter").style.display="none";
             }
-            else
-            {
-                
-            }
         }
         chk.open("get", "../xcookOk");
         chk.send();
+        
+        const path=window.location.pathname;
+        
+        if(path.includes("/member/myticket"))
+        {
+        	chkLogin();
+        }
+        
+    }
+    
+    function chkLogin()
+    {
+    	var userid="${userid}";
+    	if(userid == null || userid === "")
+    	{
+    		alert("로그인이 필요한 서비스입니다.");
+    		location.href="/login/login";
+    	}
     }
   </script>
   

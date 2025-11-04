@@ -44,9 +44,9 @@ public class ResService {
 	public String payment(int perfId, String title, String date, String time,
 			List<String> seatIds, HttpSession session, Model model)
 	{
-		String memberId=session.getAttribute("memberId").toString();
+		String userid=session.getAttribute("userid").toString();
 		
-		MemberDto mdto=mapper.getMember(memberId);
+		MemberDto mdto=mapper.getMember(userid);
 		model.addAttribute("mdto", mdto);
 		
 		model.addAttribute("perfId", perfId);
@@ -59,7 +59,9 @@ public class ResService {
 
 	public String comPay(ResDto rdto, HttpSession session)
 	{
+		/* 세션에 id = memberid로 저장해놨음 */
 		Integer memberId=(Integer)session.getAttribute("memberId");
+		
 		if(memberId == null)
 		{
 			return "redirect:/login/login";
@@ -97,9 +99,6 @@ public class ResService {
 		session.setAttribute("people", rdto.getPeople());
 		session.setAttribute("totalPrice", rdto.getTotalPrice());
 		session.setAttribute("payMethod", rdto.getPayMethod());
-		
-		System.out.println("🎯 title: " + rdto.getTitle());
-		System.out.println("🎯 payMethod: " + rdto.getPayMethod());
 		
 		return "redirect:/reservation/complete";
 	}

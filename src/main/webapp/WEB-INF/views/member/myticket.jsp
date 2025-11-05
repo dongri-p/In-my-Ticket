@@ -160,7 +160,7 @@
     {
         if(confirm("정말 예매를 취소하시겠습니까?"))
         {
-            locaion.href="/member/canel?resId="+resId;
+            locaion.href="/member/cancel?resId="+resId;
         }
     }
   </script>

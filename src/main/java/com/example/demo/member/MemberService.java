@@ -3,6 +3,7 @@ package com.example.demo.member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -35,6 +36,12 @@ public class MemberService {
 	
 	public String myticket()
 	{
+		return null;
+	}
+
+	public String cancel(int resId,)
+	{
+		boolean success=resCancel(resId);
 		return null;
 	}
 

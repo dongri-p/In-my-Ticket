@@ -18,6 +18,10 @@
     performance_time pt on r.timeId=pt.timeid where r.memberId=#{memberId}
     order by r.resDate desc
   </select>
+  
+  <select id="findRes" resultType="com.example.demo.reservation.ResDto">
+    select * from reservation where resId=#{resId}
+  </select>
 
 
 

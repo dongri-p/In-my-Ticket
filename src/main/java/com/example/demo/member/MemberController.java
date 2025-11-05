@@ -44,7 +44,7 @@ public class MemberController {
 	}
 	
 	@GetMapping("/member/cancel")
-	public String resCancel(@RequestParam("resId") int resId,
+	public String cancel(@RequestParam("resId") int resId,
 						    HttpSession session, Model model)
 	{
 		return service.cancel(resId, session, model);

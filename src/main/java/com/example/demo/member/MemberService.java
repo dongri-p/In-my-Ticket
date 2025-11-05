@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 @Service
 @Qualifier("mems")
@@ -30,18 +31,17 @@ public class MemberService {
 	public String memberOk(MemberDto mdto)
 	{
 		mapper.memberOk(mdto);
-		
+			
 		return "redirect:../login/login";
 	}
 	
-	public String myticket()
+	public String myticket(HttpSession session, Model model)
 	{
 		return null;
 	}
 
-	public String cancel(int resId,)
+	public String cancel(int resId, HttpSession session, Model model)
 	{
-		boolean success=resCancel(resId);
 		return null;
 	}
 

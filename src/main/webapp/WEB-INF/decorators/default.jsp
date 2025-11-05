@@ -9,6 +9,11 @@
   <style>
     body {
       margin:0px;
+      transition:opacity 0.2s;
+    }
+    body.hidden {
+      opacity:0;
+      pointer-events:none;
     }
     #fouter {
       width:100%;
@@ -178,19 +183,17 @@
         
         if(path.includes("/member/myticket"))
         {
-        	chkLogin();
+        	var userid="${userid}";
+        	if(userid == null || userid === "")
+        	{
+        	    document.body.classList.add("hidden");
+        	    setTimeout(function()
+        	    {
+        	        alert("로그인이 필요한 서비스입니다.");
+        	        window.location.replace("/login/login");
+        	    }, 100);
+        	}
         }
-        
-    }
-    
-    function chkLogin()
-    {
-    	var userid="${userid}";
-    	if(userid == null || userid === "")
-    	{
-    		alert("로그인이 필요한 서비스입니다.");
-    		location.href="/login/login";
-    	}
     }
   </script>
   

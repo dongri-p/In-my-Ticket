@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 
+import com.example.demo.reservation.ResDto;
+
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
@@ -64,7 +66,11 @@ public class MemberService {
 			return "redirect:/login/login";
 		}
 		
-		mapper.findRes(resId);
+		ResDto rdto=mapper.findRes(resId);
+		if(rdto == null || rdto.getMemberId() != memberId)
+		{
+			return "redirect:/member/myticket";
+		}
 		
 		return null;
 	}

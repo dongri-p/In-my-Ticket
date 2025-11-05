@@ -6,6 +6,104 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+  <style>
+    body {
+      margin:0;
+      padding:0;
+      background:#fafafa;
+    }
+    
+    .profile {
+      width:1100px;
+      margin:40px auto 20px auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      border-bottom:2px solid #83BDBF;
+      padding-bottom:15px;
+    }
+    
+    .profileInfo span {
+      display:block;
+      font-size:17px;
+      color:#333;
+      margin-bottom:5px;
+    }
+    
+    .memEdit {
+      background:#83BDBF;
+      color:white;
+      border:none;
+      border-radius:6px;
+      padding:8px 16px;
+      cursor:pointer;
+      font-weight:bold;
+      transition:background 0.2s ease;
+    }
+
+    .memEdit:hover {
+      background:#6fa8aa;
+    }
+
+    .resList {
+      width:1100px;
+      margin:40px auto;
+    }
+
+    .resList h3 {
+      margin-bottom:15px;
+      font-size:20px;
+      color:#333;
+      border-left:6px solid #83BDBF;
+      padding-left:10px;
+    }
+
+    table {
+      width:100%;
+      border-collapse:collapse;
+      background:white;
+      border-radius:10px;
+      overflow:hidden;
+      box-shadow:0 0 6px rgba(0,0,0,0.08);
+    }
+
+    th, td {
+      border-bottom:1px solid #eee;
+      text-align:center;
+      padding:12px;
+      font-size:15px;
+    }
+
+    th {
+      background:#f2f9f9;
+      color:#333;
+      font-weight:600;
+    }
+
+    tr:hover {
+      background:#f9fdfd;
+    }
+
+    .cancel {
+      background:#e65d5b;
+      color:white;
+      border:none;
+      border-radius:5px;
+      padding:6px 12px;
+      cursor:pointer;
+      font-weight:bold;
+      transition:background 0.2s ease;
+    }
+
+    .cancel:hover {
+      background:#c24c4a;
+    }
+
+    p {
+      font-size:15px;
+      color:#777;
+    }
+  </style>
 </head>
 <body> <!-- /member/myticket.jsp -->
   <div class="profile">

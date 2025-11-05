@@ -11,6 +11,13 @@
     insert into member(userid,name,pwd,email,phone,writeday)
     values(#{userid},#{name},#{pwd},#{email},#{phone},now())
   </insert>
+  
+  <select id="getReservations" resultType="com.example.demo.member.ResViewDto">
+    select r.resId, r.title, pt.showDate as date, pt.showtime as time,
+    r.seatIds, r.people, r.totalPrice, r.status from reservation r join
+    performance_time pt on r.timeId=pt.timeid where r.memberId=#{memberId}
+    order by r.resDate desc
+  </select>
 
 
 

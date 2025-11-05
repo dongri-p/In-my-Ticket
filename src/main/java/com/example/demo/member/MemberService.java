@@ -1,5 +1,7 @@
 package com.example.demo.member;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -37,7 +39,18 @@ public class MemberService {
 	
 	public String myticket(HttpSession session, Model model)
 	{
-		return null;
+		Integer memberId=(Integer)session.getAttribute("memberId");
+		
+		if(memberId == null)
+		{
+			return "redirect:/login/login";
+		}
+		
+		List<ResViewDto> rlist=mapper.getReservations(memberId);
+		
+		model.addAttribute("rlist", rlist);
+		
+		return "/member/myticket";
 	}
 
 	public String cancel(int resId, HttpSession session, Model model)

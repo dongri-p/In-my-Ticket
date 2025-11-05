@@ -42,13 +42,30 @@
           <td> ${res.people} </td>
           <td> ${res.totalPrice} </td>
           <td> ${res.status} </td>
-          <td> ${res.title} </td>
+          <td>
+           <c:if test="${res.status eq 'reserved'}">
+            <button class="cancel" onclick="resCancel(${res.resId})"> 취소 </button>
+           </c:if>
+           <c:if test="${res.status eq 'cancelled'}">
+            취소완료
+           </c:if>
+          </td>
         </tr>
        </c:forEach> 
       </table>
      </c:if>
   </div>
   
+  
+  <script>
+    function resCancel(resId)
+    {
+        if(confirm("정말 예매를 취소하시겠습니까?"))
+        {
+            locaion.href="/member/canel?resId="+resId;
+        }
+    }
+  </script>
   
 </body>
 </html>

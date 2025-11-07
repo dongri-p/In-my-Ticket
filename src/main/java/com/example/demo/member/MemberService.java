@@ -92,9 +92,15 @@ public class MemberService {
 					.filter(s -> !s.isEmpty()).map(Integer::parseInt).collect(Collectors.toList());
 			
 			mapper.chgSeatStatus(rdto.getPerfId(), rdto.getTime(), seatIdList);
+			
+			model.addAttribute("message", "예매 취소가 완료되었습니다.");
+		}
+		else
+		{
+			model.addAttribute("message", "예매 취소 중 오류가 발생했습니다.");
 		}
 		
-		return null;
+		return "redirect:/member/myticket";
 	}
 
 }

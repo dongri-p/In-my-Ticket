@@ -12,5 +12,7 @@ public interface MemberMapper {
 	public void memberOk(MemberDto mdto);
 	public List<ResViewDto> getReservations(int memberId);
 	public ResDto findRes(int resId);
+	public int cancelRes(int resId);
+	public void chgSeatStatus(int perfId, String time, List<Integer> seatIdList);
 
 }

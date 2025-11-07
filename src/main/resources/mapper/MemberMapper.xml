@@ -22,6 +22,19 @@
   <select id="findRes" resultType="com.example.demo.reservation.ResDto">
     select * from reservation where resId=#{resId}
   </select>
+  
+  <update id="cancelRes">
+    update reservation set status='cancelled' where resId=#{resId}
+    and status='reserved'
+  </update>
+  
+  <update id="chgSeatStatus">
+    update performance_seat set reserved=0 where perfId=#{perfId}
+    and timeId=#{timeId} and seatId in
+    <foreach collection="seatIds" item="id" open="(" separator="," close=")">
+      #{id}
+    </foreach>
+  </update>
 
 
 

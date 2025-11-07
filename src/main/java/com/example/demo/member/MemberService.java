@@ -1,6 +1,8 @@
 package com.example.demo.member;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -70,10 +72,27 @@ public class MemberService {
 		
 		if(rdto == null || rdto.getMemberId() != memberId)
 		{
+			model.addAttribute("message", "예약 정보를 찾을 수 없습니다.");
+			
 			return "redirect:/member/myticket";
 		}
 		
 		if("cancelled".equalsIgnoreCase(rdto.getStatus()))
+		{
+			model.addAttribute("message", "이미 취소된 예약입니다.");
+			
+			return "redirect:/member/myticket";
+		}
+		
+		int update=mapper.cancelRes(resId);
+		// 쿼리 실행이 완료되었으면 rows 1개가 바뀌었다고 뜸. 0보다 크면 성공했다는 뜻
+		if(update > 0)
+		{
+			List<Integer> seatIdList=Arrays.stream(rdto.getSeatIds().split(",")).map(String::trim)
+					.filter(s -> !s.isEmpty()).map(Integer::parseInt).collect(Collectors.toList());
+			
+			mapper.chgSeatStatus(rdto.getPerfId(), rdto.getTime(), seatIdList);
+		}
 		
 		return null;
 	}

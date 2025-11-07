@@ -41,7 +41,7 @@
     <tr>
       <td> ${pdto.perfId} </td>
       <td> ${pdto.title} </td>
-      <td> ${pdto.pfrpdform} ~ ${pdto.pfrpdto} </td>
+      <td> ${pdto.perfStart} ~ ${pdto.perfEnd} </td>
       <td> ${pdto.resCount} </td>
       <td> ${pdto.cancelCount} </td>
       <td> ${pdto.total} </td>

@@ -116,10 +116,10 @@
   
   <div class="resList">
     <h3> 예매내역 </h3>
-     <c:if test="${empty resList}">
+     <c:if test="${empty rlist}">
       <p style="text-align:center;"> 예매내역이 없습니다. </p>
      </c:if>
-     <c:if test="${not empty resList}">
+     <c:if test="${not empty rlist}">
       <table>
         <tr>
           <th> 공연명 </th>
@@ -131,7 +131,7 @@
           <th> 상 태 </th>
           <th> 관 리 </th>
         </tr>
-       <c:forEach var="res" items="${resList}">
+       <c:forEach var="res" items="${rlist}">
         <tr>
           <td> ${res.title} </td>
           <td> ${res.date} </td>
@@ -160,7 +160,7 @@
     {
         if(confirm("정말 예매를 취소하시겠습니까?"))
         {
-            locaion.href="/member/cancel?resId="+resId;
+            location.href="/member/cancel?resId="+resId;
         }
     }
   </script>

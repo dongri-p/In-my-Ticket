@@ -67,10 +67,13 @@ public class MemberService {
 		}
 		
 		ResDto rdto=mapper.findRes(resId);
+		
 		if(rdto == null || rdto.getMemberId() != memberId)
 		{
 			return "redirect:/member/myticket";
 		}
+		
+		if("cancelled".equalsIgnoreCase(rdto.getStatus()))
 		
 		return null;
 	}

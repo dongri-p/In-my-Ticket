@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -45,9 +46,9 @@ public class MemberController {
 	
 	@GetMapping("/member/cancel")
 	public String cancel(@RequestParam("resId") int resId,
-						    HttpSession session, Model model)
+						    HttpSession session, RedirectAttributes ra)
 	{
-		return service.cancel(resId, session, model);
+		return service.cancel(resId, session, ra);
 	}
 
 }

@@ -115,6 +115,11 @@
   </div>
   
   <div class="resList">
+    <c:if test="${not empty message}">
+      <script>
+        alert("${message}");
+      </script>
+    </c:if>
     <h3> 예매내역 </h3>
      <c:if test="${empty rlist}">
       <p style="text-align:center;"> 예매내역이 없습니다. </p>

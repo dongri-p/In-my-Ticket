@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.reservation.ResDto;
 
@@ -59,7 +60,7 @@ public class MemberService {
 	}
 	
 	@Transactional
-	public String cancel(int resId, HttpSession session, Model model)
+	public String cancel(int resId, HttpSession session, RedirectAttributes ra)
 	{
 		Integer memberId=(Integer)session.getAttribute("memberId");
 		
@@ -72,14 +73,14 @@ public class MemberService {
 		
 		if(rdto == null || rdto.getMemberId() != memberId)
 		{
-			model.addAttribute("message", "예약 정보를 찾을 수 없습니다.");
+			ra.addFlashAttribute("message", "예약 정보를 찾을 수 없습니다.");
 			
 			return "redirect:/member/myticket";
 		}
 		
 		if("cancelled".equalsIgnoreCase(rdto.getStatus()))
 		{
-			model.addAttribute("message", "이미 취소된 예약입니다.");
+			ra.addFlashAttribute("message", "이미 취소된 예약입니다.");
 			
 			return "redirect:/member/myticket";
 		}
@@ -92,12 +93,10 @@ public class MemberService {
 					.filter(s -> !s.isEmpty()).map(Integer::parseInt).collect(Collectors.toList());
 			
 			mapper.chgSeatStatus(rdto.getPerfId(), rdto.getTimeId(), seatIdList);
-			
-			model.addAttribute("message", "예매 취소가 완료되었습니다.");
 		}
 		else
 		{
-			model.addAttribute("message", "예매 취소 중 오류가 발생했습니다.");
+			ra.addFlashAttribute("message", "예매 취소 중 오류가 발생했습니다.");
 		}
 		
 		return "redirect:/member/myticket";

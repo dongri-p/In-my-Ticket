@@ -13,6 +13,6 @@ public interface MemberMapper {
 	public List<ResViewDto> getReservations(int memberId);
 	public ResDto findRes(int resId);
 	public int cancelRes(int resId);
-	public void chgSeatStatus(int perfId, String time, List<Integer> seatIdList);
+	public void chgSeatStatus(int perfId, String timeId, List<Integer> seatIdList);
 
 }

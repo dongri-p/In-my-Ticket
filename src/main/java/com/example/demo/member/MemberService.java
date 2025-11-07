@@ -91,7 +91,7 @@ public class MemberService {
 			List<Integer> seatIdList=Arrays.stream(rdto.getSeatIds().split(",")).map(String::trim)
 					.filter(s -> !s.isEmpty()).map(Integer::parseInt).collect(Collectors.toList());
 			
-			mapper.chgSeatStatus(rdto.getPerfId(), rdto.getTime(), seatIdList);
+			mapper.chgSeatStatus(rdto.getPerfId(), rdto.getTimeId(), seatIdList);
 			
 			model.addAttribute("message", "예매 취소가 완료되었습니다.");
 		}

@@ -16,8 +16,14 @@
     .search {
       width:1300px;
       margin:auto;
-      text-align:right;
       margin-bottom:10px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    
+    .search form {
+      text-align:right;
     }
     
     .search input[type=text] {
@@ -26,7 +32,7 @@
       border-radius:4px;
     }
 
-    .search-box button {
+    .search button {
       padding:6px 12px;
       border:none;
       background:#83BDBF;
@@ -34,10 +40,29 @@
       border-radius:4px;
       cursor:pointer;
       font-weight:bold;
+      margin-left:5px;
+      transition:background 0.2s ease;
     }
 
     .search button:hover {
       background:#6fa8aa;
+    }
+    
+    .backBtn {
+      padding:8px 16px;
+      border:none;
+      background:#d93534f;
+      color:white;
+      border-radius:6px;
+      cursor:pointer;
+      font-weight:bold;
+      box-shadow:0 2px 4px rgba(0,0,0,0.15);
+      transition:all 0.2s ease;
+    }
+    
+    .backBtn:hover {
+       background:#c9302c;
+       transform:translateY(-1px); 
     }
 
     table {
@@ -90,6 +115,8 @@
 </head>
 <body> <!-- /admin/adReserv/perfList.jsp -->
   <div class="search">
+    <button type="button" class="backBtn" onclick="location.href='/admin/adIndex'"> 뒤로가기 </button>
+    
     <form method="get" action="/admin/adReserv/perfList">
       <input type="text" name="keyword" value="${param.keyword}" placeholder="공연명 검색">
       <button type="submit"> 검색 </button>

@@ -24,4 +24,10 @@ public class AdResService {
 		return "/admin/adReserv/perfList";
 	}
 
+	public String rlist(int perfId, Model model)
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

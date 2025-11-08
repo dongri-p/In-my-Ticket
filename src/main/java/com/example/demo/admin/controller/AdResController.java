@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.admin.service.AdResService;
+import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 
 @Controller
 public class AdResController {
@@ -18,6 +19,12 @@ public class AdResController {
 	public String perfList(@RequestParam(required=false) String keyword, Model model)
 	{
 		return service.perfList(keyword, model);
+	}
+	
+	@GetMapping("/admin/adResv/rlist")
+	public String rlist(@RequestParam int perfId, Model model)
+	{
+		return service.rlist(perfId, model);
 	}
 
 }

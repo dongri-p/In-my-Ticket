@@ -8,16 +8,36 @@
 <title>Insert title here</title>
 </head>
 <body> <!-- /admin/adReserv/rlist.jsp -->
-  <h2> 예매 관리 </h2>
+  <button class="backBtn" onclick="location.href='/admin/adReserv/perfList'">뒤로가기</button>
+  
   <table>
-    <tr> 예매번호 </tr>
-    <tr>  </tr>
-    <tr>  </tr>
-    <tr>  </tr>
-    <tr>  </tr>
-    <tr>  </tr>
-    <tr>  </tr>
-    <tr>  </tr>
+    <tr>
+      <th> 예매번호 </th>
+      <th> 회원ID </th>
+      <th> 공연명 </th>
+      <th> 날짜 </th>
+      <th> 시간 </th>
+      <th> 인원 </th>
+      <th> 결제금액 </th>
+      <th> 상태 </th>
+    </tr>
+    
+   <c:if test="${empty rlist}">
+    <tr> <td colspan="8" style="text-align:center;"> 예매내역이 없습니다. </td> </tr>
+   </c:if> 
+    
+   <c:forEach var="rdto" items="${rlist}">
+    <tr>
+      <td> ${pdto.resId} </td>
+      <td> ${pdto.userid} </td>
+      <td> ${pdto.title} </td>
+      <td> ${pdto.date} </td>
+      <td> ${pdto.time} </td>
+      <td> ${pdto.people} </td>
+      <td> ${pdto.totalPrice} </td>
+      <td> ${pdto.status} </td>
+    </tr>
+   </c:forEach> 
   </table>
 </body>
 </html>

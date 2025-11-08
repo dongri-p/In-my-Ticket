@@ -37,11 +37,11 @@
     <tr> <td colspan="7" class="noData"> 등록된 공연이 없습니다. </td> </tr>
    </c:if> 
     
-   <c:forEach var="pdto" items="plist">
+   <c:forEach var="pdto" items="${plist}">
     <tr>
       <td> ${pdto.perfId} </td>
       <td> ${pdto.title} </td>
-      <td> ${pdto.perfStart} ~ ${pdto.perfEnd} </td>
+      <td> ${pdto.startDate} ~ ${pdto.endDate} </td>
       <td> ${pdto.resCount} </td>
       <td> ${pdto.cancelCount} </td>
       <td> ${pdto.total} </td>

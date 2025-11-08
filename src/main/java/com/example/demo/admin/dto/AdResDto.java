@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class AdResDto {
-	private int resId, memberId, people, totalPrice;
-	private String userid, title, date, time, status;
+	private int resId, people, totalPrice;
+	private String userid, title, showDate, showTime, status;
 }

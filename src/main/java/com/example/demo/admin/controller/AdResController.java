@@ -21,7 +21,7 @@ public class AdResController {
 		return service.perfList(keyword, model);
 	}
 	
-	@GetMapping("/admin/adResv/rlist")
+	@GetMapping("/admin/adReserv/rlist")
 	public String rlist(@RequestParam int perfId, Model model)
 	{
 		return service.rlist(perfId, model);

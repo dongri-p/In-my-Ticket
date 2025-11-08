@@ -28,14 +28,14 @@
     
    <c:forEach var="rdto" items="${rlist}">
     <tr>
-      <td> ${pdto.resId} </td>
-      <td> ${pdto.userid} </td>
-      <td> ${pdto.title} </td>
-      <td> ${pdto.date} </td>
-      <td> ${pdto.time} </td>
-      <td> ${pdto.people} </td>
-      <td> ${pdto.totalPrice} </td>
-      <td> ${pdto.status} </td>
+      <td> ${rdto.resId} </td>
+      <td> ${rdto.userid} </td>
+      <td> ${rdto.title} </td>
+      <td> ${rdto.date} </td>
+      <td> ${rdto.time} </td>
+      <td> ${rdto.people} </td>
+      <td> ${rdto.totalPrice} </td>
+      <td> ${rdto.status} </td>
     </tr>
    </c:forEach> 
   </table>

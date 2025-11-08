@@ -16,8 +16,9 @@
   </select>
   
   <select id="getResList" resultType="com.example.demo.admin.dto.AdResDto">
-    select r.resId, m.userid, r.title, r.date, r.time, r.people, r,totalPrice,
+    select r.resId, m.userid, r.title, pt.showDate, pt.showTime, r.people, r.totalPrice,
     r.status from reservation r join member m on r.memberId=m.id
+    join performance_time pt on r.timeId=pt.timeId
     where r.perfId=#{perfId} order by r.resId desc
   </select>
 

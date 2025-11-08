@@ -4,7 +4,14 @@
 <mapper namespace="com.example.demo.admin.mapper.AdResMapper">
 
   <select id="getPerfRes" resultType="">
-  
+    select p.perfId, p.title, p.perfStart, p.perfEnd, count(case when r.status='reserved' then 1 end)
+    as resCount, count(case when r.status='cancelled' then 1 end) as cancelCount,
+    ifnull(sum(case when r.status='reserved' then r.totalPrice end), 0) as total
+    from performance p left join reservation r on p.perfId=r.perfId
+   <if test="keyword != null and keyword != ''">
+    where p.title like concat('%', #{keyword}, '%')
+   </if>
+    group by p.perfId, p.title, p.perfStart, p.perfEnd order by p.perfStart desc
   </select>
 
 

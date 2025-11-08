@@ -19,6 +19,8 @@ public class AdResService {
 	{
 		List<AdPerfDto> plist=mapper.getPerfRes(keyword);
 		
+		model.addAttribute("plist", plist);
+		
 		return "/admin/adReserv/perfList";
 	}
 

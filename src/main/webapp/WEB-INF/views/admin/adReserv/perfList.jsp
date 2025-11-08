@@ -12,6 +12,80 @@
       padding:20px;
       background-color:#f7f7f7;
     }
+    
+    .search {
+      width:1300px;
+      margin:auto;
+      text-align:right;
+      margin-bottom:10px;
+    }
+    
+    .search input[type=text] {
+      padding:6px 10px;
+      border:1px solid #ccc;
+      border-radius:4px;
+    }
+
+    .search-box button {
+      padding:6px 12px;
+      border:none;
+      background:#83BDBF;
+      color:white;
+      border-radius:4px;
+      cursor:pointer;
+      font-weight:bold;
+    }
+
+    .search button:hover {
+      background:#6fa8aa;
+    }
+
+    table {
+      width:1300px;
+      margin:auto;
+      border-collapse:collapse;
+      background:white;
+      border-radius:10px;
+      overflow:hidden;
+      box-shadow:0 0 6px rgba(0,0,0,0.08);
+    }
+
+    th, td {
+      border-bottom:1px solid #eee;
+      text-align:center;
+      padding:12px;
+      font-size:15px;
+    }
+
+    th {
+      background:#83BDBF;
+      color:white;
+    }
+
+    tr:hover {
+      background:#f9fdfd;
+    }
+
+    .detail {
+      background:#83BDBF;
+      color:white;
+      border:none;
+      border-radius:5px;
+      padding:6px 12px;
+      cursor:pointer;
+      font-weight:bold;
+      transition:background 0.2s ease;
+    }
+
+    .detail:hover {
+      background:#6fa8aa;
+    }
+
+    .noData {
+      text-align:center;
+      padding:20px;
+      color:#777;
+    }
   </style>
 </head>
 <body> <!-- /admin/adReserv/perfList.jsp -->

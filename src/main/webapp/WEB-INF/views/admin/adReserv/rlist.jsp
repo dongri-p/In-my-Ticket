@@ -6,8 +6,69 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+  <style>
+    body {
+      margin:0;
+      padding:20px;
+      background:#f7f7f7;
+    }
+    
+    .all {
+      width:1300px;
+      margin:auto;
+    }
+  
+    .backBtn {
+      padding:6px 12px;
+      border:none;
+      background:#e65d5b;
+      color:white;
+      border-radius:4px;
+      cursor:pointer;
+      font-weight:bold;
+      transition:background 0.2s ease;
+      margin-bottom:10px;
+    }
+    
+    .backBtn:hover {
+      background:#c24c4a;
+    }
+    
+    table {
+      width:1300px;
+      margin:auto;
+      border-collapse:collapse;
+      background:white;
+      border-radius:10px;
+      overflow:hidden;
+      box-shadow:0 0 6px rgba(0,0,0,0.08);
+    }
+    
+    th, td {
+      border-bottom:1px solid #eee;
+      text-align:center;
+      padding:12px;
+      font-size:15px;
+    }
+    
+    th {
+      background:#83BDBF;
+      color:white;
+    }
+    
+    tr:hover {
+      background:#f9fdfd;
+    }
+    
+    .noData {
+      text-align:center;
+      padding:20px;
+      color:#777;
+    }
+  </style>
 </head>
 <body> <!-- /admin/adReserv/rlist.jsp -->
+<div class="all">
   <button class="backBtn" onclick="location.href='/admin/adReserv/perfList'">뒤로가기</button>
   
   <table>
@@ -23,7 +84,7 @@
     </tr>
     
    <c:if test="${empty rlist}">
-    <tr> <td colspan="8" style="text-align:center;"> 예매내역이 없습니다. </td> </tr>
+    <tr> <td colspan="8" class="noData"> 예매내역이 없습니다. </td> </tr>
    </c:if> 
     
    <c:forEach var="rdto" items="${rlist}">
@@ -31,13 +92,14 @@
       <td> ${rdto.resId} </td>
       <td> ${rdto.userid} </td>
       <td> ${rdto.title} </td>
-      <td> ${rdto.date} </td>
-      <td> ${rdto.time} </td>
+      <td> ${rdto.showDate} </td>
+      <td> ${rdto.showTime} </td>
       <td> ${rdto.people} </td>
       <td> ${rdto.totalPrice} </td>
       <td> ${rdto.status} </td>
     </tr>
    </c:forEach> 
   </table>
+</div>  
 </body>
 </html>

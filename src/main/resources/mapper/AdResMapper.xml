@@ -14,6 +14,12 @@
    </if>
     group by p.perfId, p.title, p.sDate, p.eDate order by p.sDate desc
   </select>
+  
+  <select id="getResList" resultType="com.example.demo.admin.dto.AdResDto">
+    select r.resId, m.userid, r.title, r.date, r.time, r.people, r,totalPrice,
+    r.status from reservation r join member m on r.memberId=m.id
+    where r.perfId=#{perfId} order by r.resId desc
+  </select>
 
 
 

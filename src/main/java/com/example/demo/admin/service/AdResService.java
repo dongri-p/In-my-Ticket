@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.example.demo.admin.dto.AdPerfDto;
+import com.example.demo.admin.dto.AdResDto;
 import com.example.demo.admin.mapper.AdResMapper;
 
 @Service
@@ -26,8 +27,11 @@ public class AdResService {
 
 	public String rlist(int perfId, Model model)
 	{
-		// TODO Auto-generated method stub
-		return null;
+		List<AdResDto> rlist=mapper.getResList(perfId);
+		
+		model.addAttribute("rlist", rlist);
+		
+		return "/admin/adReserv/rlist";
 	}
 
 }

@@ -13,6 +13,7 @@
     where p.title like concat('%', #{keyword}, '%')
    </if>
     group by p.perfId, p.title, p.sDate, p.eDate order by p.sDate desc
+    limit #{start}, #{limit}
   </select>
   
   <select id="getResList" resultType="com.example.demo.admin.dto.AdResDto">

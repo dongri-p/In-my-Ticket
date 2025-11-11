@@ -18,6 +18,10 @@ public class AdResService {
 
 	public String perfList(String keyword, Model model)
 	{
+		int limit=10;
+		int start=(page-1)*limit;
+		
+		
 		List<AdPerfDto> plist=mapper.getPerfRes(keyword);
 		
 		model.addAttribute("plist", plist);

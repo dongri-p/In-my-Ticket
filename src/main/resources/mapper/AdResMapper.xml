@@ -3,6 +3,13 @@
 
 <mapper namespace="com.example.demo.admin.mapper.AdResMapper">
 
+  <select id="getPerfCount" resultType="int">
+    select count(*) from performance
+   <if test="keyword != null and keyword != ''">
+    where title like concat('%', #{keyword}, '%') 
+   </if> 
+  </select>
+
   <select id="getPerfRes" resultType="com.example.demo.admin.dto.AdPerfDto">
     select p.perfId, p.title, p.sDate as startDate, p.eDate as endDate,
     count(case when r.status='reserved' then 1 end)

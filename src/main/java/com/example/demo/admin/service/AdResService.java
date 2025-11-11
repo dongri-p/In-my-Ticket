@@ -18,7 +18,17 @@ public class AdResService {
 
 	public String perfList(String keyword, int page, Model model)
 	{
+		int pageSize=10;
+		int totalCount=mapper.getPerfCount(keyword);
+		int totalPage=(int)Math.ceil((double) totalCount / pageSize);
 		
+		if(page < 1)
+			page=1;
+		
+		if(page > totalPage)
+			page=totalPage;
+		
+		int start=(page-1)
 		
 		int limit=10;
 		int start=(page-1)*limit;

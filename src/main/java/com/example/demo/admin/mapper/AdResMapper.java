@@ -11,7 +11,7 @@ import com.example.demo.admin.dto.AdResDto;
 @Mapper
 public interface AdResMapper {
 	int getPerfCount(@Param("keyword") String keyword);
-	List<AdPerfDto> getPerfRes(@Param("keyword") String keyword, int startRow, int pageSize);
+	List<AdPerfDto> getPerfRes(@Param("keyword") String keyword, int start, int pageSize);
 	List<AdResDto> getResList(int perfId);
 
 }

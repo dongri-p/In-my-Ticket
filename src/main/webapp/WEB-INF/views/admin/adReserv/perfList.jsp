@@ -111,6 +111,22 @@
       padding:20px;
       color:#777;
     }
+    
+    .paging {
+      text-align:center;
+      margin-top:20px;
+    }
+    
+    .paging a {
+      margin:0 5px;
+      text-decoration:none;
+      color:#333;
+      font-weight:bold;
+    }
+    
+    .pageing a.active {
+      color:#83BDBF;
+    }
   </style>
 </head>
 <body> <!-- /admin/adReserv/perfList.jsp -->
@@ -156,7 +172,16 @@
   </table>
   
   <div class="paging">
-   <c
+   <c:forEach begin="1" end="${totalPage}" var="p">
+    <c:choose>
+     <c:when test="${p == page}">
+       <a class="active"> ${p} </a>     
+     </c:when>
+     <c:otherwise>
+       <a href="/admin/adReserv/perfList?page=${p}&keyword=${keyword}"> ${p} </a>
+     </c:otherwise>
+    </c:choose> 
+   </c:forEach>
   </div>
 </body>
 </html>

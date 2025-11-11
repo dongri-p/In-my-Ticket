@@ -16,8 +16,10 @@ public class AdResService {
 	@Autowired
 	private AdResMapper mapper;
 
-	public String perfList(String keyword, Model model)
+	public String perfList(String keyword, int page, Model model)
 	{
+		
+		
 		int limit=10;
 		int start=(page-1)*limit;
 		

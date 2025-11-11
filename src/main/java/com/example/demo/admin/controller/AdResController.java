@@ -16,9 +16,10 @@ public class AdResController {
 	private AdResService service;
 	
 	@GetMapping("/admin/adReserv/perfList")
-	public String perfList(@RequestParam(required=false) String keyword, Model model)
+	public String perfList(@RequestParam(required=false) String keyword,
+						   @RequestParam(defaultValue = "1") int page, Model model)
 	{
-		return service.perfList(keyword, model);
+		return service.perfList(keyword, page, model);
 	}
 	
 	@GetMapping("/admin/adReserv/rlist")

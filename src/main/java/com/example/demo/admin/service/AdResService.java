@@ -28,15 +28,14 @@ public class AdResService {
 		if(page > totalPage)
 			page=totalPage;
 		
-		int start=(page-1)
+		int start=(page-1)*pageSize;
 		
-		int limit=10;
-		int start=(page-1)*limit;
-		
-		
-		List<AdPerfDto> plist=mapper.getPerfRes(keyword);
+		List<AdPerfDto> plist=mapper.getPerfRes(keyword, start, pageSize);
 		
 		model.addAttribute("plist", plist);
+		model.addAttribute("page", page);
+		model.addAttribute("totalPage", totalPage);
+		model.addAttribute("keyword", keyword);
 		
 		return "/admin/adReserv/perfList";
 	}

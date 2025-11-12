@@ -32,7 +32,7 @@ public class KopisApiService {
         this.template=template;
     }
 
-    public void fetchPerformances()
+    public int fetchPerformances()
     {
     	LocalDate today=LocalDate.now();
     	String Stoday=today.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
@@ -45,13 +45,12 @@ public class KopisApiService {
 
         JSONObject json=XML.toJSONObject(xml);
         JSONObject dbs=json.getJSONObject("dbs");
-
         // kopis api에서 공연이 한 건일 경우 JSONArray가 아니라 JSONObject로 오기도 함
-        List<PerfDto> list = new ArrayList<>();
         Object dbData=dbs.get("db");
 
         JSONArray dbArray = (dbData instanceof JSONArray) ? (JSONArray) dbData : new JSONArray().put(dbData);
 
+        List<PerfDto> list=new ArrayList<>();
         for (int i = 0; i < dbArray.length(); i++)
         {
             JSONObject item=dbArray.getJSONObject(i);
@@ -64,8 +63,6 @@ public class KopisApiService {
             pdto.setImageUrl(item.optString("poster"));
             pdto.setGenre(item.optString("genrenm"));
             pdto.setMt20id(item.optString("mt20id"));
-
-            System.out.println(pdto);
             list.add(pdto);
         }
         
@@ -79,18 +76,17 @@ public class KopisApiService {
         }
         
         List<PerfDto> flist=new ArrayList<>(uniqueMap.values());
+        int insertedCount=0;
 
         for (PerfDto pdto : flist)
         {
             if (mapper.keycheck(pdto) == 0)
             {
                 mapper.insertPf(pdto);
-            }
-            else
-            {
-                System.out.println("중복 공연: " + pdto.getTitle());
+                insertedCount++;
             }
         }
+        return insertedCount;
     }
 
     public Map<String, List<PerfDto>> getGenre()

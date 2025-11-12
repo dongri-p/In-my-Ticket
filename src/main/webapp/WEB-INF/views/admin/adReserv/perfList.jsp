@@ -15,19 +15,17 @@
     
     .top {
       width:1300px;
-    }
-    
-    .search {
-      width:1300px;
       margin:auto;
-      margin-bottom:10px;
       display:flex;
       justify-content:space-between;
       align-items:center;
+      margin-bottom:15px;
     }
     
-    .search form {
-      text-align:right;
+    .search {
+      display:flex;
+      align-items:center;
+      gap:5px;
     }
     
     .search input[type=text] {
@@ -55,7 +53,7 @@
     .back {
       padding:8px 16px;
       border:none;
-      background:#d93534f;
+      background:#e65d5b;
       color:white;
       border-radius:6px;
       cursor:pointer;
@@ -67,6 +65,22 @@
     .back:hover {
        background:#c9302c;
        transform:translateY(-1px); 
+    }
+    
+    .update {
+      padding:8px 16px;
+      border:none;
+      background:#83BDBF;
+      color:white;
+      border-radius:6px;
+      cursor:pointer;
+      font-weight:bold;
+      box-shadow:0 2px 4px rgba(0,0,0,0.15);
+      transition:background 0.2s ease;
+    }
+    
+    .update:hover {
+      background:#6fa8aa;
     }
 
     table {

@@ -13,6 +13,10 @@
       background-color:#f7f7f7;
     }
     
+    .top {
+      width:1300px;
+    }
+    
     .search {
       width:1300px;
       margin:auto;
@@ -48,7 +52,7 @@
       background:#6fa8aa;
     }
     
-    .backBtn {
+    .back {
       padding:8px 16px;
       border:none;
       background:#d93534f;
@@ -60,7 +64,7 @@
       transition:all 0.2s ease;
     }
     
-    .backBtn:hover {
+    .back:hover {
        background:#c9302c;
        transform:translateY(-1px); 
     }
@@ -130,10 +134,11 @@
   </style>
 </head>
 <body> <!-- /admin/adReserv/perfList.jsp -->
-  <div class="search">
-    <button type="button" class="backBtn" onclick="location.href='/admin/adIndex'"> 뒤로가기 </button>
+  <div class="top">
+    <button type="button" class="back" onclick="location.href='/admin/adIndex'"> 뒤로가기 </button>
+    <button type="button" class="update" onclick="location.href='/admin/adReserv/updatePerf'"> 공연 가져오기 </button>
     
-    <form method="get" action="/admin/adReserv/perfList">
+    <form method="get" class="search" action="/admin/adReserv/perfList">
       <input type="text" name="keyword" value="${param.keyword}" placeholder="공연명 검색">
       <button type="submit"> 검색 </button>
     </form>

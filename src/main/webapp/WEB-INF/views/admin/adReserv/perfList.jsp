@@ -148,6 +148,14 @@
   </style>
 </head>
 <body> <!-- /admin/adReserv/perfList.jsp -->
+  
+  <c:if test="${not empty message}">
+    <script>
+      // c:out은 jsp에서 html/js 특수문자를 자동으로 escape해줌(따옴표, 한글, 줄바꿈)
+      alert('<c:out value="${message}" />');
+    </script>
+  </c:if>
+
   <div class="top">
     <button type="button" class="back" onclick="location.href='/admin/adIndex'"> 뒤로가기 </button>
     <button type="button" class="update" onclick="location.href='/admin/adReserv/updatePerf'"> 공연 가져오기 </button>

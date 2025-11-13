@@ -29,6 +29,19 @@
     join performance_time pt on r.timeId=pt.timeId
     where r.perfId=#{perfId} order by r.resId desc
   </select>
+  
+  <select id="findRes" resultType="com.example.demo.reservation.ResDto">
+    select * from reservation where resId=#{resId}
+  </select>
+  
+  <update id="cancelRes">
+    update reservation set status='cancelled' whrere resId=#{resId}
+  </update>
+  
+  <update id="chgSeatStatuts">
+    update performance_seat set status='0' where perfId=#{perfId}
+    and timeId=#{timeId}
+  </update>
 
 
 

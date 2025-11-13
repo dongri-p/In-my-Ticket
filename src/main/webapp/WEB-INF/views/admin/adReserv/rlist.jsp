@@ -97,6 +97,14 @@
       <td> ${rdto.people} </td>
       <td> ${rdto.totalPrice} </td>
       <td> ${rdto.status} </td>
+      <td>
+       <c:if test="${rdto.status eq 'reserved'}">
+        <button class="cancel" onclick="adCancel(${rdto.resId})"> 취소 </button>
+       </c:if>
+       <c:if test="${rdto.status eq 'cancelled'}">
+        취소완료
+       </c:if>
+      </td>
     </tr>
    </c:forEach> 
   </table>

@@ -4,11 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 
 import com.example.demo.admin.dto.AdPerfDto;
 import com.example.demo.admin.dto.AdResDto;
 import com.example.demo.admin.mapper.AdResMapper;
+import com.example.demo.reservation.ResDto;
 
 @Service
 public class AdResService {
@@ -49,10 +51,18 @@ public class AdResService {
 		return "/admin/adReserv/rlist";
 	}
 
-	public String adCancel(int resId, Model model)
+	@Transactional
+	public void adCancel(int resId, Model model)
 	{
-		mapper.findRes(resId);
-		return null;
+		ResDto rdto=mapper.findRes(resId);
+		
+		if(rdto != null && !"cancelled".equalsIgnoreCase(rdto.getStatus()))
+		{
+			mapper.cancelRes(resId);
+			mapper.chgSeatStatus(rdto.getPerfId(), rdto.getTimeId());
+		}
+		
+		model.addAttribute("perfId", rdto.getPerfId());
 	}
 
 }

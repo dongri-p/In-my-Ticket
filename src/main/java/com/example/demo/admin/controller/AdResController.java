@@ -45,7 +45,7 @@ public class AdResController {
 			// flashattribute는 한번만 전달되고 소멸됨
 			redirect.addFlashAttribute("message", count + "개의 공연이 추가되었습니다.");
 		}
-		catch (Exception e)
+		catch(Exception e)
 		{
 			e.printStackTrace();
 			
@@ -53,6 +53,12 @@ public class AdResController {
 		}
 		
 		return "redirect:/admin/adReserv/perfList";
+	}
+	
+	@GetMapping("/admin/adReserv/adCancel")
+	public String adCancel(@RequestParam("resId") int resId, Model model)
+	{
+		return service.adCancel(resId, model);
 	}
 
 }

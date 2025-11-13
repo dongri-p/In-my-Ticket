@@ -49,4 +49,9 @@ public class AdResService {
 		return "/admin/adReserv/rlist";
 	}
 
+	public String adCancel(int resId, Model model) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

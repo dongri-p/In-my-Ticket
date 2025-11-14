@@ -51,15 +51,7 @@ public class PerfController {
 	public int getRemainSeat(@RequestParam int perfId, @RequestParam String showDate, @RequestParam String showTime)
 	{
 	    return pService.getRemainSeat(perfId, showDate, showTime);
-	}
-	
-	@GetMapping("/performance/list")
-	public String list(String genre, Model model)
-	{
-		
-	}
-	
-	
+	}	
 	
 
 }

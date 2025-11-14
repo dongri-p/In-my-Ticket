@@ -19,7 +19,7 @@
   </select>
   
   <select id="selectGenre" resultType="com.example.demo.performance.PerfDto">
-    select * from performance where genre=#{genre}
+    select * from performance where genre=#{genre} order by sDate asc
   </select>
   
   <select id="pDetail" resultType="com.example.demo.performance.PerfDto" parameterType="String">

@@ -140,7 +140,7 @@ public class KopisApiService {
     	if(genre.contains("팬") || genre.contains("토크"))
     		return "팬클럽/팬미팅";
     	
-    	if(genre.contains("클래식"))
+    	if(genre.contains("클래식") || genre.contains("서양음악"))
     		return "클래식";
     	
     	if(genre.contains("국악") || genre.contains("한국음악") || genre.contains("전통"))

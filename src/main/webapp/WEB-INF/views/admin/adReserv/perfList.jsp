@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -199,16 +200,45 @@
   </table>
   
   <div class="paging">
-   <c:forEach begin="1" end="${totalPage}" var="p">
-    <c:choose>
-     <c:when test="${p == page}">
-       <a class="active"> ${p} </a>     
-     </c:when>
-     <c:otherwise>
-       <a href="/admin/adReserv/perfList?page=${p}&keyword=${keyword}"> ${p} </a>
-     </c:otherwise>
-    </c:choose> 
-   </c:forEach>
+
+    <!-- keyword null 방지 -->
+    <c:set var="kw" value="${empty keyword ? '' : keyword}" />
+
+    <c:set var="pageBlock" value="10" />
+    <c:set var="tempInt" value="${(page - 1) div pageBlock}" />
+    <c:set var="startPage" value="${tempInt * pageBlock + 1}" />
+    <c:set var="endPage" value="${startPage + pageBlock - 1}" />
+
+    <c:if test="${endPage > totalPage}">
+        <c:set var="endPage" value="${totalPage}" />
+    </c:if>
+
+    <!-- 이전 버튼 -->
+    <c:if test="${startPage > 1}">
+        <a href="/admin/adReserv/perfList?page=${startPage - 1}&keyword=${kw}">◀</a>
+    </c:if>
+
+    <!-- 숫자 버튼 -->
+    <c:forEach begin="${startPage}" end="${endPage}" var="p">
+        <c:choose>
+            <c:when test="${p == page}">
+                <a class="active" style="color:#83BDBF;">${p}</a>
+            </c:when>
+            <c:otherwise>
+                <a href="/admin/adReserv/perfList?page=${p}&keyword=${kw}">${p}</a>
+            </c:otherwise>
+        </c:choose>
+    </c:forEach>
+
+    <!-- 다음 버튼 -->
+    <c:if test="${endPage < totalPage}">
+        <a href="/admin/adReserv/perfList?page=${endPage + 1}&keyword=${kw}">▶</a>
+    </c:if>
+
   </div>
+
+
+
+
 </body>
 </html>

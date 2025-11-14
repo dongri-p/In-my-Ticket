@@ -23,7 +23,7 @@ public class KopisApiService {
     private final RestTemplate template;
 
     private static final String apikey="ac849e5c3a0c458687d4a190acd4e026";
-    private static final String apiurl="http://www.kopis.or.kr/openApi/restful/pblprfr";
+    private static final String apiurl="https://kopis.or.kr/openApi/restful/pblprfr";
 
     @Autowired
     public KopisApiService(PerfMapper mapper, RestTemplate template)
@@ -34,124 +34,97 @@ public class KopisApiService {
 
     public int fetchPerformances()
     {
-    	LocalDate today=LocalDate.now();
-    	LocalDate startDay=today.minusMonths(6);
-    	String Sstart=startDay.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
-    	String Stoday=today.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
-    	
-        String url=apiurl + "?service=" + apikey +
-                   "&stdate=" + Sstart + "&eddate=" + Stoday + "&cpage=1&rows=500";
-        
-        System.out.println("[KOPIS] request url = " + url);
+        LocalDate today = LocalDate.now();
+        LocalDate startDay = today.minusMonths(6);
+        String Sstart = startDay.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
+        String Stoday = today.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
 
-        ResponseEntity<String> response=template.getForEntity(url, String.class);
-        String xml=response.getBody();
-        
-        if(xml == null || xml.isEmpty())
-        {
-        	System.out.println("[KOPIS] xml is empty");
-        	
-        	return 0;
-        }
-        	
+        int insertedCount = 0;
 
-        JSONObject json=XML.toJSONObject(xml);
-        
-        if(!json.has("dbs"))
+        for(int page = 1; page <= 20; page++)  // 최대 20page까지 시도
         {
-        	System.out.println("[KOPIS] no 'dbs' field in json");
-        	
-        	return 0;
-        }
-        	
-        
-        JSONObject dbs=json.getJSONObject("dbs");
-        
-        if(!dbs.has("db"))
-        {
-        	System.out.println("[KOPIS] no 'db' field in dbs");
-        	
-        	return 0;
-        }
-        	
-        
-        
-        // kopis api에서 공연이 한 건일 경우 JSONArray가 아니라 JSONObject로 오기도 함
-        Object dbData=dbs.get("db");
+            String url = apiurl + "?service=" + apikey +
+                          "&stdate=" + Sstart +
+                          "&eddate=" + Stoday +
+                          "&cpage=" + page +
+                          "&rows=100";
 
-        JSONArray dbArray=(dbData instanceof JSONArray) ? (JSONArray) dbData : new JSONArray().put(dbData);
-        
-        System.out.println("[KOPIS] dbArray length = " + dbArray.length());
+            ResponseEntity<String> response = template.getForEntity(url, String.class);
+            String xml = response.getBody();
 
-        List<PerfDto> list=new ArrayList<>();
-        
-        for (int i = 0; i < dbArray.length(); i++)
-        {
-            JSONObject item=dbArray.getJSONObject(i);
-            
-            String title=item.optString("prfnm", "").trim();
-            String location=item.optString("fcltynm", "").trim();
-            String sDate=safeDate(item.optString("prfpdfrom", ""));
-            String eDate=safeDate(item.optString("prfpdto", ""));
-            String poster=item.optString("poster", "").trim();
-            String rawGenre=item.optString("genrenm", "").trim();
-            String mt20id=item.optString("mt20id", "").trim();
-            
-            if(title.isEmpty() || sDate == null || eDate == null || mt20id.isEmpty())
-            	continue;
+            if(xml == null || xml.isEmpty())
+                break;
 
-            PerfDto pdto=new PerfDto();
-            pdto.setTitle(title);
-            pdto.setLocation(location);
-            pdto.setStartDate(sDate);
-            pdto.setEndDate(eDate);
-            pdto.setImageUrl(poster);
-            pdto.setGenre(mapGenre(rawGenre));
-            pdto.setMt20id(mt20id);
-            
-            list.add(pdto);
-        }
-        
-        System.out.println("[KOPIS] parsed list size = " + list.size());
-        
-        // 중복 제거 (mt20id 기준)
-        Map<String, PerfDto> uniqueMap=new LinkedHashMap<>();   
-        
-        for (PerfDto pdto : list)
-        {
-        	String uniqueKey=pdto.getMt20id();
-        	
-            uniqueMap.putIfAbsent(uniqueKey, pdto);
-        }
-        
-        List<PerfDto> flist=new ArrayList<>(uniqueMap.values());
-        
-        System.out.println("[KOPIS] unique list size = " + flist.size());
-        
-        int insertedCount=0;
+            JSONObject json = XML.toJSONObject(xml);
 
-        for (PerfDto pdto : flist)
-        {
-            if (mapper.keycheck(pdto.getMt20id()) == 0)
+            if(!json.has("dbs"))
+                break;
+
+            JSONObject dbs = json.getJSONObject("dbs");
+
+            if(!dbs.has("db"))
+                break;
+
+            Object dbData = dbs.get("db");
+            JSONArray dbArray = (dbData instanceof JSONArray)
+                    ? (JSONArray) dbData
+                    : new JSONArray().put(dbData);
+
+            // returncode 체크
+            if(dbArray.length() == 1 && dbArray.getJSONObject(0).has("returncode"))
             {
-                mapper.insertPf(pdto);
-                insertedCount++;
+                String code = dbArray.getJSONObject(0).optString("returncode");
+                if(code.equals("03") || code.equals("04") || code.equals("06"))
+                {
+                    System.out.println("[KOPIS] 종료 코드 발생 → page loop 종료");
+                    break; // 더 이상 페이지 없음
+                }
             }
+
+            List<PerfDto> list = new ArrayList<>();
+
+            for (int i = 0; i < dbArray.length(); i++)
+            {
+                JSONObject item = dbArray.getJSONObject(i);
+                String mt20id = item.optString("mt20id", "").trim();
+                if(mt20id.isEmpty()) continue;
+
+                PerfDto pdto = new PerfDto();
+                pdto.setMt20id(mt20id);
+                pdto.setTitle(item.optString("prfnm", "").trim());
+                pdto.setLocation(item.optString("fcltynm", "").trim());
+                pdto.setStartDate(safeDate(item.optString("prfpdfrom", "")));
+                pdto.setEndDate(safeDate(item.optString("prfpdto", "")));
+                pdto.setImageUrl(item.optString("poster", "").trim());
+                pdto.setGenre(mapGenre(item.optString("genrenm", "")));
+
+                list.add(pdto);
+            }
+
+            for (PerfDto pdto : list)
+            {
+                if(mapper.keycheck(pdto.getMt20id()) == 0)
+                {
+                    mapper.insertPf(pdto);
+                    insertedCount++;
+                }
+            }
+
+            // 페이지당 100개 미만이면 마지막 페이지
+            if(dbArray.length() < 100)
+                break;
         }
-        System.out.println("[KOPIS] insertedCount = " + insertedCount);
-        
+
+        System.out.println("[KOPIS] 총 추가된 공연 수 = " + insertedCount);
         return insertedCount;
     }
+
     
     private String safeDate(String date)
     {
-    	if(date == null)
-    		return null;
-    	
-    	date=date.trim();
-    	if(date.isEmpty())
-    		return null;
-    	
+    	if(date == null || date.trim().isEmpty())
+    		return "2000-01-01";
+
     	// 2025.01.01, 2025-01-01 같은 형식은 .만 -로 통일
     	return date.replace(".", "-");
     }

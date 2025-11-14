@@ -8,8 +8,8 @@
     values (#{title},#{location},#{startDate},#{endDate},#{imageUrl},#{genre},#{mt20id})
   </insert>
   
-  <select id="keycheck" resultType="int" parameterType="com.example.demo.performance.PerfDto">
-    select count(*) from performance where mt20id=#{mt20id}
+  <select id="keycheck" resultType="int">
+    select count(*) from performance where mt20id=#{value}
   </select>
 
   

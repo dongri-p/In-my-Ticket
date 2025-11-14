@@ -23,7 +23,7 @@ public class KopisApiService {
     private final RestTemplate template;
 
     private static final String apikey="ac849e5c3a0c458687d4a190acd4e026";
-    private static final String apiurl="http://kopis.or.kr/openApi/restful/pblprfr";
+    private static final String apiurl="http://www.kopis.or.kr/openApi/restful/pblprfr";
 
     @Autowired
     public KopisApiService(PerfMapper mapper, RestTemplate template)
@@ -109,7 +109,7 @@ public class KopisApiService {
 
         for (PerfDto pdto : flist)
         {
-            if (mapper.keycheck(pdto) == 0)
+            if (mapper.keycheck(pdto.getMt20id()) == 0)
             {
                 mapper.insertPf(pdto);
                 insertedCount++;

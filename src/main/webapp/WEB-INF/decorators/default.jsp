@@ -54,44 +54,44 @@
       display:flex;
       justify-content:space-between;
       align-items:center;
+      gap:20px;
     }
+    
     header #logo {
-      width:300px;
-      height:80px;
-      line-height:80px;
+      flex:0 0 auto;
     }
+    
     header #search {
-      width:450px;
-      height:80px;
+      flex:1 1 auto;
       display:flex;
-      align-items:center;
+      justify-content:center;
     }
+    
     header #search #searchForm {
-      width:350px;
+      width:100%;
+      max-width:350px;
       height:45px;
       border:2px solid #83BDBF;
       border-radius:15px;
       display:flex;
       align-items:center;
       padding:0 10px;
-      box-sizing:border-box;
     }
+    
     header #search #searchForm input[type=text] {
       width:305px;
       border:none;
       outline:none;
       margin-left:10px;
     }
+    
     header #memMenu {
-      width:330px;
-      height:80px;
+      flex:0 0 auto;
       display:flex;
-      align-items:flex-start;
+      align-items:center;
       justify-content:flex-end;
+      gap:10px;
       font-size:13px;
-      line-height:1.4;
-      padding-top:10px;
-      box-sizing:border-box;
     }
     
     nav {

@@ -1,5 +1,6 @@
 package com.example.demo.admin.service;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,6 +60,11 @@ public class AdResService {
 		if(rdto != null && !"cancelled".equalsIgnoreCase(rdto.getStatus()))
 		{
 			mapper.cancelRes(resId);
+			
+			List<Integer> seatIdList=Arrays.stream(rdto.getSeatIds().split(","))
+					.map(String::trim).filter(s -> !s.isEmpty())
+					.map(Integer::parseInt).toList();
+			
 			mapper.chgSeatStatus(rdto.getPerfId(), rdto.getTimeId());
 		}
 		

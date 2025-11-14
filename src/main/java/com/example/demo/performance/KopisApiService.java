@@ -35,16 +35,29 @@ public class KopisApiService {
     public int fetchPerformances()
     {
     	LocalDate today=LocalDate.now();
+    	LocalDate startDay=today.minusMonths(6);
+    	String Sstart=startDay.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
     	String Stoday=today.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
     	
         String url = apiurl + "?service=" + apikey +
-                    "&stdate=20250101&eddate=" + Stoday + "&cpage=1&rows=10";
+                    "&stdate=" + Sstart + "&eddate=" + Stoday + "&cpage=1&rows=500";
 
         ResponseEntity<String> response=template.getForEntity(url, String.class);
         String xml=response.getBody();
+        
+        if(xml == null || xml.isEmpty())
+        	return 0;
 
         JSONObject json=XML.toJSONObject(xml);
+        
+        if(!json.has("dbs"))
+        	return 0;
+        
         JSONObject dbs=json.getJSONObject("dbs");
+        
+        if(!dbs.has("db"))
+        	return 0;
+        
         // kopis api에서 공연이 한 건일 경우 JSONArray가 아니라 JSONObject로 오기도 함
         Object dbData=dbs.get("db");
 
@@ -58,10 +71,10 @@ public class KopisApiService {
             PerfDto pdto=new PerfDto();
             pdto.setTitle(item.optString("prfnm"));
             pdto.setLocation(item.optString("fcltynm"));
-            pdto.setStartDate(item.optString("prfpdfrom").replace(".", "-"));
-            pdto.setEndDate(item.optString("prfpdto").replace(".", "-"));
+            pdto.setStartDate(safeDate(item.optString("prfpdfrom")));
+            pdto.setEndDate(safeDate(item.optString("prfpdto")));
             pdto.setImageUrl(item.optString("poster"));
-            pdto.setGenre(item.optString("genrenm"));
+            pdto.setGenre(mapGenre(item.optString("genrenm")));
             pdto.setMt20id(item.optString("mt20id"));
             list.add(pdto);
         }
@@ -87,6 +100,14 @@ public class KopisApiService {
             }
         }
         return insertedCount;
+    }
+    
+    private String safeDate(String date)
+    {
+    	if(date == null || date.isBlank())
+    		return null;
+    	
+    	return date.replace(".", "-");
     }
 
     public Map<String, List<PerfDto>> getGenre()
@@ -134,7 +155,8 @@ public class KopisApiService {
     	   genre.contains("록") || genre.contains("힙합"))
     		return "콘서트";
     	
-    	if(genre.contains("뮤지컬") || genre.contains("연극"))
+    	if(genre.contains("뮤지컬") || genre.contains("연극") ||
+    	   genre.contains("무용") || genre.contains("발레"))
     		return "뮤지컬/연극";
     	
     	if(genre.contains("팬") || genre.contains("토크"))

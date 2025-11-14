@@ -35,7 +35,7 @@
   </select>
   
   <update id="cancelRes">
-    update reservation set status='cancelled' whrere resId=#{resId}
+    update reservation set status='cancelled' where resId=#{resId}
   </update>
   
   <update id="chgSeatStatuts">

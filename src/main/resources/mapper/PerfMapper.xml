@@ -9,8 +9,7 @@
   </insert>
   
   <select id="keycheck" resultType="int" parameterType="com.example.demo.performance.PerfDto">
-    select count(*) from performance where title=#{title}
-    and sDate=#{startDate} and location=#{location}
+    select count(*) from performance where mt20id=#{mt20id}
   </select>
 
   

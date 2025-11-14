@@ -23,7 +23,7 @@ public class KopisApiService {
     private final RestTemplate template;
 
     private static final String apikey="ac849e5c3a0c458687d4a190acd4e026";
-    private static final String apiurl="http://www.kopis.or.kr/openApi/restful/pblprfr";
+    private static final String apiurl="http://kopis.or.kr/openApi/restful/pblprfr";
 
     @Autowired
     public KopisApiService(PerfMapper mapper, RestTemplate template)
@@ -96,9 +96,10 @@ public class KopisApiService {
         
         // 중복 제거 (제목,시작일,장소 기준)
         Map<String, PerfDto> uniqueMap=new LinkedHashMap<>();
+        
         for (PerfDto pdto : list)
         {
-        	String uniqueKey = pdto.getTitle() + "|" + pdto.getStartDate() + "|" + pdto.getLocation();
+        	String uniqueKey=pdto.getMt20id();
         	
             uniqueMap.putIfAbsent(uniqueKey, pdto);
         }
@@ -108,36 +109,21 @@ public class KopisApiService {
 
         for (PerfDto pdto : flist)
         {
-        	if(pdto.getTitle() == null || pdto.getTitle().isBlank())
-        		continue;
-        	
-        	if(pdto.getStartDate() == null || pdto.getEndDate() == null)
-        		continue;
-        	
             if (mapper.keycheck(pdto) == 0)
             {
                 mapper.insertPf(pdto);
                 insertedCount++;
             }
         }
+        
         return insertedCount;
     }
     
     private String safeDate(String date)
     {
     	if(date == null || date.isBlank())
-    		return null;
+    		return "";
     	
-    	date=date.trim();
-    	
-    	if(date.isEmpty())
-    		return null;
-    	
-    	if(date.matches("\\d{8}"))
-    	{
-    		return date.substring(0, 4) + "-" + date.substring(4, 6) + "-" +
-    			   date.substring(6, 8);
-    	}
     	// 2025.01.01, 2025-01-01 같은 형식은 .만 -로 통일
     	return date.replace(".", "-");
     }

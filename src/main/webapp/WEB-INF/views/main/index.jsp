@@ -11,7 +11,7 @@
       width:1700px;
       margin:auto;
     }
-    section {
+    section {   
       width:1100px;
       margin:auto;
     }
@@ -28,7 +28,7 @@
   <c:forEach var="pdto" items="${plist}">
     <div style="display:inline-block; margin:10px; text-align:center;">
       <a href="/performance/pDetail?perfId=${pdto.perfId}">
-        <img src="${pdto.imageUrl}" width="300" height="200" alt="${pdto.title}"> <br>
+        <img src="${pdto.imageUrl}" width="300" height="200" alt="${pdto.title}" loading="lazy"> <br>
         <strong> ${pdto.title} </strong><br>
         <small> ${pdto.startDate} ~ ${pdto.endDate} </small>
       </a>

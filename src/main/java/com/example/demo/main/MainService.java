@@ -29,7 +29,8 @@ public class MainService {
 	{
 		kService.fetchPerformances();
 		
-		List<PerfDto> plist=pMapper.selectAll();
+		List<PerfDto> all=pMapper.selectAll();
+		List<PerfDto> plist=all.stream().limit(20).toList();
 		
 		model.addAttribute("plist", plist);
 		

@@ -25,6 +25,9 @@ public class AdResService {
 		int totalCount=mapper.getPerfCount(keyword);
 		int totalPage=(int)Math.ceil((double) totalCount / pageSize);
 		
+		if(totalPage < 1)
+			totalPage=1;
+		
 		if(page < 1)
 			page=1;
 		

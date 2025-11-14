@@ -41,27 +41,47 @@ public class KopisApiService {
     	
         String url=apiurl + "?service=" + apikey +
                    "&stdate=" + Sstart + "&eddate=" + Stoday + "&cpage=1&rows=500";
+        
+        System.out.println("[KOPIS] request url = " + url);
 
         ResponseEntity<String> response=template.getForEntity(url, String.class);
         String xml=response.getBody();
         
         if(xml == null || xml.isEmpty())
+        {
+        	System.out.println("[KOPIS] xml is empty");
+        	
         	return 0;
+        }
+        	
 
         JSONObject json=XML.toJSONObject(xml);
         
         if(!json.has("dbs"))
+        {
+        	System.out.println("[KOPIS] no 'dbs' field in json");
+        	
         	return 0;
+        }
+        	
         
         JSONObject dbs=json.getJSONObject("dbs");
         
         if(!dbs.has("db"))
+        {
+        	System.out.println("[KOPIS] no 'db' field in dbs");
+        	
         	return 0;
+        }
+        	
+        
         
         // kopis api에서 공연이 한 건일 경우 JSONArray가 아니라 JSONObject로 오기도 함
         Object dbData=dbs.get("db");
 
         JSONArray dbArray=(dbData instanceof JSONArray) ? (JSONArray) dbData : new JSONArray().put(dbData);
+        
+        System.out.println("[KOPIS] dbArray length = " + dbArray.length());
 
         List<PerfDto> list=new ArrayList<>();
         
@@ -92,8 +112,10 @@ public class KopisApiService {
             list.add(pdto);
         }
         
+        System.out.println("[KOPIS] parsed list size = " + list.size());
+        
         // 중복 제거 (mt20id 기준)
-        Map<String, PerfDto> uniqueMap=new LinkedHashMap<>();
+        Map<String, PerfDto> uniqueMap=new LinkedHashMap<>();   
         
         for (PerfDto pdto : list)
         {
@@ -103,6 +125,9 @@ public class KopisApiService {
         }
         
         List<PerfDto> flist=new ArrayList<>(uniqueMap.values());
+        
+        System.out.println("[KOPIS] unique list size = " + flist.size());
+        
         int insertedCount=0;
 
         for (PerfDto pdto : flist)
@@ -113,6 +138,7 @@ public class KopisApiService {
                 insertedCount++;
             }
         }
+        System.out.println("[KOPIS] insertedCount = " + insertedCount);
         
         return insertedCount;
     }

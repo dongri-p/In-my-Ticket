@@ -38,7 +38,7 @@
     update reservation set status='cancelled' where resId=#{resId}
   </update>
   
-  <update id="chgSeatStatuts">
+  <update id="chgSeatStatus">
     update performance_seat set status='0' where perfId=#{perfId}
     and timeId=#{timeId}
   </update>

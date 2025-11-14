@@ -67,19 +67,34 @@ public class KopisApiService {
         for (int i = 0; i < dbArray.length(); i++)
         {
             JSONObject item=dbArray.getJSONObject(i);
+            
+            String title=item.optString("prfnm", "").trim();
+            String location=item.optString("fcltynm", "").trim();
+            String sDate=safeDate(item.optString("prfpdfrom", ""));
+            String eDate=safeDate(item.optString("prfpdto", ""));
+            String poster=item.optString("poster", "").trim();
+            String rawGenre=item.optString("genrenm", "").trim();
+            String mt20id=item.optString("mt20id", "").trim();
+            
+            if(title.isEmpty())
+            	continue;
+            
+            if(sDate == null || eDate == null)
+            	continue;
 
             PerfDto pdto=new PerfDto();
-            pdto.setTitle(item.optString("prfnm"));
-            pdto.setLocation(item.optString("fcltynm"));
-            pdto.setStartDate(safeDate(item.optString("prfpdfrom")));
-            pdto.setEndDate(safeDate(item.optString("prfpdto")));
-            pdto.setImageUrl(item.optString("poster"));
-            pdto.setGenre(mapGenre(item.optString("genrenm")));
-            pdto.setMt20id(item.optString("mt20id"));
+            pdto.setTitle(title);
+            pdto.setLocation(location);
+            pdto.setStartDate(sDate);
+            pdto.setEndDate(eDate);
+            pdto.setImageUrl(poster);
+            pdto.setGenre(mapGenre(rawGenre));
+            pdto.setMt20id(mt20id);
+            
             list.add(pdto);
         }
         
-        // 중복 제거 imageUrl 기준
+        // 중복 제거 (제목,시작일,장소 기준)
         Map<String, PerfDto> uniqueMap=new LinkedHashMap<>();
         for (PerfDto pdto : list)
         {
@@ -93,6 +108,12 @@ public class KopisApiService {
 
         for (PerfDto pdto : flist)
         {
+        	if(pdto.getTitle() == null || pdto.getTitle().isBlank())
+        		continue;
+        	
+        	if(pdto.getStartDate() == null || pdto.getEndDate() == null)
+        		continue;
+        	
             if (mapper.keycheck(pdto) == 0)
             {
                 mapper.insertPf(pdto);
@@ -107,6 +128,17 @@ public class KopisApiService {
     	if(date == null || date.isBlank())
     		return null;
     	
+    	date=date.trim();
+    	
+    	if(date.isEmpty())
+    		return null;
+    	
+    	if(date.matches("\\d{8}"))
+    	{
+    		return date.substring(0, 4) + "-" + date.substring(4, 6) + "-" +
+    			   date.substring(6, 8);
+    	}
+    	// 2025.01.01, 2025-01-01 같은 형식은 .만 -로 통일
     	return date.replace(".", "-");
     }
 

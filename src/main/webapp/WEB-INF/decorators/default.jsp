@@ -56,12 +56,12 @@
       align-items:center;
     }
     header #logo {
-      widht:300px;
+      width:300px;
       height:80px;
       line-height:80px;
     }
     header #search {
-      widht:450px;
+      width:450px;
       height:80px;
       display:flex;
       align-items:center;
@@ -83,7 +83,7 @@
       margin-left:10px;
     }
     header #memMenu {
-      widht:330px;
+      width:330px;
       height:80px;
       display:flex;
       align-items:flex-start;

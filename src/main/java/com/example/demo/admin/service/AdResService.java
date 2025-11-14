@@ -52,7 +52,7 @@ public class AdResService {
 	}
 
 	@Transactional
-	public void adCancel(int resId, Model model)
+	public String adCancel(int resId, Model model)
 	{
 		ResDto rdto=mapper.findRes(resId);
 		
@@ -62,7 +62,7 @@ public class AdResService {
 			mapper.chgSeatStatus(rdto.getPerfId(), rdto.getTimeId());
 		}
 		
-		model.addAttribute("perfId", rdto.getPerfId());
+		return "redirect:/admin/adReserv/rlist?perfId="+rdto.getPerfId();
 	}
 
 }

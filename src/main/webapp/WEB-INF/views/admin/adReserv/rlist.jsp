@@ -65,6 +65,21 @@
       padding:20px;
       color:#777;
     }
+    
+    .cancel {
+      background:#e65d5b;
+      color:white;
+      border:none;
+      border-radius:4px;
+      padding:6px 12px;
+      cursor:pointer;
+      font-weight:bold;
+      transition:background 0.2s ease;
+    }
+    
+    .cancel:hover {
+      background:#c24c4a;
+    }
   </style>
 </head>
 <body> <!-- /admin/adReserv/rlist.jsp -->

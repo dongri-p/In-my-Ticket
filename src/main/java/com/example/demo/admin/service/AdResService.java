@@ -52,7 +52,7 @@ public class AdResService {
 	}
 
 	@Transactional
-	public String adCancel(int resId, Model model)
+	public String adCancel(int resId)
 	{
 		ResDto rdto=mapper.findRes(resId);
 		

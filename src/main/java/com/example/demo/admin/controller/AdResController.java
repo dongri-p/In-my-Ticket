@@ -56,9 +56,9 @@ public class AdResController {
 	}
 	
 	@GetMapping("/admin/adReserv/adCancel")
-	public String adCancel(@RequestParam("resId") int resId, Model model)
+	public String adCancel(@RequestParam("resId") int resId)
 	{
-		return service.adCancel(resId, model);
+		return service.adCancel(resId);
 	}
 
 }

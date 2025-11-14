@@ -200,12 +200,13 @@
   </table>
   
   <div class="paging">
-
-    <!-- keyword null 방지 -->
-    <c:set var="kw" value="${empty keyword ? '' : keyword}" />
-
     <c:set var="pageBlock" value="10" />
-    <c:set var="tempInt" value="${(page - 1) div pageBlock}" />
+
+    <!-- 정수 나눗셈을 위해 먼저 계산하고, 소수점 제거 -->
+    <c:set var="calc" value="${(page - 1) / pageBlock}" />
+    <c:set var="tempInt" value="${fn:substringBefore(calc, '.')}" />
+
+    <!-- 시작/끝 페이지 -->
     <c:set var="startPage" value="${tempInt * pageBlock + 1}" />
     <c:set var="endPage" value="${startPage + pageBlock - 1}" />
 
@@ -213,29 +214,29 @@
         <c:set var="endPage" value="${totalPage}" />
     </c:if>
 
-    <!-- 이전 버튼 -->
+    <!-- 이전(◀) -->
     <c:if test="${startPage > 1}">
-        <a href="/admin/adReserv/perfList?page=${startPage - 1}&keyword=${kw}">◀</a>
+        <a href="/admin/adReserv/perfList?page=${startPage - 1}&keyword=${keyword}">◀</a>
     </c:if>
 
-    <!-- 숫자 버튼 -->
+    <!-- 페이지 번호 10개씩 -->
     <c:forEach begin="${startPage}" end="${endPage}" var="p">
         <c:choose>
             <c:when test="${p == page}">
                 <a class="active" style="color:#83BDBF;">${p}</a>
             </c:when>
             <c:otherwise>
-                <a href="/admin/adReserv/perfList?page=${p}&keyword=${kw}">${p}</a>
+                <a href="/admin/adReserv/perfList?page=${p}&keyword=${keyword}">${p}</a>
             </c:otherwise>
         </c:choose>
     </c:forEach>
 
-    <!-- 다음 버튼 -->
+    <!-- 다음(▶) -->
     <c:if test="${endPage < totalPage}">
-        <a href="/admin/adReserv/perfList?page=${endPage + 1}&keyword=${kw}">▶</a>
+        <a href="/admin/adReserv/perfList?page=${endPage + 1}&keyword=${keyword}">▶</a>
     </c:if>
-
   </div>
+
 
 
 

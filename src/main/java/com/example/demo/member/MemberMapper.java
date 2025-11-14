@@ -3,7 +3,6 @@ package com.example.demo.member;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
 
 import com.example.demo.reservation.ResDto;
 
@@ -14,6 +13,6 @@ public interface MemberMapper {
 	public List<ResViewDto> getReservations(int memberId);
 	public ResDto findRes(int resId);
 	public int cancelRes(int resId);
-	public void chgSeatStatus(@Param("seatIdList") List<Integer> seatIdList);
+	public void chgSeatStatus(int perfId, int timeId, List<Integer> seatIdList);
 
 }

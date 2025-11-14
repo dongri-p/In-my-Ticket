@@ -40,7 +40,7 @@
   
   <update id="chgSeatStatus">
     update performance_seat set reserved=0 where seatId in
-   <foreach collection="seatdIdList" item="sid" open="(" separator="," close=")">
+   <foreach collection="seatIdList" item="sid" open="(" separator="," close=")">
     #{sid}
    </foreach> 
   </update>

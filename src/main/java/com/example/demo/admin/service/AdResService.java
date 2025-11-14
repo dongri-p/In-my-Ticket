@@ -65,7 +65,7 @@ public class AdResService {
 					.map(String::trim).filter(s -> !s.isEmpty())
 					.map(Integer::parseInt).toList();
 			
-			mapper.chgSeatStatus(rdto.getPerfId(), rdto.getTimeId());
+			mapper.chgSeatStatus(seatIdList);
 		}
 		
 		return "redirect:/admin/adReserv/rlist?perfId="+rdto.getPerfId();

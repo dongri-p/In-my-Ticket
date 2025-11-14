@@ -16,5 +16,5 @@ public interface AdResMapper {
 	List<AdResDto> getResList(int perfId);
 	ResDto findRes(int resId);
 	int cancelRes(int resId);
-	void chgSeatStatus(@Param("perfId") int perfId, @Param("timeId") int timeId);
+	void chgSeatStatus(List<Integer> seatIdList);
 }

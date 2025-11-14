@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface PerfMapper {
 	public void insertPf(PerfDto pdto);
-	public int keycheck(String mt20id);
+	public int keycheck(@Param("mt20id") String mt20id);
 	public List<PerfDto> selectAll();
 	public List<PerfDto> selectGenre(String genre);
 	public PerfDto pDetail(String perfId);

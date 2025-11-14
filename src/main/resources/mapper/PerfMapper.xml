@@ -9,7 +9,7 @@
   </insert>
   
   <select id="keycheck" resultType="int">
-    select count(*) from performance where mt20id=#{value}
+    select count(*) from performance where mt20id=#{mt20id}
   </select>
 
   

@@ -39,8 +39,8 @@ public class KopisApiService {
     	String Sstart=startDay.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
     	String Stoday=today.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
     	
-        String url = apiurl + "?service=" + apikey +
-                    "&stdate=" + Sstart + "&eddate=" + Stoday + "&cpage=1&rows=500";
+        String url=apiurl + "?service=" + apikey +
+                   "&stdate=" + Sstart + "&eddate=" + Stoday + "&cpage=1&rows=500";
 
         ResponseEntity<String> response=template.getForEntity(url, String.class);
         String xml=response.getBody();
@@ -61,9 +61,10 @@ public class KopisApiService {
         // kopis api에서 공연이 한 건일 경우 JSONArray가 아니라 JSONObject로 오기도 함
         Object dbData=dbs.get("db");
 
-        JSONArray dbArray = (dbData instanceof JSONArray) ? (JSONArray) dbData : new JSONArray().put(dbData);
+        JSONArray dbArray=(dbData instanceof JSONArray) ? (JSONArray) dbData : new JSONArray().put(dbData);
 
         List<PerfDto> list=new ArrayList<>();
+        
         for (int i = 0; i < dbArray.length(); i++)
         {
             JSONObject item=dbArray.getJSONObject(i);
@@ -76,10 +77,7 @@ public class KopisApiService {
             String rawGenre=item.optString("genrenm", "").trim();
             String mt20id=item.optString("mt20id", "").trim();
             
-            if(title.isEmpty())
-            	continue;
-            
-            if(sDate == null || eDate == null)
+            if(title.isEmpty() || sDate == null || eDate == null || mt20id.isEmpty())
             	continue;
 
             PerfDto pdto=new PerfDto();
@@ -94,7 +92,7 @@ public class KopisApiService {
             list.add(pdto);
         }
         
-        // 중복 제거 (제목,시작일,장소 기준)
+        // 중복 제거 (mt20id 기준)
         Map<String, PerfDto> uniqueMap=new LinkedHashMap<>();
         
         for (PerfDto pdto : list)
@@ -121,8 +119,12 @@ public class KopisApiService {
     
     private String safeDate(String date)
     {
-    	if(date == null || date.isBlank())
-    		return "";
+    	if(date == null)
+    		return null;
+    	
+    	date=date.trim();
+    	if(date.isEmpty())
+    		return null;
     	
     	// 2025.01.01, 2025-01-01 같은 형식은 .만 -로 통일
     	return date.replace(".", "-");
@@ -147,7 +149,7 @@ public class KopisApiService {
     
     public PerfDto fetchDetail(String mt20id)
     {
-    	String url = apiurl + "/" + mt20id + "?service=" + apikey;
+    	String url=apiurl + "/" + mt20id + "?service=" + apikey;
     	
     	ResponseEntity<String> response=template.getForEntity(url, String.class);
     	String xml=response.getBody();

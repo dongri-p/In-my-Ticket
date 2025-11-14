@@ -122,4 +122,33 @@ public class KopisApiService {
     	
     	return pdto;
     }
+    
+    private String mapGenre(String genre)
+    {
+    	if(genre == null)
+    		return "기타";
+    	
+    	genre=genre.trim();
+    	
+    	if(genre.contains("대중음악") || genre.contains("재즈") || genre.contains("팝") ||
+    	   genre.contains("록") || genre.contains("힙합"))
+    		return "콘서트";
+    	
+    	if(genre.contains("뮤지컬") || genre.contains("연극"))
+    		return "뮤지컬/연극";
+    	
+    	if(genre.contains("팬") || genre.contains("토크"))
+    		return "팬클럽/팬미팅";
+    	
+    	if(genre.contains("클래식"))
+    		return "클래식";
+    	
+    	if(genre.contains("국악") || genre.contains("한국음악") || genre.contains("전통"))
+    		return "국악/전통";
+    	
+    	if(genre.contains("전시") || genre.contains("축제") || genre.contains("행사"))
+    		return "전시/행사";
+    	
+    	return "기타";
+    }
 }

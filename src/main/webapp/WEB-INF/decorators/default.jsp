@@ -239,6 +239,7 @@
       <li> <a href="/performance/list?genre=뮤지컬/연극"> 뮤지컬/연극 </a> </li>
       <li> <a href="/performance/list?genre=팬클럽/팬미팅"> 팬클럽/팬미팅 </a> </li>
       <li> <a href="/performance/list?genre=클래식"> 클래식 </a> </li>
+      <li> <a href="/performance/list?genre=국악/전통"> 국악/전통 </a> </li>
       <li> <a href="/performance/list?genre=전시/행사"> 전시/행사 </a> </li>
       <li> <a href="/performance/list?genre=테마/지역"> 테마/지역 </a> </li>
       <li> <a href="/performance/list?genre=랭킹"> 랭킹 </a> </li>
